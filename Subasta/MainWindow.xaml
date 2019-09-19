@@ -1,0 +1,17 @@
+﻿<Window x:Class="Subasta.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Subasta"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btn_cnx" Content="BD" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="61" Click="Btn_cnx_Click"/>
+        <Button x:Name="btn_MostrarOferta" Content="Ofertas" HorizontalAlignment="Left" Margin="94,72,0,0" VerticalAlignment="Top" Width="105" Click="Btn_MostrarOferta_Click" RenderTransformOrigin="-3.484,-3.618"/>
+        <Button x:Name="btn_MostrarParametros" Content="Parametros" HorizontalAlignment="Left" Margin="215,72,0,0" VerticalAlignment="Top" Width="127" Click="Btn_MostraParametros_Click" RenderTransformOrigin="-3.484,-3.618"/>
+        <Button x:Name="btn_MostrarProyectos" Content="Proyectos Gen" HorizontalAlignment="Left" Margin="354,72,0,0" VerticalAlignment="Top" Width="127" Click="Btn_MostrarProyectos_Click" RenderTransformOrigin="-3.484,-3.618"/>
+        <Button x:Name="btn_Ejecutar" Content="Ejecutar" HorizontalAlignment="Left" Margin="494,72,0,0" VerticalAlignment="Top" Width="127" Click="Btn_Ejecutar_Click" RenderTransformOrigin="-3.484,-3.618"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="UpmeSubasta2019.Paso2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"   
+             xmlns:upmesubasta2019="clr-namespace:UpmeSubasta2019"
+             mc:Ignorable="d" Height="1212" Width="1496">
+    <Grid Margin="0,0,-0.2,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="696*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="470,128,861,1047.6" Grid.ColumnSpan="2" >
+            <Run Text="Ofertas de Comercializadores"/>
+        </TextBlock>
+
+        <WindowsFormsHost  Name="wrepor" Margin="19,148,437,772.6" Grid.ColumnSpan="2" >
+            <rv:ReportViewer x:Name="ReporteComercializadores"  AutoScroll="True" />
+
+
+        </WindowsFormsHost>
+
+
+
+        <WindowsFormsHost  Name="wrepor1" Margin="19,450,437,502.6" Grid.ColumnSpan="2" >
+            <rv:ReportViewer x:Name="ReporteGeneradores" />
+        </WindowsFormsHost>
+        <Button Content="Cargar Ofertas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="CargaOfertas" Grid.ColumnSpan="2"/>
+        <Button Content="Desplegar Ofertas" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" Width="105" Click="MostrarOfertas" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="472,36,0,0" TextWrapping="Wrap" Text="Log del Proceso" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1049" Name="LogOfertas" Grid.ColumnSpan="2" 
+                 TextChanged="LogOfertasTextBox_TextChanged"  VerticalScrollBarVisibility="Auto"  />
+        <Button Content="Cerrar Paso" HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top" Width="105" Click="CerrarPaso" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="471,430,890,751.6" Grid.ColumnSpan="2" ><Run Text="Ofertas de Generadores"/></TextBlock>
+    </Grid>
+</UserControl>
+
