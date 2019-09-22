@@ -24,7 +24,7 @@ namespace UpmeSubasta2019
     {
         public MainWindow()
         {
-            
+            WindowState = WindowState.Maximized;
             DataContext = new MainWindowViewModel();
             InitializeComponent();
         }

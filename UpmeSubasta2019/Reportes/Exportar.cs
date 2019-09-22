@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace UpmeSubasta2019.Reportes
                 out extension,
                out streamids, out warnings);
 
-            FileStream fs = new FileStream(@"d:\" + nombrearchivo+".pdf",
+            FileStream fs = new FileStream(ConfigurationManager.AppSettings.Get("RutaPdf") + nombrearchivo + ".pdf",
              FileMode.Create);
             // FileMode.Create)
             fs.Write(bytes, 0, bytes.Length);
@@ -49,7 +50,7 @@ namespace UpmeSubasta2019.Reportes
                out extension,
               out streamids, out warnings);
 
-            FileStream fs1 = new FileStream(@"d:\" + nombrearchivo + ".xls",
+            FileStream fs1 = new FileStream(ConfigurationManager.AppSettings.Get("RutaXls") + nombrearchivo + ".xls",
              FileMode.Create);
             // FileMode.Create)
             fs1.Write(bytes1, 0, bytes1.Length);
