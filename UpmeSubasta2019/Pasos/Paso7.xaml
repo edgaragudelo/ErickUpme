@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Margin="10">Paso 7</TextBlock>
+        <TextBlock Margin="10">Paso 7 PRUEBA</TextBlock>
     </Grid>
 </UserControl>
