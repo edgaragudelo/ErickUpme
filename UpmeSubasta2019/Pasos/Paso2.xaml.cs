@@ -51,7 +51,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de las ofertas");
                 Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
                 LogOfe = LogOfe + Mensaje;
-                DAL.InsertarLog(LogOfe, "Datos Ofertas Venta", "Datos Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
                 //throw;
 
             }
@@ -83,7 +83,7 @@ namespace UpmeSubasta2019
             {
                 Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ...";
                 LogOfe = LogOfe + Mensaje;
-                DAL.InsertarLog(LogOfe, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
             }
 
         }
@@ -111,7 +111,7 @@ namespace UpmeSubasta2019
 
         public void MostrarResumenOfertasVenta()
         {
-            string Query1 = "exec [dbo].[ResumenOfertasVenta]";
+            string Query1 = "exec [dbo].[ResumenOfertasVenta] 1, Subasta";
             MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc","ResumenVenta");
 
             //DataTable dt = DAL.ExecuteQuery(Query1);           
@@ -127,7 +127,7 @@ namespace UpmeSubasta2019
 
         public void MostrarResumenOfertasCompra()
         {
-            string Query1 = "exec [dbo].[ResumenOfertasCompra]";
+            string Query1 = "exec [dbo].[ResumenOfertasCompra] 1, Subasta";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc","ResumenCompra");
 
             //DataTable dt = DAL.ExecuteQuery(Query1);
@@ -165,6 +165,7 @@ namespace UpmeSubasta2019
             bool Validar = ConsultarPasos();
             if (Validar)
             {
+            
                 if (CerrarPaso2 == 0)
                 {
 
@@ -205,7 +206,7 @@ namespace UpmeSubasta2019
 
                         Mensaje = "Conectando a la B.D de Ofertas de La UPME...." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
-                        DAL.InsertarLog(LogOfe, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
+                        DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
                         dtcompra = DAL.ExecuteQueryPostgres(QueryPostCompra);
 
                         Mensaje = "Lectura de datos de Comercializadores de la UPME..." + "\r\n";
@@ -215,8 +216,6 @@ namespace UpmeSubasta2019
                         Mensaje = "Lectura de datos de Generadores de la UPME..." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
                         dtventa = DAL.ExecuteQueryPostgres(QueryPostVenta);
-
-
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
 
                     }
@@ -226,7 +225,7 @@ namespace UpmeSubasta2019
                         MessageBox.Show(ex1.Message, "Error en la lectura de las ofertas");
                         Mensaje = "Error en la lectura de las ofertas ..." + ex1.Message;
                         LogOfe = LogOfe + Mensaje;
-                        DAL.InsertarLog(LogOfe, "Carga de Ofertas Upme Sobre 1", "Carga de Ofertas Upme Sobre 1");
+                        DAL.InsertarLog(Mensaje, "Carga de Ofertas Upme Sobre 1", "Carga de Ofertas Upme Sobre 1");
                         //throw;
 
                     }
@@ -288,6 +287,8 @@ namespace UpmeSubasta2019
             else
             {
                 MessageBox.Show("El paso ya fue cerrado, los datos de ofertas de sobre 1 ya fueron cargados y validados","Cierre de pasos");
+                MostrarOfertasCompra();
+                MostrarOfertasVenta();
             }
         }
 
@@ -336,7 +337,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de los pasos de las ofertas");
                 Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
                 LogOfe = LogOfe + Mensaje;
-                DAL.InsertarLog(LogOfe, "Datos Ofertas Venta", "Datos Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
                 //throw;
 
             }

@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Margin="10"> Parametros Configuración</TextBlock>
+        <TextBlock Margin="10">PAso 10</TextBlock>
     </Grid>
 </UserControl>

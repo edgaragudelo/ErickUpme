@@ -52,7 +52,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de las ofertas");
                 //Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
                 //LogOfe = LogOfe + Mensaje;
-                //DAL.InsertarLog(LogOfe, "Datos Ofertas Venta", "Datos Ofertas Venta");
+                //DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
                 //throw;
 
             }
@@ -84,7 +84,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show(Mensaje, "Error en la consulta de datos de las ofertas");
                 
                 //LogOfe = LogOfe + Mensaje;
-                //DAL.InsertarLog(LogOfe, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
+                //DAL.InsertarLog(Mensaje, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
             }
 
         }

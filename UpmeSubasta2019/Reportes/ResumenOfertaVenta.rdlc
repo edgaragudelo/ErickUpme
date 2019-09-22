@@ -384,7 +384,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SubastaDataSet3</rd:DataSetName>
-        <rd:SchemaPath>D:\Edgar\ModeloSubasta\UpmeSubasta2019\UpmeSubasta2019\SubastaDataSet3.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\RIGHTSIDE1\source\repos\ErickUpme\UpmeSubasta2019\Reportes\SubastaDataSet3.xsd</rd:SchemaPath>
         <rd:TableName>ConsultaDatosResumenOfertaVenta</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

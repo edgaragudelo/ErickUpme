@@ -51,7 +51,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de las ofertas");
                 Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
                 LogOfe = LogOfe + Mensaje;
-                DAL.InsertarLog(LogOfe, "Datos Ofertas Venta", "Datos Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
                 //throw;
 
             }
@@ -83,7 +83,7 @@ namespace UpmeSubasta2019
             {
                 Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ...";
                 LogOfe = LogOfe + Mensaje;
-                DAL.InsertarLog(LogOfe, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
             }
 
         }
@@ -92,7 +92,7 @@ namespace UpmeSubasta2019
 
         public void MostrarOfertasCompra()
         {
-            string Query1 = "exec [dbo].[ConsultaDatosOfertaCompra] 2";
+            string Query1 = "exec [dbo].[ConsultaDatosOfertaCompra] 2, Subasta";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompra");
 
             //DataTable dt = DAL.ExecuteQuery(Query1);
@@ -111,7 +111,7 @@ namespace UpmeSubasta2019
 
         public void MostrarResumenOfertasVenta()
         {
-            string Query1 = "exec [dbo].[ResumenOfertasVenta]";
+            string Query1 = "exec [dbo].[ResumenOfertasVenta] 2, Subasta";
             MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc", "ResumenVenta");
 
             //DataTable dt = DAL.ExecuteQuery(Query1);           
@@ -127,7 +127,7 @@ namespace UpmeSubasta2019
 
         public void MostrarResumenOfertasCompra()
         {
-            string Query1 = "exec [dbo].[ResumenOfertasCompra]";
+            string Query1 = "exec [dbo].[ResumenOfertasCompra] 2, Subasta";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc", "ResumenCompra");
 
             //DataTable dt = DAL.ExecuteQuery(Query1);
@@ -142,7 +142,7 @@ namespace UpmeSubasta2019
 
         public void MostrarOfertasVenta()
         {
-            string Query1 = "exec [dbo].[ConsultaDatosOfertaVenta] 2";
+            string Query1 = "exec [dbo].[ConsultaDatosOfertaVenta] 2, Subasta";
             MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc", "OfertaVenta");
         }
 
@@ -170,19 +170,19 @@ namespace UpmeSubasta2019
 
                     // Proceso de carga de ofertas de comercializadores -- OfertaCompra
 
-                    QueryBorrarLog = "DELETE FROM [dbo].[LogProcesos]";
+                    QueryBorrarLog = "DELETE FROM [dbo].[LogProcesos] where proceso like '%Sobre 2%'";
 
-                    QueryPostCompra = "SELECT * FROM public.\"ofertasCompra\" where sobre=2;";
+                    QueryPostCompra = "SELECT * FROM public.\"ofertasCompra\" where sobre=2 and \"Proceso\"='Subasta'"; 
 
                     // QueryPostCompra = "SELECT \"Comercializador_id\",\"IdOferta\",\"CantMax\",\"PrecioOferta\", 0\"orden llegada" +
                     // "FROM public.\"OfertasComercializador\" Of,  public.\"Comercializadores\" CO" +
                     // "where Of.\"Comercializador_id\" = CO.\"IdComercializador";
 
                     QueryCargaCompra = "dbo.GrabarOfertas";
-                    QueryBorrarCompra = "DELETE FROM [dbo].[ofertasCompra] where sobre=2";
+                    QueryBorrarCompra = "DELETE FROM [dbo].[ofertasCompra] where sobre=2 and \"Proceso\"='Subasta'";
 
                     // Proceso de carga de ofertas de generadores -- OfertaVenta
-                    QueryPostVenta = "SELECT * FROM public.\"ofertasVenta\" where sobre=2;";
+                    QueryPostVenta = "SELECT * FROM public.\"ofertasVenta\" where sobre=2 and \"Proceso\"='Subasta'";
 
 
                     //QueryPostVenta = "SELECT Po.\"Codigo\",\"IdOferta\",\"Bloque\",\"MaxPaquetes\",\"MinPaquetes\",\"PrecioOferta\",\'dato' simultanea, 'dato1' excluyente, 'dato2' dependiente, 0 ordenllegada";
@@ -190,7 +190,7 @@ namespace UpmeSubasta2019
                     //QueryPostVenta = QueryPostVenta + "where Op.\"Bloque_id\" = Bo.\"IdBloque\" and Po.\"IdProyecto\" = Op.\"IdProyecto";
 
                     QueryCargaVenta = "dbo.GrabarOfertasVenta";
-                    QueryBorrarVenta = "DELETE FROM [dbo].[ofertasVenta] where sobre=2";
+                    QueryBorrarVenta = "DELETE FROM [dbo].[ofertasVenta] where sobre=2 and \"Proceso\"='Subasta'";
 
                     // Proceso de lectura de ofertas desde la bd fuente -- POSTGRES
                     try
@@ -205,7 +205,7 @@ namespace UpmeSubasta2019
 
                         Mensaje = "Conectando a la B.D de Ofertas de La UPME...." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
-                        DAL.InsertarLog(LogOfe, "Carga de Ofertas Sobre 2", "Carga de Ofertas Sobre 2");
+                        DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 2", "Carga de Ofertas Sobre 2");
                         dtcompra = DAL.ExecuteQueryPostgres(QueryPostCompra);
 
                         Mensaje = "Lectura de datos de Comercializadores de la UPME..." + "\r\n";
@@ -226,7 +226,7 @@ namespace UpmeSubasta2019
                         MessageBox.Show(ex1.Message, "Error en la lectura de las ofertas");
                         Mensaje = "Error en la lectura de las ofertas ..." + ex1.Message;
                         LogOfe = LogOfe + Mensaje;
-                        DAL.InsertarLog(LogOfe, "Carga de Ofertas Upme Sobre 2", "Carga de Ofertas Upme Sobre 2");
+                        DAL.InsertarLog(Mensaje, "Carga de Ofertas Upme Sobre 2", "Carga de Ofertas Upme Sobre 2");
                         //throw;
 
                     }
@@ -288,6 +288,8 @@ namespace UpmeSubasta2019
             else
             {
                 MessageBox.Show("El paso ya fue cerrado, los datos de ofertas de sobre 2 ya fueron cargados y validados", "Cierre de pasos");
+                MostrarOfertasCompra();
+                MostrarOfertasVenta();
             }
         }
 
@@ -336,7 +338,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de los pasos de las ofertas");
                 Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
                 LogOfe = LogOfe + Mensaje;
-                DAL.InsertarLog(LogOfe, "Datos Ofertas Venta", "Datos Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Datos Ofertas Venta Sobre 2", "Datos Ofertas Venta Sobre 2");
                 //throw;
 
             }

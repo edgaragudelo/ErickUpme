@@ -12,7 +12,7 @@ namespace UpmeSubasta2019
     {
         public string GetHeader()
         {
-            return "Carga Datos" + Environment.NewLine + "Mecanismo";
+            return "Reportes" + Environment.NewLine + "Mecanismo";
         }
 
         public bool CanDisplay()

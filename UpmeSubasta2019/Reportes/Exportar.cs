@@ -13,9 +13,6 @@ namespace UpmeSubasta2019.Reportes
     {
         public static void ExportaPDF(ReportViewer repor,string nombrearchivo)
         {
-
-
-
             Warning[] warnings;
             string[] streamids;
             string mimeType;
@@ -44,6 +41,22 @@ namespace UpmeSubasta2019.Reportes
             // FileMode.Create)
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
+
+
+            byte[] bytes1 = repor.LocalReport.Render(
+
+              "Excel", null, out mimeType, out encoding,
+               out extension,
+              out streamids, out warnings);
+
+            FileStream fs1 = new FileStream(@"d:\" + nombrearchivo + ".xls",
+             FileMode.Create);
+            // FileMode.Create)
+            fs1.Write(bytes1, 0, bytes1.Length);
+            fs1.Close();
+
+
+      
 
             //MessageBox.Show("Report exported to:);
 

@@ -128,6 +128,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AsignacionesCompraDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsignacionesCompraDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ContratosASICDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -216,6 +221,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubastaDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SubastaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Wizard\IWizardItem.cs" />
     <Compile Include="Wizard\Wizard.cs" />
     <Compile Include="Wizard\WizardItemHeader.cs" />
@@ -297,6 +307,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\AsignacionCompra.rdlc" />
+    <EmbeddedResource Include="Reportes\AsignacionVenta.rdlc" />
     <EmbeddedResource Include="Reportes\ContratosASIC.rdlc" />
     <EmbeddedResource Include="Reportes\OfertasVenta.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -308,6 +320,17 @@
     <EmbeddedResource Include="Reportes\ResumenOfertaCompra.rdlc" />
     <EmbeddedResource Include="Reportes\ResumenOfertaVenta.rdlc" />
     <EmbeddedResource Include="Reportes\ResumenSalidas.rdlc" />
+    <None Include="AsignacionesCompraDataSet.xsc">
+      <DependentUpon>AsignacionesCompraDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AsignacionesCompraDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AsignacionesCompraDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AsignacionesCompraDataSet.xss">
+      <DependentUpon>AsignacionesCompraDataSet.xsd</DependentUpon>
+    </None>
     <None Include="ContratosASICDataSet.xsc">
       <DependentUpon>ContratosASICDataSet.xsd</DependentUpon>
     </None>
@@ -379,6 +402,17 @@
     </None>
     <None Include="ResumenSalidasDataSet.xss">
       <DependentUpon>ResumenSalidasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet.xsc">
+      <DependentUpon>SubastaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet.xss">
+      <DependentUpon>SubastaDataSet.xsd</DependentUpon>
     </None>
     <None Include="UpmeSubasta2019_TemporaryKey.pfx" />
   </ItemGroup>

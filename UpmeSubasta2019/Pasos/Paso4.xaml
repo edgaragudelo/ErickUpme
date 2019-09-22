@@ -8,18 +8,14 @@
              mc:Ignorable="d" Height="1212" Width="1496">
     <Grid>
         <Button Content="Ejecutar Subasta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="ExecuteOPL" Grid.ColumnSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1049" Name="EjecucionStatus" 
+        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1267" Name="EjecucionStatus" 
                  TextChanged="EjecucionStatus_TextChanged"  VerticalScrollBarVisibility="Auto"  RenderTransformOrigin="0.5,0.5" />
-        <TextBlock Margin="497,190,966,1024" >
-            <Run Text="Resultados de Comercializadores"/>
-        </TextBlock>
-        <WindowsFormsHost  Name="wrepor" Margin="19,148,437,772.6" Grid.ColumnSpan="2" >
+        <TextBlock Margin="10,134,1348,1056" Text="Asignaciones de Compra" />
+        <WindowsFormsHost  Name="wrepor" Margin="10,155,219,766" >
             <rv:ReportViewer x:Name="ReporteComercializadores"  AutoScroll="True" />
         </WindowsFormsHost>
-        <TextBlock Margin="497,469,967,764" >
-            <Run Text="Resultados de Generadores"/>
-        </TextBlock>
-        <WindowsFormsHost  Name="wrepor1" Margin="19,450,437,502.6" Grid.ColumnSpan="2" >
+        <TextBlock Margin="10,451,1348,739" ><Run Text="Asignaciones de "/><Run Text="Venta"/></TextBlock>
+        <WindowsFormsHost  Name="wrepor1" Margin="10,469,219,520" >
             <rv:ReportViewer x:Name="ReporteGeneradores" />
         </WindowsFormsHost>
 
