@@ -37,7 +37,7 @@ namespace UpmeSubasta2019.Reportes
                 out extension,
                out streamids, out warnings);
 
-            FileStream fs = new FileStream(ConfigurationManager.AppSettings.Get("RutaPdf") + nombrearchivo+".pdf",
+            FileStream fs = new FileStream(ConfigurationManager.AppSettings.Get("RutaPdf") + nombrearchivo + ".pdf",
              FileMode.Create);
             // FileMode.Create)
             fs.Write(bytes, 0, bytes.Length);
