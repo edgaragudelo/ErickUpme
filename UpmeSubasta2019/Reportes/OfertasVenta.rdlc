@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Ofertas de Generadores</Value>
+                <Value>="Ofertas de Generadores Sobre No:" + str(First(Fields!Sobre.Value))</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -20,9 +20,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.7032cm</Top>
-        <Left>10.36849cm</Left>
+        <Left>7.77557cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.39442cm</Width>
+        <Width>8.57187cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -876,6 +876,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>7.41745cm</Left>
           <Height>0.6cm</Height>
           <Width>1.484cm</Width>
@@ -904,6 +905,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>12.72328cm</Left>
           <Height>0.55202cm</Height>
           <Width>1.90733cm</Width>

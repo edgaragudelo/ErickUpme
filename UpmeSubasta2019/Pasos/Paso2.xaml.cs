@@ -62,7 +62,6 @@ namespace UpmeSubasta2019
                 {
                     ReporteGeneradores.Reset();
                     ReportDataSource ds = new ReportDataSource("DataSet1", dt);
-                    //ReporteGeneradores.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.Reportes.OfertasVenta.rdlc";
                     ReporteGeneradores.LocalReport.ReportEmbeddedResource = Reporte;
                     ReporteGeneradores.LocalReport.DataSources.Add(ds);
                     ReporteGeneradores.RefreshReport();
@@ -72,7 +71,6 @@ namespace UpmeSubasta2019
                 {
                     ReporteComercializadores.Reset();
                     ReportDataSource ds = new ReportDataSource("DataSet1", dt);
-                    //ReporteGeneradores.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.Reportes.OfertasVenta.rdlc";
                     ReporteComercializadores.LocalReport.ReportEmbeddedResource = Reporte;
                     ReporteComercializadores.LocalReport.DataSources.Add(ds);
                     ReporteComercializadores.RefreshReport();
@@ -94,13 +92,6 @@ namespace UpmeSubasta2019
         {
             string Query1 = "exec [dbo].[ConsultaDatosOfertaCompra] 1, Subasta";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc","OfertasCompra");
-
-            //DataTable dt = DAL.ExecuteQuery(Query1);
-            //ReporteComercializadores.Reset();
-            //ReportDataSource ds = new ReportDataSource("DataSet1", dt);
-            //ReporteComercializadores.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.Reportes.Report1.rdlc";
-            //ReporteComercializadores.LocalReport.DataSources.Add(ds);
-            //ReporteComercializadores.RefreshReport();
         }
 
 
@@ -113,15 +104,6 @@ namespace UpmeSubasta2019
         {
             string Query1 = "exec [dbo].[ResumenOfertasVenta] 1, Subasta";
             MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc","ResumenVenta");
-
-            //DataTable dt = DAL.ExecuteQuery(Query1);           
-
-            //LogOfertas.Text = LogOfe.ToString();
-            //ReporteGeneradores.Reset();
-            //ReportDataSource ds = new ReportDataSource("DataSet1", dt);
-            //ReporteGeneradores.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc";
-            //ReporteGeneradores.LocalReport.DataSources.Add(ds);
-            //ReporteGeneradores.RefreshReport();
         }
 
 
@@ -129,13 +111,6 @@ namespace UpmeSubasta2019
         {
             string Query1 = "exec [dbo].[ResumenOfertasCompra] 1, Subasta";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc","ResumenCompra");
-
-            //DataTable dt = DAL.ExecuteQuery(Query1);
-            //ReporteComercializadores.Reset();
-            //ReportDataSource ds = new ReportDataSource("DataSet1", dt);
-            //ReporteComercializadores.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc";
-            //ReporteComercializadores.LocalReport.DataSources.Add(ds);
-            //ReporteComercializadores.RefreshReport();
         }
 
         
@@ -152,15 +127,23 @@ namespace UpmeSubasta2019
             string QueryPostCompra = null;
             string QueryCargaCompra = null;
             string QueryPostVenta = null;
+            string QueryPostProyectos = null;
+            string QueryPostBloques = null;
             string QueryCargaVenta = null;
+            string QueryCargaProyectos = null;
+            string QueryCargaBloques = null;
             string QueryBorrarCompra = null;
             string QueryBorrarVenta = null;
+            string QueryBorrarProyectos = null;
+            string QueryBorrarBloques = null;
             string QueryBorrarLog = null;
 
 
            
             DataTable dtcompra = null;
             DataTable dtventa = null;
+            DataTable dtproyectos = null;
+            DataTable dtbloques = null;
 
             bool Validar = ConsultarPasos();
             if (Validar)
@@ -173,25 +156,43 @@ namespace UpmeSubasta2019
 
                     QueryBorrarLog = "DELETE FROM [dbo].[LogProcesos]";
 
-                    QueryPostCompra = "SELECT * FROM public.\"ofertasCompra\" where sobre=1 and \"Proceso\"='Subasta'"; 
+                    //QueryPostCompra = "SELECT *,22.3 EnergiaMin FROM public.\"ofertasCompra\" where sobre=1 and \"Proceso\"='Subasta'"; 
 
-                    // QueryPostCompra = "SELECT \"Comercializador_id\",\"IdOferta\",\"CantMax\",\"PrecioOferta\", 0\"orden llegada" +
-                    // "FROM public.\"OfertasComercializador\" Of,  public.\"Comercializadores\" CO" +
-                    // "where Of.\"Comercializador_id\" = CO.\"IdComercializador";
+                    QueryPostCompra = "SELECT Com.\"NombreCorto\" nombre,OfeCom.\"Codigo\" ID_oferta,OfeCom.\"CantidadMaxima\" energiaMax,COALESCE(OfeCom.\"PrecioOferta\", 0) precio, row_number() over (order by OfeCom.\"HoraRegistroPrecio\" desc) ordenllegada,1 Sobre,'Subasta' Proceso,23 energiaMin";
+                    QueryPostCompra = QueryPostCompra + " FROM public.\"OfertasComercializador\" OfeCom, public.\"Comercializadores\" Com where OfeCom.\"Comercializador_id\" = Com.\"IdComercializador\"";
+
+                    QueryPostBloques = "SELECT \"Bloque\",\"Pi\",\"Pf\" FROM public.\"Convocatoria_Bloques\"";
 
                     QueryCargaCompra = "dbo.GrabarOfertas";
                     QueryBorrarCompra = "DELETE FROM [dbo].[ofertasCompra] where sobre=1 and \"Proceso\"='Subasta'";
 
                     // Proceso de carga de ofertas de generadores -- OfertaVenta
-                    QueryPostVenta = "SELECT * FROM public.\"ofertasVenta\" where sobre=1 and \"Proceso\"='Subasta'";
+                    //QueryPostVenta = "SELECT * FROM public.\"ofertasVenta\" where sobre=1 and \"Proceso\"='Subasta'";
 
 
-                    //QueryPostVenta = "SELECT Po.\"Codigo\",\"IdOferta\",\"Bloque\",\"MaxPaquetes\",\"MinPaquetes\",\"PrecioOferta\",\'dato' simultanea, 'dato1' excluyente, 'dato2' dependiente, 0 ordenllegada";
-                    //QueryPostVenta = QueryPostVenta + "FROM public.\"OfertasProyectos\" Op,public.\"Convocatoria_Bloques\" Bo ,public.\"Proyectos\" Po ";
-                    //QueryPostVenta = QueryPostVenta + "where Op.\"Bloque_id\" = Bo.\"IdBloque\" and Po.\"IdProyecto\" = Op.\"IdProyecto";
+                    QueryPostVenta = "SELECT OfePro.\"Codigo\" nombre, OfePro.\"IdOferta\" ID_oferta, Blo.\"Bloque\" bloque, OfePro.\"MaxPaquetes\" numPaquetesMax, OfePro.\"MinPaquetes\" numPaquetesMin,";
+                    QueryPostVenta = QueryPostVenta + "COALESCE(OfePro.\"PrecioOferta\", 0) precio,(select (CASE WHEN OfePro.\"RestriccionOferta\" = 'SIM' THEN (select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" )";
+                    QueryPostVenta = QueryPostVenta + "END)) as simultanea, (select (CASE WHEN OfePro.\"RestriccionOferta\" = 'EXC' THEN";
+                    QueryPostVenta = QueryPostVenta + " (select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" ) END)) as excluyente, ";
+                    QueryPostVenta = QueryPostVenta + "(select (CASE WHEN OfePro.\"RestriccionOferta\" = 'DEP' THEN";
+                    QueryPostVenta = QueryPostVenta + "(select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" )";
+                    QueryPostVenta = QueryPostVenta + "END)) as dependiente,row_number() over (order by OfePro.\"HoraRegistroPrecio\" desc) ordenllegada,1 Sobre,'Subasta' Proceso";
+                    QueryPostVenta = QueryPostVenta + " FROM public.\"OfertasProyectos\" OfePro,public.\"Convocatoria_Bloques\" Blo";
+                    QueryPostVenta = QueryPostVenta + " Where OfePro.\"Bloque_id\" = Blo.\"IdBloque\"";                 
+
+                    QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,null empresa,'Subasta' Proceso";
+                    QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue";
+                    QueryPostProyectos = QueryPostProyectos + " where Pry.\"RequisitoTecnico_id\" = ReqT.\"IdRequisitoTecnico\" and Pry.\"Fuente_id\" = Fue.\"IdFuenteEnergia\";";
 
                     QueryCargaVenta = "dbo.GrabarOfertasVenta";
-                    QueryBorrarVenta = "DELETE FROM [dbo].[ofertasVenta] where sobre=1 and proceso='Subasta'"; 
+                    QueryBorrarVenta = "DELETE FROM [dbo].[ofertasVenta] where sobre=1 and proceso='Subasta'";
+
+                    QueryCargaProyectos = "dbo.GrabarProyectos";
+                    QueryBorrarProyectos = "DELETE FROM [dbo].[proyectosGeneracion] where Proceso='Subasta'";
+
+                    QueryCargaBloques = "dbo.GrabarBloques";
+                    QueryBorrarBloques = "DELETE FROM [dbo].[Bloques] ";
+
 
                     // Proceso de lectura de ofertas desde la bd fuente -- POSTGRES
                     try
@@ -203,6 +204,8 @@ namespace UpmeSubasta2019
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
                         int RegsaborradosCompra = DAL.ExecuteQueryNormal(QueryBorrarCompra);
                         int RegsaborradosVenta = DAL.ExecuteQueryNormal(QueryBorrarVenta);
+                        int RegsaborradosProyectos = DAL.ExecuteQueryNormal(QueryBorrarProyectos);
+                        int RegsaborradosBloques = DAL.ExecuteQueryNormal(QueryBorrarBloques);
 
                         Mensaje = "Conectando a la B.D de Ofertas de La UPME...." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
@@ -217,6 +220,17 @@ namespace UpmeSubasta2019
                         LogOfe = LogOfe + Mensaje;
                         dtventa = DAL.ExecuteQueryPostgres(QueryPostVenta);
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
+
+                        Mensaje = "Lectura de datos de Proyectos de Generación de la UPME..." + "\r\n";
+                        LogOfe = LogOfe + Mensaje;
+                        dtproyectos = DAL.ExecuteQueryPostgres(QueryPostProyectos);
+                        DAL.InsertarLog(Mensaje, "Carga de Proyectos de Generación Sobre 1", "Carga de Proyectos de Generación Sobre 1");
+
+                        Mensaje = "Lectura de datos de Bloques de Ofertas de la UPME..." + "\r\n";
+                        LogOfe = LogOfe + Mensaje;
+                        dtbloques = DAL.ExecuteQueryPostgres(QueryPostBloques);
+                        DAL.InsertarLog(Mensaje, "Carga de Bloques de ofertas Sobre 1", "Carga de Bloques de ofertas Sobre 1");
+
 
                     }
                     catch (Exception ex1)
@@ -246,6 +260,22 @@ namespace UpmeSubasta2019
                         return;
                     }
 
+                    if (dtproyectos.Rows.Count == 0)
+                    {
+                        Mensaje = "No cargo datos de Proyectos de Generación de la UPME..." + "\r\n";
+                        LogOfe = LogOfe + Mensaje;
+                        DAL.InsertarLog(Mensaje, "Carga de Proyectos de Generación Sobre 1", "Carga de Proyectos de Generación Sobre 1");
+                        return;
+                    }
+
+                    if (dtbloques.Rows.Count == 0)
+                    {
+                        Mensaje = "No cargo datos de bloques de ofertas de la UPME..." + "\r\n";
+                        LogOfe = LogOfe + Mensaje;
+                        DAL.InsertarLog(Mensaje, "Carga de bloques de ofertas Sobre 1", "Carga de bloques de ofertas Sobre 1");
+                        return;
+                    }
+
                     try
                     {
                         Mensaje = "Cargando datos de ofertas de Comercializadores..." + "\r\n";
@@ -257,8 +287,18 @@ namespace UpmeSubasta2019
 
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas", "Carga de Ofertas");
                         int Regsventa = DAL.ExecuteQueryParametro(QueryCargaVenta, "@OfertasVenta", dtventa);
-                        Mensaje = "Carga de datos exitosa..." + "\r\n";
+                        Mensaje = "Cargando datos de ofertas de Generadores..." + "\r\n";                       
                         LogOfe = LogOfe + Mensaje;
+
+                        DAL.InsertarLog(Mensaje, "Carga de Proyectos de Generación", "Carga de Ofertas Sobre 1");
+                        int Regsproyectos = DAL.ExecuteQueryParametro(QueryCargaProyectos, "@Proyectos", dtproyectos);                        
+                        LogOfe = LogOfe + Mensaje;
+
+                        DAL.InsertarLog(Mensaje, "Carga de Bloques de Ofertas", "Carga de Ofertas Sobre 1");
+                        int Regsbloques = DAL.ExecuteQueryParametro(QueryCargaBloques, "@Bloques", dtbloques);
+                        LogOfe = LogOfe + Mensaje;
+
+                        Mensaje = "Carga de datos exitosa..." + "\r\n";
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
                     }
                     catch (Exception ex2)

@@ -226,6 +226,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubastaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SubastaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Wizard\IWizardItem.cs" />
     <Compile Include="Wizard\Wizard.cs" />
     <Compile Include="Wizard\WizardItemHeader.cs" />
@@ -413,6 +418,17 @@
     </None>
     <None Include="SubastaDataSet.xss">
       <DependentUpon>SubastaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet1.xsc">
+      <DependentUpon>SubastaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet1.xss">
+      <DependentUpon>SubastaDataSet1.xsd</DependentUpon>
     </None>
     <None Include="UpmeSubasta2019_TemporaryKey.pfx" />
   </ItemGroup>
