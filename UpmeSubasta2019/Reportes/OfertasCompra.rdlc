@@ -12,10 +12,10 @@
               <Width>2.46472cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.46472cm</Width>
+              <Width>3.53019cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.02917cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -41,7 +41,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Comercializador</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -71,7 +73,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>ID oferta</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -100,8 +104,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Energia Max</Value>
-                              <Style />
+                              <Value>energiaMax_MWh_d</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -130,8 +136,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio</Value>
-                              <Style />
+                              <Value>Precio COP/kWh</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -161,7 +169,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Orden llegada</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -191,7 +201,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Sobre</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -221,7 +233,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>energia Min</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -483,9 +497,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>2.54cm</Top>
-        <Left>3.88298cm</Left>
+        <Left>0.07298cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.85888cm</Width>
+        <Width>21.45352cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -516,7 +530,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Left>8.81803cm</Left>
+        <Left>6.59553cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
         <ZIndex>1</ZIndex>
@@ -535,7 +549,7 @@
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.02736cm</Top>
-        <Left>20.63137cm</Left>
+        <Left>17.35054cm</Left>
         <Height>2.20289cm</Height>
         <Width>4.17596cm</Width>
         <ZIndex>2</ZIndex>
@@ -578,7 +592,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
         <Top>1.50495cm</Top>
-        <Left>8.06662cm</Left>
+        <Left>5.84412cm</Left>
         <Height>0.6cm</Height>
         <Width>7.79695cm</Width>
         <ZIndex>4</ZIndex>
@@ -596,7 +610,7 @@
     <Height>1.54167in</Height>
     <Style />
   </Body>
-  <Width>9.76667in</Width>
+  <Width>8.55833in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>

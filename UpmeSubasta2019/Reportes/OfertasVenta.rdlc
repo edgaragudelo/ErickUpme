@@ -20,7 +20,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.7032cm</Top>
-        <Left>7.77557cm</Left>
+        <Left>5.55307cm</Left>
         <Height>0.6cm</Height>
         <Width>8.57187cm</Width>
         <Style>
@@ -64,7 +64,7 @@
               <Width>2.26717cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.36229cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.37817cm</Width>
@@ -72,7 +72,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.88251cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -84,7 +84,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Generador</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -114,7 +116,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>ID oferta</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -144,7 +148,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Bloque</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -174,7 +180,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Paq Max</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -204,7 +212,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Paq Min</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -233,8 +243,21 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio</Value>
-                              <Style />
+                              <Value>Precio </Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>COP/kWh</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -264,7 +287,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Simultanea</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -294,7 +319,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Excluyente</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -324,7 +351,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Dependiente</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -353,8 +382,21 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Ordenllegada</Value>
-                              <Style />
+                              <Value>Orden</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>llegada</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -384,7 +426,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Sobre</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -772,8 +816,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.46195cm</Top>
         <Left>0.20849cm</Left>
-        <Height>1.09417cm</Height>
-        <Width>24.74196cm</Width>
+        <Height>1.37668cm</Height>
+        <Width>23.60425cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -806,7 +850,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.21617cm</Top>
-        <Left>8.97215cm</Left>
+        <Left>6.74965cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
         <ZIndex>2</ZIndex>
@@ -824,8 +868,8 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.0635cm</Top>
-        <Left>18.74161cm</Left>
+        <Top>0.08706cm</Top>
+        <Left>17.6564cm</Left>
         <Height>1.98233cm</Height>
         <Width>6.15634cm</Width>
         <ZIndex>3</ZIndex>
@@ -851,10 +895,10 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.48755in</Height>
+    <Height>1.68211in</Height>
     <Style />
   </Body>
-  <Width>9.85234in</Width>
+  <Width>9.46285in</Width>
   <Page>
     <PageFooter>
       <Height>0.74083cm</Height>
@@ -869,7 +913,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Totales</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -898,7 +944,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Sum(Fields!precio.Value, "DataSet1")</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />

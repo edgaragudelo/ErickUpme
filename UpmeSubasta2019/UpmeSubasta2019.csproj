@@ -133,10 +133,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AsignacionesCompraDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ComprasvsGeneradores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprasvsGeneradores.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ContratosASICDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ContratosASICDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CriterioCompe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CriterioCompe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CriterioCompetencia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CriterioCompetencia.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\DAL.cs" />
     <Compile Include="Form1.cs">
@@ -149,19 +164,12 @@
       <DependentUpon>GraficoOfertas.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="Pasos\Paso10.xaml.cs">
-      <DependentUpon>Paso10.xaml</DependentUpon>
+    <Compile Include="OfertasCompraSobre1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfertasCompraSobre1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Pasos\Paso1ViewModel.cs" />
-    <Compile Include="Pasos\Paso9.xaml.cs">
-      <DependentUpon>Paso9.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pasos\Paso8.xaml.cs">
-      <DependentUpon>Paso8.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pasos\Paso10ViewModel.cs" />
-    <Compile Include="Pasos\Paso9ViewModel.cs" />
-    <Compile Include="Pasos\Paso8ViewModel.cs" />
     <Compile Include="Pasos\Paso7ViewModel.cs" />
     <Compile Include="Pasos\Paso7.xaml.cs">
       <DependentUpon>Paso7.xaml</DependentUpon>
@@ -231,6 +239,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubastaDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SubastaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SubastaDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SubastaDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Wizard\IWizardItem.cs" />
     <Compile Include="Wizard\Wizard.cs" />
     <Compile Include="Wizard\WizardItemHeader.cs" />
@@ -250,18 +273,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pasos\Paso10.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pasos\Paso9.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pasos\Paso8.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pasos\Paso7.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -314,7 +325,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\AsignacionCompra.rdlc" />
     <EmbeddedResource Include="Reportes\AsignacionVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\CiterioCompetencia.rdlc" />
+    <EmbeddedResource Include="Reportes\ComprasvsGenera.rdlc" />
     <EmbeddedResource Include="Reportes\ContratosASIC.rdlc" />
+    <EmbeddedResource Include="Reportes\OfertaSobre1Compra.rdlc" />
+    <EmbeddedResource Include="Reportes\OfertasSobre1Proyectos.rdlc" />
     <EmbeddedResource Include="Reportes\OfertasVenta.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -336,6 +351,17 @@
     <None Include="AsignacionesCompraDataSet.xss">
       <DependentUpon>AsignacionesCompraDataSet.xsd</DependentUpon>
     </None>
+    <None Include="ComprasvsGeneradores.xsc">
+      <DependentUpon>ComprasvsGeneradores.xsd</DependentUpon>
+    </None>
+    <None Include="ComprasvsGeneradores.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ComprasvsGeneradores.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ComprasvsGeneradores.xss">
+      <DependentUpon>ComprasvsGeneradores.xsd</DependentUpon>
+    </None>
     <None Include="ContratosASICDataSet.xsc">
       <DependentUpon>ContratosASICDataSet.xsd</DependentUpon>
     </None>
@@ -346,6 +372,39 @@
     </None>
     <None Include="ContratosASICDataSet.xss">
       <DependentUpon>ContratosASICDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CriterioCompe.xsc">
+      <DependentUpon>CriterioCompe.xsd</DependentUpon>
+    </None>
+    <None Include="CriterioCompe.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CriterioCompe.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CriterioCompe.xss">
+      <DependentUpon>CriterioCompe.xsd</DependentUpon>
+    </None>
+    <None Include="CriterioCompetencia.xsc">
+      <DependentUpon>CriterioCompetencia.xsd</DependentUpon>
+    </None>
+    <None Include="CriterioCompetencia.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CriterioCompetencia.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CriterioCompetencia.xss">
+      <DependentUpon>CriterioCompetencia.xsd</DependentUpon>
+    </None>
+    <None Include="OfertasCompraSobre1.xsc">
+      <DependentUpon>OfertasCompraSobre1.xsd</DependentUpon>
+    </None>
+    <None Include="OfertasCompraSobre1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OfertasCompraSobre1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OfertasCompraSobre1.xss">
+      <DependentUpon>OfertasCompraSobre1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -429,6 +488,39 @@
     </None>
     <None Include="SubastaDataSet1.xss">
       <DependentUpon>SubastaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet2.xsc">
+      <DependentUpon>SubastaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet2.xss">
+      <DependentUpon>SubastaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet3.xsc">
+      <DependentUpon>SubastaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet3.xss">
+      <DependentUpon>SubastaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet4.xsc">
+      <DependentUpon>SubastaDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet4.xss">
+      <DependentUpon>SubastaDataSet4.xsd</DependentUpon>
     </None>
     <None Include="UpmeSubasta2019_TemporaryKey.pfx" />
   </ItemGroup>

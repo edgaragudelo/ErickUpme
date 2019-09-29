@@ -139,7 +139,8 @@ namespace UpmeSubasta2019
             if (!string.IsNullOrEmpty(e.Data))
             {
                 Ejecucion += e.Data + Environment.NewLine;
-                //EjecucionStatus.Text = Ejecucion.ToString();
+                DAL.InsertarLog(e.Data+ Environment.NewLine, "Ejecución Modelo Matematico", "Proceso en ejecución");
+                //EjecucionStatus.Text = e.Data + Environment.NewLine;
                 // EjecucionStatus.Text += e.Data + Environment.NewLine.ToString();
                 //EjecucionStatus.Text = Ejecucion.ToString();
                 //MessageBox.Show(Ejecucion);
@@ -149,7 +150,11 @@ namespace UpmeSubasta2019
         private void Opl_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
             if (!string.IsNullOrEmpty(e.Data))
+            {
                 Ejecucion += e.Data + Environment.NewLine;
+                DAL.InsertarLog(Ejecucion.ToString(), "Ejecución Modelo Matematico", "Proceso en ejecución");
+
+            }
             //EjecucionStatus.Text += e.Data + Environment.NewLine.ToString();
             //MessageBox.Show(Ejecucion);
 
@@ -158,6 +163,7 @@ namespace UpmeSubasta2019
         private void EjecucionStatus_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             EjecucionStatus.ScrollToEnd();
+
         }
 
         private void armarbat()
@@ -242,7 +248,11 @@ namespace UpmeSubasta2019
 
             System.Threading.Thread.Sleep(1000);
             if (!string.IsNullOrEmpty(Ejecucion))
+            {
                 EjecucionStatus.Text = Ejecucion.ToString();
+                LogOfe = LogOfe + Mensaje;
+                
+            }
 
             Mensaje = "Ejecutando el modelo ...";
             LogOfe = LogOfe + Mensaje;

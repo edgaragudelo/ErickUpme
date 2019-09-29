@@ -67,7 +67,7 @@ namespace UpmeSubasta2019
                     ReporteGeneradores.RefreshReport();
                     Exportar.ExportaPDF(ReporteGeneradores,archivopdf);
                 }
-                else
+                if (Proceso == 1)
                 {
                     ReporteComercializadores.Reset();
                     ReportDataSource ds = new ReportDataSource("DataSet1", dt);
@@ -76,6 +76,29 @@ namespace UpmeSubasta2019
                     ReporteComercializadores.RefreshReport();
                     Exportar.ExportaPDF(ReporteComercializadores,archivopdf);
                 }
+                if (Proceso == 3)
+                {
+                    //ReporteCompravsGene.Reset();
+                    //ReporteCompravsGene.Visible = false;
+                    ReporteCriterios.Reset();
+                    ReportDataSource ds = new ReportDataSource("DataSet1", dt);
+                    ReporteCriterios.LocalReport.ReportEmbeddedResource = Reporte;
+                    ReporteCriterios.LocalReport.DataSources.Add(ds);
+                    ReporteCriterios.RefreshReport();
+                    Exportar.ExportaPDF(ReporteCriterios, archivopdf);
+                }
+                if (Proceso == 4)
+                {
+                    //ReporteCriterios.Reset();
+                    //ReporteCriterios.Visible = false;
+                    ReporteCompravsGene.Reset();
+                    ReportDataSource ds = new ReportDataSource("DataSet1", dt);
+                    ReporteCompravsGene.LocalReport.ReportEmbeddedResource = Reporte;
+                    ReporteCompravsGene.LocalReport.DataSources.Add(ds);
+                    ReporteCompravsGene.RefreshReport();
+                    Exportar.ExportaPDF(ReporteCompravsGene, archivopdf);
+                }
+
             }
             else
             {
@@ -91,7 +114,7 @@ namespace UpmeSubasta2019
         public void MostrarOfertasCompra()
         {
             string Query1 = "exec [dbo].[ConsultaDatosOfertaCompra] 1, Subasta";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc","OfertasCompra");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.OfertaSobre1Compra.rdlc", "ComercializadoresSobre1");
         }
 
 
@@ -117,9 +140,16 @@ namespace UpmeSubasta2019
 
         public void MostrarOfertasVenta()
         {           
-            string Query1 = "exec [dbo].[ConsultaDatosOfertaVenta] 1, Subasta";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc","OfertaVenta");           
+            string Query1 = "exec [dbo].[ConsultaDatosProyectos] Subasta";
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.OfertasSobre1Proyectos.rdlc", "GeneradoresSobre1");           
         }
+
+        public void MostrarGrafico()
+        {
+            string Query1 = "exec [dbo].[ComprasvsGeneracion] 1,Subasta";
+            MostrarOfertasTodas(Query1, 4, "UpmeSubasta2019.Reportes.ComprasvsGenera.rdlc", "GraficoComprasvsGeneracion");
+        }
+
 
         public void CargaOfertas(object sender, RoutedEventArgs ex)
         {
@@ -287,13 +317,14 @@ namespace UpmeSubasta2019
 
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas", "Carga de Ofertas");
                         int Regsventa = DAL.ExecuteQueryParametro(QueryCargaVenta, "@OfertasVenta", dtventa);
-                        Mensaje = "Cargando datos de ofertas de Generadores..." + "\r\n";                       
+                        Mensaje = "Cargando datos de Proyectos de Generación..." + "\r\n";                       
                         LogOfe = LogOfe + Mensaje;
 
                         DAL.InsertarLog(Mensaje, "Carga de Proyectos de Generación", "Carga de Ofertas Sobre 1");
                         int Regsproyectos = DAL.ExecuteQueryParametro(QueryCargaProyectos, "@Proyectos", dtproyectos);                        
                         LogOfe = LogOfe + Mensaje;
 
+                        Mensaje = "Cargando datos de Bloques de Ofertas" + "\r\n";
                         DAL.InsertarLog(Mensaje, "Carga de Bloques de Ofertas", "Carga de Ofertas Sobre 1");
                         int Regsbloques = DAL.ExecuteQueryParametro(QueryCargaBloques, "@Bloques", dtbloques);
                         LogOfe = LogOfe + Mensaje;
@@ -329,12 +360,15 @@ namespace UpmeSubasta2019
                 MessageBox.Show("El paso ya fue cerrado, los datos de ofertas de sobre 1 ya fueron cargados y validados","Cierre de pasos");
                 MostrarOfertasCompra();
                 MostrarOfertasVenta();
+                MostrarGrafico();
             }
         }
 
         private void CerrarPaso(object sender, RoutedEventArgs e)
         {
             // Validar si el paso ya no fue cerrado
+            
+
             bool Validar = ConsultarPasos();
             if (Validar)
              {
@@ -363,6 +397,41 @@ namespace UpmeSubasta2019
             }            
         }
 
+        private void CriterioCompetencia(object sender, RoutedEventArgs e)
+        {
+            // Validar si el paso ya no fue cerrado
+            //DataTable dt = null;
+
+            String QueryCriterios = "exec VerificarCriterioCompetencia 1, Subasta";
+            //try
+            //{
+            //    dt = DAL.ExecuteQuery(QueryCriterios);
+            //}
+            //catch (Exception ex1)
+            //{
+            //    MessageBox.Show(ex1.Message, "Error en la consulta de datos de los pasos de las ofertas");
+            //    Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
+            //    LogOfe = LogOfe + Mensaje;
+            //    DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
+            //    //throw;
+
+            //}
+
+            //if (dt.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("Criterios de Competencia", "Error en la consulta de datos de los pasos de las ofertas");
+            //    Mensaje = "Error en la consulta de datos de criterios de competencia, no se generaron datos" ;
+            //    LogOfe = LogOfe + Mensaje;
+            //    DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
+            //}
+            //else
+            //{
+                MostrarOfertasTodas(QueryCriterios, 3, "UpmeSubasta2019.Reportes.CiterioCompetencia.rdlc", "CrietrioCompetenciaSobre1");
+            //}
+            
+        }
+
+
         public static bool ConsultarPasos()
         {
             bool ValidarPaso = false;
@@ -388,14 +457,15 @@ namespace UpmeSubasta2019
                 ValidarPaso = false;
 
             return ValidarPaso;
-
         }
 
 
+       
         private void MostrarOfertas(object sender, RoutedEventArgs e)
         {
             MostrarOfertasCompra();
             MostrarOfertasVenta();
+            MostrarGrafico();
         }
     }
 }

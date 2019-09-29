@@ -5,6 +5,8 @@ using NpgsqlTypes;
 using Npgsql;
 using System.Windows;
 using System.Configuration;
+using System.Net;
+using System.Net.Sockets;
 
 namespace UpmeSubasta2019.Data
 {
@@ -58,13 +60,33 @@ namespace UpmeSubasta2019.Data
         }
 
 
+        public static string LocalIPAddress()
+        {
+            IPHostEntry host; string localIP = ""; host = 
+            Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                { localIP = ip.ToString();
+                    break;
+                }
+            } return localIP;
+        }
+
+   
+
         public static void InsertarLog(string Valor, string Tipo, string Proceso)
         {
             string QueryInsert = null;
             String Fecha;
             Fecha = DateTime.Now.ToString(@"yyyy-MM-dd hh:mm");
+            string Maquina = Environment.MachineName;
+            String User = Environment.UserName;
+            String DirIp = LocalIPAddress();
 
-            QueryInsert = "INSERT INTO[dbo].[LogProcesos] ([Valor],[Tipo],[FechaProceso],[Proceso]) VALUES ('" + Valor + "','" + Tipo + "','" + Fecha + "','" + Proceso + "')";
+            Maquina = "Maquina:" + Maquina + " Usuario:" + User + " Dir IP:" + DirIp;
+
+            QueryInsert = "INSERT INTO[dbo].[LogProcesos] ([Valor],[Tipo],[FechaProceso],[Proceso],[UsuarioMaquina]) VALUES ('" + Valor + "','" + Tipo + "','" + Fecha + "','" + Proceso + "','"+Maquina+"')";
             int RegsLogs = DAL.ExecuteQueryNormal(QueryInsert);
             if (RegsLogs == -1)
             {

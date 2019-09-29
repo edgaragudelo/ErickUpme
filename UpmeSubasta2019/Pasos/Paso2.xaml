@@ -15,28 +15,35 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Margin="470,128,861,1047.6" Grid.ColumnSpan="2" >
-            <Run Text="Ofertas de Comercializadores"/>
-        </TextBlock>
+        <TextBlock Margin="10,133,1321,1042.6" Grid.ColumnSpan="2" ><Run Text="C"/><Run Text="omercializadores"/><Run Text=" Sobre No 1"/></TextBlock>
 
-        <WindowsFormsHost  Name="wrepor" Margin="19,148,437,772.6" Grid.ColumnSpan="2" >
+        <WindowsFormsHost  Name="wrepor" Margin="10,149,960,771.6" Grid.ColumnSpan="2" >
             <rv:ReportViewer x:Name="ReporteComercializadores"  AutoScroll="True" />
+        </WindowsFormsHost>
 
+        <WindowsFormsHost  Name="wrepor3" Margin="10,450,960,520.6" Grid.ColumnSpan="2" >
+            <rv:ReportViewer x:Name="ReporteCriterios"  AutoScroll="True" />
+        </WindowsFormsHost>
 
+        <WindowsFormsHost  Name="wrepor4" Margin="553,450,187,520.6" Grid.ColumnSpan="2" >
+            <rv:ReportViewer x:Name="ReporteCompravsGene"  AutoScroll="True" />
         </WindowsFormsHost>
 
 
-
-        <WindowsFormsHost  Name="wrepor1" Margin="19,450,437,502.6" Grid.ColumnSpan="2" >
+        <WindowsFormsHost  Name="wrepor1" Margin="550,149,187,771.6" Grid.ColumnSpan="2" >
             <rv:ReportViewer x:Name="ReporteGeneradores" />
         </WindowsFormsHost>
+        
         <Button Content="Cargar Ofertas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="CargaOfertas" Grid.ColumnSpan="2"/>
-        <Button Content="Desplegar Ofertas" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" Width="105" Click="MostrarOfertas" Grid.ColumnSpan="2"/>
+        <Button Content="Desplegar Ofertas" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Width="105" Click="MostrarOfertas" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="472,36,0,0" TextWrapping="Wrap" Text="Log del Proceso" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1049" Name="LogOfertas" Grid.ColumnSpan="2" 
+        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1299" Name="LogOfertas" Grid.ColumnSpan="2" 
                  TextChanged="LogOfertasTextBox_TextChanged"  VerticalScrollBarVisibility="Auto"  />
-        <Button Content="Cerrar Paso" HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top" Width="105" Click="CerrarPaso" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="471,430,890,751.6" Grid.ColumnSpan="2" ><Run Text="Ofertas de Generadores"/></TextBlock>
+        <Button Content="Cerrar Paso" HorizontalAlignment="Left" Margin="355,10,0,0" VerticalAlignment="Top" Width="105" Click="CerrarPaso" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="553,133,808,1048.6" Grid.ColumnSpan="2" ><Run Text="Generadores"/><Run Text=" Sobre No 1"/></TextBlock>
+        <Button Content="Criterio Competencia" HorizontalAlignment="Left" Margin="229,10,0,0" VerticalAlignment="Top" Width="119" Click="CriterioCompetencia" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="10,435,1348,746.6" Grid.ColumnSpan="2" ><Run Text="C"/><Run Text="riterio de  Competencia "/></TextBlock>
+        <TextBlock Margin="553,435,805,746.6" Grid.ColumnSpan="2" ><Run Text="C"/><Run Text="riterio de  Competencia "/></TextBlock>
     </Grid>
 </UserControl>
 

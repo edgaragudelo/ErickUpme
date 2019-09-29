@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Resumen Ofertas Comercializadores</Value>
+                <Value>Resumen Comercializadores</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -18,9 +18,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.45203cm</Top>
-        <Left>9.22357cm</Left>
+        <Left>6.04857cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.99484cm</Width>
+        <Width>4.66134cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -35,18 +35,18 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.66958cm</Width>
+              <Width>6.66941cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.16688cm</Width>
+              <Width>2.00788cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.29916cm</Width>
+              <Width>4.48966cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.49417cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -58,7 +58,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Tipo</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -88,7 +90,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Valor</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -118,7 +122,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Fecha Proceso</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -141,7 +147,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.49417cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -156,7 +162,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Tipo</rd:DefaultName>
@@ -186,7 +194,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Valor</rd:DefaultName>
@@ -216,7 +226,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>FechaProceso</rd:DefaultName>
@@ -256,9 +268,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>2.21403cm</Top>
-        <Left>4.82091cm</Left>
-        <Height>1.2cm</Height>
-        <Width>13.13562cm</Width>
+        <Left>0.05841cm</Left>
+        <Height>0.98834cm</Height>
+        <Width>13.16695cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -290,7 +302,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Left>8.81803cm</Left>
+        <Left>4.69053cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
         <ZIndex>2</ZIndex>
@@ -308,9 +320,9 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>20.63137cm</Left>
+        <Left>11.5894cm</Left>
         <Height>1.559cm</Height>
-        <Width>4.17596cm</Width>
+        <Width>3.03296cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -334,10 +346,10 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.39375in</Height>
+    <Height>1.31875in</Height>
     <Style />
   </Body>
-  <Width>9.76667in</Width>
+  <Width>5.84167in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>

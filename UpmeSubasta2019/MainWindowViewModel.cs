@@ -15,11 +15,8 @@ namespace UpmeSubasta2019
                 new Paso3(),
                 new Paso4(),
                 new Paso5(),
-                new Paso6(),
-                new Paso7(),
-                new Paso8(),
-                new Paso9(),
-                new Paso10()
+                new Paso6()
+            
 
                 
             };
