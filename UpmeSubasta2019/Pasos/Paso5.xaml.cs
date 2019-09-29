@@ -103,7 +103,7 @@ namespace UpmeSubasta2019
         }
         public void MostrarResumenSalidas()
         {
-            string Query1 = "exec dbo.ResumenSalidas";
+            string Query1 = "exec dbo.ResumenSalidas 'Subasta'";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenSalidas.rdlc");
 
         }

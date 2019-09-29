@@ -124,13 +124,13 @@ namespace UpmeSubasta2019
 
         public void MostrarAsignacionesCompra()
         {
-            string Query1 = "exec AsignacionesCompra Subasta";
+            string Query1 = "exec AsignacionesCompra Mecanismo";
             MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.AsignacionCompra.rdlc", "AsignacionesCompra");
         }
 
         public void MostrarAsignacionesVenta()
         {
-            string Query1 = "exec AsignacionesVenta Subasta";
+            string Query1 = "exec AsignacionesVenta Mecanismo";
             MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.AsignacionVenta.rdlc", "AsignacionesVenta");
         }
 
