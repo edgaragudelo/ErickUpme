@@ -198,6 +198,10 @@
       <DependentUpon>Paso3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pasos\Paso3ViewModel.cs" />
+    <Compile Include="ReportesGraficos\AsignacionGrafico.xaml.cs">
+      <DependentUpon>AsignacionGrafico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesGraficos\Reportes\AsignacionGraficoDataSet.Designer.cs" />
     <Compile Include="Reportes\Exportar.cs" />
     <Compile Include="Reportes\SubastaDataSet.cs">
       <DependentUpon>SubastaDataSet.xsd</DependentUpon>
@@ -301,6 +305,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ReportesGraficos\AsignacionGrafico.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -323,6 +331,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportesGraficos\Reportes\AsignacionGrafico.rdlc" />
     <EmbeddedResource Include="Reportes\AsignacionCompra.rdlc" />
     <EmbeddedResource Include="Reportes\AsignacionVenta.rdlc" />
     <EmbeddedResource Include="Reportes\CiterioCompetencia.rdlc" />
@@ -412,6 +421,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="ReportesGraficos\Reportes\AsignacionGraficoDataSet.xsc">
+      <DependentUpon>AsignacionGraficoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReportesGraficos\Reportes\AsignacionGraficoDataSet.xsd" />
+    <None Include="ReportesGraficos\Reportes\AsignacionGraficoDataSet.xss">
+      <DependentUpon>AsignacionGraficoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\SubastaDataSet.xsc">
       <DependentUpon>SubastaDataSet.xsd</DependentUpon>
     </None>

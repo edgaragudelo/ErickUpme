@@ -27,5 +27,16 @@ namespace UpmeSubasta2019
             DataContext = new Paso1ViewModel();
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Instantiate window
+            var asignacionGraficoModalWindow = new AsignacionGrafico();
+
+
+            // Show window modally
+            // NOTE: Returns only when window is closed
+            Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+        }
     }
 }

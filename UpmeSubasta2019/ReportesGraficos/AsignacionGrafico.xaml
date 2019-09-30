@@ -1,0 +1,26 @@
+﻿<Window x:Class="UpmeSubasta2019.AsignacionGrafico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UpmeSubasta2019"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        mc:Ignorable="d"
+        Title="AsignacionGrafico" Height="618.75" Width="1132.701">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="111">
+            <Image.Source>
+                <BitmapImage UriSource="logoUpme.png"></BitmapImage>
+            </Image.Source>
+        </Image>
+        <Image HorizontalAlignment="Center" Height="65" Margin="1007,0,8.4,0" VerticalAlignment="Top" Width="111">
+            <Image.Source>
+                <BitmapImage UriSource="MINMINAS.png"></BitmapImage>
+            </Image.Source>
+        </Image>
+        <WindowsFormsHost  Name="wrepor" Margin="15,60,15,20" >
+            <rv:ReportViewer x:Name="AsignacionGraficoReport"  AutoScroll="True" />
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>
