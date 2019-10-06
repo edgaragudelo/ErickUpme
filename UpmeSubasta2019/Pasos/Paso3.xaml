@@ -20,11 +20,11 @@
             <Run Text="Ofertas de Comercializadores"/>
         </TextBlock>
 
-        <WindowsFormsHost  Name="wrepor" Margin="10,149,187,771.6" Grid.ColumnSpan="2" >
+        <WindowsFormsHost  Name="wrepor" Margin="10,149,187,787.6" Grid.ColumnSpan="2" >
             <rv:ReportViewer x:Name="ReporteComercializadores"  AutoScroll="True" />
         </WindowsFormsHost>
 
-        <WindowsFormsHost  Name="wrepor1" Margin="10,461,187,459.6" Grid.ColumnSpan="2" >
+        <WindowsFormsHost  Name="wrepor1" Margin="10,439,187,501.6" Grid.ColumnSpan="2" >
             <rv:ReportViewer x:Name="ReporteGeneradores" />
         </WindowsFormsHost>
         <Button Content="Cargar Ofertas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="CargaOfertas" Grid.ColumnSpan="2"/>
@@ -33,6 +33,6 @@
         <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1299" Name="LogOfertas" Grid.ColumnSpan="2" 
                  TextChanged="LogOfertasTextBox_TextChanged"  VerticalScrollBarVisibility="Auto"  />
         <Button Content="Cerrar Paso" HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top" Width="105" Click="CerrarPaso" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="10,445,1351,736.6" Grid.ColumnSpan="2" ><Run Text="Ofertas de Generadores"/></TextBlock>
+        <TextBlock Margin="10,423,1351,758.6" Grid.ColumnSpan="2" ><Run Text="Ofertas de Generadores"/></TextBlock>
     </Grid>
 </UserControl>

@@ -80,7 +80,7 @@ namespace UpmeSubasta2019
             }
             else
             {
-                string Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ...";
+                string Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ..." + "\r\n";
                 MessageBox.Show(Mensaje, "Error en la consulta de datos de las ofertas");
                 
                 //LogOfe = LogOfe + Mensaje;
@@ -110,7 +110,7 @@ namespace UpmeSubasta2019
 
         public void MostrarContratosASIC()
         {
-            string Query1 = "exec dbo.ConsultaDatosContratosASIC";
+            string Query1 = "exec dbo.ConsultaDatosContratosASIC 'Subasta'";
             MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ContratosASIC.rdlc");
 
         }

@@ -137,9 +137,9 @@ namespace UpmeSubasta2019.Data
                     }
                     catch (Exception Ex2)
                     {
-                        String Mensaje = "Error en la conexion a Postgres..." + "\r\n" + Ex2.Message;
-                        //LogOfe = Mensaje;
-                        InsertarLog(Mensaje, "Carga de Ofertas UPME", "Carga de Ofertas");
+                        String Mensaje = "Error en la conexion a Postgres..." + "\r\n" + Ex2.Message + "\r\n";
+                    //LogOfe = Mensaje;
+                    InsertarLog(Mensaje, "Carga de Ofertas UPME", "Carga de Ofertas");
                         MessageBox.Show(Ex2.Message, "Error Conexion BD");                      
                     }
 

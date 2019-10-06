@@ -337,6 +337,8 @@ namespace UpmeSubasta2019 {
             
             private global::System.Data.DataColumn columnp24;
             
+            private global::System.Data.DataColumn columnProceso;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConsultaDatosContratosASICDataTable() {
@@ -604,6 +606,14 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProcesoColumn {
+                get {
+                    return this.columnProceso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -644,30 +654,31 @@ namespace UpmeSubasta2019 {
                         string ID_OFEVenta, 
                         string ID_OFECompra, 
                         string concepto, 
-                        int p01, 
-                        int p02, 
-                        int p03, 
-                        int p04, 
-                        int p05, 
-                        int p06, 
-                        int p07, 
-                        int p08, 
-                        int p09, 
-                        int p10, 
-                        int p11, 
-                        int p12, 
-                        int p13, 
-                        int p14, 
-                        int p15, 
-                        int p16, 
-                        int p17, 
-                        int p18, 
-                        int p19, 
-                        int p20, 
-                        int p21, 
-                        int p22, 
-                        int p23, 
-                        int p24) {
+                        float p01, 
+                        float p02, 
+                        float p03, 
+                        float p04, 
+                        float p05, 
+                        float p06, 
+                        float p07, 
+                        float p08, 
+                        float p09, 
+                        float p10, 
+                        float p11, 
+                        float p12, 
+                        float p13, 
+                        float p14, 
+                        float p15, 
+                        float p16, 
+                        float p17, 
+                        float p18, 
+                        float p19, 
+                        float p20, 
+                        float p21, 
+                        float p22, 
+                        float p23, 
+                        float p24, 
+                        string Proceso) {
                 ConsultaDatosContratosASICRow rowConsultaDatosContratosASICRow = ((ConsultaDatosContratosASICRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -698,7 +709,8 @@ namespace UpmeSubasta2019 {
                         p21,
                         p22,
                         p23,
-                        p24};
+                        p24,
+                        Proceso};
                 rowConsultaDatosContratosASICRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConsultaDatosContratosASICRow);
                 return rowConsultaDatosContratosASICRow;
@@ -757,6 +769,7 @@ namespace UpmeSubasta2019 {
                 this.columnp22 = base.Columns["p22"];
                 this.columnp23 = base.Columns["p23"];
                 this.columnp24 = base.Columns["p24"];
+                this.columnProceso = base.Columns["Proceso"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -772,54 +785,56 @@ namespace UpmeSubasta2019 {
                 base.Columns.Add(this.columnID_OFECompra);
                 this.columnconcepto = new global::System.Data.DataColumn("concepto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnconcepto);
-                this.columnp01 = new global::System.Data.DataColumn("p01", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp01 = new global::System.Data.DataColumn("p01", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp01);
-                this.columnp02 = new global::System.Data.DataColumn("p02", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp02 = new global::System.Data.DataColumn("p02", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp02);
-                this.columnp03 = new global::System.Data.DataColumn("p03", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp03 = new global::System.Data.DataColumn("p03", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp03);
-                this.columnp04 = new global::System.Data.DataColumn("p04", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp04 = new global::System.Data.DataColumn("p04", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp04);
-                this.columnp05 = new global::System.Data.DataColumn("p05", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp05 = new global::System.Data.DataColumn("p05", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp05);
-                this.columnp06 = new global::System.Data.DataColumn("p06", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp06 = new global::System.Data.DataColumn("p06", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp06);
-                this.columnp07 = new global::System.Data.DataColumn("p07", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp07 = new global::System.Data.DataColumn("p07", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp07);
-                this.columnp08 = new global::System.Data.DataColumn("p08", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp08 = new global::System.Data.DataColumn("p08", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp08);
-                this.columnp09 = new global::System.Data.DataColumn("p09", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp09 = new global::System.Data.DataColumn("p09", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp09);
-                this.columnp10 = new global::System.Data.DataColumn("p10", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp10 = new global::System.Data.DataColumn("p10", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp10);
-                this.columnp11 = new global::System.Data.DataColumn("p11", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp11 = new global::System.Data.DataColumn("p11", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp11);
-                this.columnp12 = new global::System.Data.DataColumn("p12", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp12 = new global::System.Data.DataColumn("p12", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp12);
-                this.columnp13 = new global::System.Data.DataColumn("p13", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp13 = new global::System.Data.DataColumn("p13", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp13);
-                this.columnp14 = new global::System.Data.DataColumn("p14", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp14 = new global::System.Data.DataColumn("p14", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp14);
-                this.columnp15 = new global::System.Data.DataColumn("p15", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp15 = new global::System.Data.DataColumn("p15", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp15);
-                this.columnp16 = new global::System.Data.DataColumn("p16", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp16 = new global::System.Data.DataColumn("p16", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp16);
-                this.columnp17 = new global::System.Data.DataColumn("p17", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp17 = new global::System.Data.DataColumn("p17", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp17);
-                this.columnp18 = new global::System.Data.DataColumn("p18", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp18 = new global::System.Data.DataColumn("p18", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp18);
-                this.columnp19 = new global::System.Data.DataColumn("p19", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp19 = new global::System.Data.DataColumn("p19", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp19);
-                this.columnp20 = new global::System.Data.DataColumn("p20", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp20 = new global::System.Data.DataColumn("p20", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp20);
-                this.columnp21 = new global::System.Data.DataColumn("p21", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp21 = new global::System.Data.DataColumn("p21", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp21);
-                this.columnp22 = new global::System.Data.DataColumn("p22", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp22 = new global::System.Data.DataColumn("p22", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp22);
-                this.columnp23 = new global::System.Data.DataColumn("p23", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp23 = new global::System.Data.DataColumn("p23", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp23);
-                this.columnp24 = new global::System.Data.DataColumn("p24", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnp24 = new global::System.Data.DataColumn("p24", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp24);
+                this.columnProceso = new global::System.Data.DataColumn("Proceso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProceso);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidcontrato}, true));
                 this.columnidcontrato.AutoIncrement = true;
@@ -829,6 +844,7 @@ namespace UpmeSubasta2019 {
                 this.columnID_OFEVenta.MaxLength = 10;
                 this.columnID_OFECompra.MaxLength = 10;
                 this.columnconcepto.MaxLength = 10;
+                this.columnProceso.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1050,10 +1066,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p01 {
+            public float p01 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p01Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p01Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p01\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1066,10 +1082,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p02 {
+            public float p02 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p02Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p02Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p02\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1082,10 +1098,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p03 {
+            public float p03 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p03Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p03Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p03\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1098,10 +1114,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p04 {
+            public float p04 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p04Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p04Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p04\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1114,10 +1130,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p05 {
+            public float p05 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p05Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p05Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p05\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1130,10 +1146,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p06 {
+            public float p06 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p06Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p06Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p06\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1146,10 +1162,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p07 {
+            public float p07 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p07Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p07Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p07\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1162,10 +1178,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p08 {
+            public float p08 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p08Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p08Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p08\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1178,10 +1194,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p09 {
+            public float p09 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p09Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p09Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p09\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1194,10 +1210,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p10 {
+            public float p10 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p10Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p10Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p10\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1210,10 +1226,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p11 {
+            public float p11 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p11Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p11Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p11\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1226,10 +1242,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p12 {
+            public float p12 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p12Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p12Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p12\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1242,10 +1258,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p13 {
+            public float p13 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p13Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p13Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p13\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1258,10 +1274,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p14 {
+            public float p14 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p14Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p14Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p14\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1274,10 +1290,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p15 {
+            public float p15 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p15Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p15Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p15\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1290,10 +1306,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p16 {
+            public float p16 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p16Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p16Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p16\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1306,10 +1322,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p17 {
+            public float p17 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p17Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p17Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p17\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1322,10 +1338,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p18 {
+            public float p18 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p18Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p18Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p18\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1338,10 +1354,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p19 {
+            public float p19 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p19Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p19Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p19\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1354,10 +1370,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p20 {
+            public float p20 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p20Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p20Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p20\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1370,10 +1386,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p21 {
+            public float p21 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p21Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p21Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p21\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1386,10 +1402,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p22 {
+            public float p22 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p22Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p22Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p22\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1402,10 +1418,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p23 {
+            public float p23 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p23Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p23Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p23\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1418,10 +1434,10 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int p24 {
+            public float p24 {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultaDatosContratosASIC.p24Column]));
+                        return ((float)(this[this.tableConsultaDatosContratosASIC.p24Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'p24\' de la tabla \'ConsultaDatosContratosASIC\' es DBNull.", e);
@@ -1429,6 +1445,23 @@ namespace UpmeSubasta2019 {
                 }
                 set {
                     this[this.tableConsultaDatosContratosASIC.p24Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Proceso {
+                get {
+                    try {
+                        return ((string)(this[this.tableConsultaDatosContratosASIC.ProcesoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Proceso\' de la tabla \'ConsultaDatosContratosASIC\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableConsultaDatosContratosASIC.ProcesoColumn] = value;
                 }
             }
             
@@ -1767,6 +1800,18 @@ namespace UpmeSubasta2019 {
             public void Setp24Null() {
                 this[this.tableConsultaDatosContratosASIC.p24Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsProcesoNull() {
+                return this.IsNull(this.tableConsultaDatosContratosASIC.ProcesoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetProcesoNull() {
+                this[this.tableConsultaDatosContratosASIC.ProcesoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1957,6 +2002,7 @@ namespace UpmeSubasta2019.ContratosASICDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("p22", "p22");
             tableMapping.ColumnMappings.Add("p23", "p23");
             tableMapping.ColumnMappings.Add("p24", "p24");
+            tableMapping.ColumnMappings.Add("Proceso", "Proceso");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1976,14 +2022,21 @@ namespace UpmeSubasta2019.ContratosASICDataSetTableAdapters {
             this._commandCollection[0].CommandText = "dbo.ConsultaDatosContratosASIC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Proceso", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ContratosASICDataSet.ConsultaDatosContratosASICDataTable dataTable) {
+        public virtual int Fill(ContratosASICDataSet.ConsultaDatosContratosASICDataTable dataTable, string Proceso) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Proceso == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Proceso));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1995,8 +2048,14 @@ namespace UpmeSubasta2019.ContratosASICDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ContratosASICDataSet.ConsultaDatosContratosASICDataTable GetData() {
+        public virtual ContratosASICDataSet.ConsultaDatosContratosASICDataTable GetData(string Proceso) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Proceso == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Proceso));
+            }
             ContratosASICDataSet.ConsultaDatosContratosASICDataTable dataTable = new ContratosASICDataSet.ConsultaDatosContratosASICDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

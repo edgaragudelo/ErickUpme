@@ -82,7 +82,7 @@ namespace UpmeSubasta2019
             catch (Exception ex1)
             {
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de las ofertas");
-                Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
+                Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message + "\r\n";
                 LogOfe = LogOfe + Mensaje;
                 DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
                 //throw;
@@ -114,7 +114,7 @@ namespace UpmeSubasta2019
             }
             else
             {
-                Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ...";
+                Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ..." + "\r\n";
                 LogOfe = LogOfe + Mensaje;
                 DAL.InsertarLog(Mensaje, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
             }
@@ -139,7 +139,14 @@ namespace UpmeSubasta2019
             if (!string.IsNullOrEmpty(e.Data))
             {
                 Ejecucion += e.Data + Environment.NewLine;
-                DAL.InsertarLog(e.Data+ Environment.NewLine, "Ejecución Modelo Matematico", "Proceso en ejecución");
+                String Linea = e.Data + Environment.NewLine;
+                //if (!Linea.Contains("exec [dbo].[GrabarContratosASICPython]"))
+                //    if(!Linea.Contains("Mecanismo"))
+                //        if (!Linea.Contains("MECANISMO"))
+                            DAL.InsertarLog(Linea + Environment.NewLine, "Ejecución Modelo Matematico", "Proceso en ejecución");
+              //  else
+              //      MessageBox.Show(Linea);
+
                 //EjecucionStatus.Text = e.Data + Environment.NewLine;
                 // EjecucionStatus.Text += e.Data + Environment.NewLine.ToString();
                 //EjecucionStatus.Text = Ejecucion.ToString();
@@ -170,10 +177,11 @@ namespace UpmeSubasta2019
         {
             string ruta, archivoOUT, archivoBAT;
 
-            Mensaje = "Configurando la ejecución del modelo ...";
+            Mensaje = "Configurando la ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Configurando Rutas");
-            ruta = "C:\\Users\\eagud\\source\\repos\\Upme\\Subasta\\UpmeSubasta2019";
+            //ruta = "C:\\Users\\eagud\\source\\repos\\Upme\\Subasta\\UpmeSubasta2019";
+            ruta = "C:\\Upme\\subastaCLPE_5_";
             archivoBAT = ruta + "\\subastaCLPE.bat";                       //  '.bat del modelo de optimización
             archivoOUT = ruta + "\\SubastaCLPE_salidas.xlsx";           //    'archivo de resultados
 
@@ -182,7 +190,7 @@ namespace UpmeSubasta2019
                 File.Delete(archivoBAT);
             }
 
-            Mensaje = "Creando el archivo por lotes para la ejecución del modelo ...";
+            Mensaje = "Creando el archivo por lotes para la ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Creando Archivo Rutas");
 
@@ -199,7 +207,7 @@ namespace UpmeSubasta2019
             }
 
             Archivobat1 = archivoBAT;
-            Mensaje = "Archivo por lotes creado para la ejecución del modelo ...";
+            Mensaje = "Archivo por lotes creado para la ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Archivo y Ruta Creada:"+archivoBAT);
 
@@ -217,7 +225,7 @@ namespace UpmeSubasta2019
             //{
             // ProcessStartInfo startInfo = new ProcessStartInfo(Archivobat1 + "\\DHOG.bat")
 
-            Mensaje = "Creando hilo de proceso de ejecución del modelo ...";
+            Mensaje = "Creando hilo de proceso de ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Creando proceso en S.O:");
             ProcessStartInfo startInfo = new ProcessStartInfo(Archivobat1)
@@ -228,7 +236,7 @@ namespace UpmeSubasta2019
                 RedirectStandardError = true
             };
 
-            Mensaje = "Ejecutando el modelo ...";
+            Mensaje = "Ejecutando el modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso en ejecución");
 
@@ -242,7 +250,7 @@ namespace UpmeSubasta2019
             opl.BeginOutputReadLine();
             opl.WaitForExit();
 
-            Mensaje = "Ejecutando el modelo ...";
+            Mensaje = "Ejecutando el modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso Terminado");
 
@@ -254,27 +262,52 @@ namespace UpmeSubasta2019
                 
             }
 
-            Mensaje = "Ejecutando el modelo ...";
+            Mensaje = "Ejecutando el modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso Terminado");
 
-            Mensaje = "Construyendo Reportes de Salida ...";
+            Mensaje = "Construyendo Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida de Compra");
             MostrarAsignacionesCompra();
-            Mensaje = "Construyendo Reportes de Salida ...";
+            Mensaje = "Construyendo Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida de Venta");
             MostrarAsignacionesVenta();
-            Mensaje = "Reportes de Salida ...";
+            Mensaje = "Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida Generados");
-
+            MostrarGraficoAsignaciones();
             //}
 
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                // Instantiate window
+                var asignacionGraficoModalWindow = new AsignacionGrafico();
+
+
+                // Show window modally
+                // NOTE: Returns only when window is closed
+                Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+            }
+        }
+
+        private void MostrarGraficoAsignaciones()
+        {
+            {
+                // Instantiate window
+                var asignacionGraficoModalWindow = new AsignacionGrafico();
+
+
+                // Show window modally
+                // NOTE: Returns only when window is closed
+                Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+            }
+        }
     }
 
 

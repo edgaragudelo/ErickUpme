@@ -82,7 +82,7 @@ namespace UpmeSubasta2019
             catch (Exception ex1)
             {
                 MessageBox.Show(ex1.Message, "Error en la consulta de datos de las ofertas");
-                Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message;
+                Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message + "\r\n";
                 LogOfe = LogOfe + Mensaje;
                 DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
                 //throw;
@@ -114,7 +114,7 @@ namespace UpmeSubasta2019
             }
             else
             {
-                Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ...";
+                Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ..." + "\r\n";
                 LogOfe = LogOfe + Mensaje;
                 DAL.InsertarLog(Mensaje, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
             }
@@ -164,36 +164,37 @@ namespace UpmeSubasta2019
         {
             string ruta, archivoOUT, archivoBAT;
 
-            Mensaje = "Configurando la ejecución del modelo ...";
+            Mensaje = "Configurando la ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Configurando Rutas");
-            ruta = "C:\\Users\\eagud\\source\\repos\\Upme\\Subasta\\UpmeSubasta2019";
+            //ruta = "C:\\Users\\eagud\\source\\repos\\Upme\\Subasta\\UpmeSubasta2019";
+            ruta = "C:\\Upme\\subastaCLPE_5_";
             archivoBAT = ruta + "\\subastaCLPE.bat";                       //  '.bat del modelo de optimización
-            archivoOUT = ruta + "\\SubastaCLPE_salidas.xlsx";           //    'archivo de resultados
+            //archivoOUT = ruta + "\\SubastaCLPE_salidas.xlsx";           //    'archivo de resultados
 
-            if (File.Exists(archivoBAT))
-            {
-                File.Delete(archivoBAT);
-            }
+            //if (File.Exists(archivoBAT))
+            //{
+            //    File.Delete(archivoBAT);
+            //}
 
-            Mensaje = "Creando el archivo por lotes para la ejecución del modelo ...";
+            Mensaje = "Creando el archivo por lotes para la ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Creando Archivo Rutas");
 
-            using (StreamWriter Filebat = File.AppendText(archivoBAT))         //se crea el archivo
-            {
-                string Line1 = "CD " + ruta;
-                //string Line1 = ruta;
-                string Line2 = " python subastaCLPE.py";
-                //string Line3 = "pause";
-                Filebat.WriteLine(Line1);
-                Filebat.WriteLine(Line2);
-                // Filebat.WriteLine(Line3);
-                Filebat.Close();
-            }
+            //using (StreamWriter Filebat = File.AppendText(archivoBAT))         //se crea el archivo
+            //{
+            //    string Line1 = "CD " + ruta;
+            //    //string Line1 = ruta;
+            //    string Line2 = " python subastaCLPE.py";
+            //    //string Line3 = "pause";
+            //    Filebat.WriteLine(Line1);
+            //    Filebat.WriteLine(Line2);
+            //    // Filebat.WriteLine(Line3);
+            //    Filebat.Close();
+            //}
 
             Archivobat1 = archivoBAT;
-            Mensaje = "Archivo por lotes creado para la ejecución del modelo ...";
+            Mensaje = "Archivo por lotes creado para la ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Archivo y Ruta Creada:" + archivoBAT);
 
@@ -205,36 +206,32 @@ namespace UpmeSubasta2019
         private void ExecuteOPL(object sender, RoutedEventArgs ex)
         {
             isExecuting = true;
-            armarbat();
-            //executionParametersViewModel.ExecutionStatus = "";
-            //if (Existerutamodelo)
-            //{
-            // ProcessStartInfo startInfo = new ProcessStartInfo(Archivobat1 + "\\DHOG.bat")
+            armarbat();           
 
-            Mensaje = "Creando hilo de proceso de ejecución del modelo ...";
+            Mensaje = "Creando hilo de proceso de ejecución del modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Creando proceso en S.O:");
-            ProcessStartInfo startInfo = new ProcessStartInfo(Archivobat1)
-            {
-                CreateNoWindow = true,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true
-            };
+            //ProcessStartInfo startInfo = new ProcessStartInfo(Archivobat1)
+            //{
+            //    CreateNoWindow = true,
+            //    UseShellExecute = false,
+            //    RedirectStandardOutput = true,
+            //    RedirectStandardError = true
+            //};
 
-            Mensaje = "Ejecutando el modelo ...";
+            Mensaje = "Ejecutando el modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso en ejecución");
 
-            Process opl = new Process();
-            opl.StartInfo = startInfo;
-            opl.OutputDataReceived += new DataReceivedEventHandler(Opl_OutputDataReceived);
-            opl.ErrorDataReceived += new DataReceivedEventHandler(Opl_ErrorDataReceived);
-            opl.Start();
-            oplProcessId = opl.Id;
-            opl.BeginErrorReadLine();
-            opl.BeginOutputReadLine();
-            opl.WaitForExit();
+            //Process opl = new Process();
+            //opl.StartInfo = startInfo;
+            //opl.OutputDataReceived += new DataReceivedEventHandler(Opl_OutputDataReceived);
+            //opl.ErrorDataReceived += new DataReceivedEventHandler(Opl_ErrorDataReceived);
+            //opl.Start();
+            //oplProcessId = opl.Id;
+            //opl.BeginErrorReadLine();
+            //opl.BeginOutputReadLine();
+            //opl.WaitForExit();
 
             Mensaje = "Ejecutando el modelo ...";
             LogOfe = LogOfe + Mensaje;
@@ -244,19 +241,19 @@ namespace UpmeSubasta2019
             if (!string.IsNullOrEmpty(Ejecucion))
                 EjecucionStatus.Text = Ejecucion.ToString();
 
-            Mensaje = "Ejecutando el modelo ...";
+            Mensaje = "Ejecutando el modelo ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso Terminado");
 
-            Mensaje = "Construyendo Reportes de Salida ...";
+            Mensaje = "Construyendo Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida de Compra");
             MostrarAsignacionesCompra();
-            Mensaje = "Construyendo Reportes de Salida ...";
+            Mensaje = "Construyendo Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida de Venta");
             MostrarAsignacionesVenta();
-            Mensaje = "Reportes de Salida ...";
+            Mensaje = "Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida Generados");
 
