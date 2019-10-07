@@ -88,7 +88,7 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>14.78859cm</Left>
+        <Left>15.04005cm</Left>
         <Height>1.91064cm</Height>
         <Width>3.7632cm</Width>
         <ZIndex>3</ZIndex>
@@ -111,7 +111,7 @@
               <Width>3.87583cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.76458cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -130,7 +130,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Vendedor</Value>
+                              <Value>Empresa</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -226,7 +226,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Vlr Criterio</Value>
+                              <Value>% Partcipación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -428,6 +428,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>=IIF(Instr((Fields!Cumple.Value),"NO CUMPLE") &gt;0, "Red","Green")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -463,7 +464,7 @@
         <Top>2.08703cm</Top>
         <Left>0.11853cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.42015cm</Width>
+        <Width>18.68472cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -472,10 +473,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.35833in</Height>
+    <Height>1.34791in</Height>
     <Style />
   </Body>
-  <Width>7.35582in</Width>
+  <Width>7.4704in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

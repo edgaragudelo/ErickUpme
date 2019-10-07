@@ -40,7 +40,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.0175cm</Top>
-        <Left>5.25632cm</Left>
+        <Left>4.62132cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
         <ZIndex>1</ZIndex>
@@ -88,7 +88,7 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>13.18624cm</Left>
+        <Left>11.72574cm</Left>
         <Height>1.559cm</Height>
         <Width>4.17596cm</Width>
         <ZIndex>3</ZIndex>
@@ -102,13 +102,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.20417cm</Width>
+              <Width>9.00517cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.71445cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>3.77cm</Width>
+              <Width>4.25683cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -120,38 +117,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Vendedor</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -159,7 +124,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Capacidad Maxima MW</Value>
+                              <Value>Vendedor</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -191,7 +156,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Empresa</Value>
+                              <Value>Capacidad Maxima MW</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -313,36 +278,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="empresa">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!empresa.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>empresa</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Proceso">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -380,7 +315,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -397,7 +331,7 @@
         <Top>2.08703cm</Top>
         <Left>0.1397cm</Left>
         <Height>1.2cm</Height>
-        <Width>17.18862cm</Width>
+        <Width>15.762cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -409,7 +343,7 @@
     <Height>1.35244in</Height>
     <Style />
   </Body>
-  <Width>6.91701in</Width>
+  <Width>6.33368in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

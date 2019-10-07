@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Resumen</Value>
+                <Value>="Resumen Salidas " + First(Fields!Proceso.Value, "ResumenSalidas")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -18,9 +18,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.70011cm</Top>
-        <Left>7.20937cm</Left>
+        <Left>4.84928cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.865cm</Width>
+        <Width>6.7545cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -39,6 +39,9 @@
             </TablixColumn>
             <TablixColumn>
               <Width>3.98167cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -94,6 +97,38 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Proceso</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -163,6 +198,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -198,12 +234,46 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Proceso">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Proceso.Value</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Proceso</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                          <Width>0.25pt</Width>
+                        </Border>
+                        <BackgroundColor>=IIF(Instr((Fields!Concepto.Value),"OBJETIVO") &gt;0, "Green","White")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
           </TablixMembers>
@@ -220,9 +290,9 @@
         </TablixRowHierarchy>
         <DataSetName>ResumenSalidas</DataSetName>
         <Top>2.44687cm</Top>
-        <Left>2.1082cm</Left>
+        <Left>0.2032cm</Left>
         <Height>1.2cm</Height>
-        <Width>12.53534cm</Width>
+        <Width>15.03534cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -255,7 +325,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.27517cm</Top>
-        <Left>5.00803cm</Left>
+        <Left>4.88103cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
         <ZIndex>2</ZIndex>
@@ -273,9 +343,9 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>13.64637cm</Left>
+        <Left>12.05887cm</Left>
         <Height>1.559cm</Height>
-        <Width>4.17596cm</Width>
+        <Width>3.17967cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -302,7 +372,7 @@
     <Height>1.525in</Height>
     <Style />
   </Body>
-  <Width>7.01667in</Width>
+  <Width>6.06667in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
@@ -338,14 +408,18 @@
           <DataField>Valor</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Proceso">
+          <DataField>Proceso</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ResumenSalidasDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\eagud\source\repos\UpmeErick\UpmeSubasta2019\ResumenSalidasDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>ResumenSalidas</rd:TableName>
+        <rd:SchemaPath>C:\Users\RIGHTSIDE1\source\repos\ErickUpme\UpmeSubasta2019\ResumenSalidasDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>ResumenSalidas1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ResumenSalidasTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>ResumenSalidas1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

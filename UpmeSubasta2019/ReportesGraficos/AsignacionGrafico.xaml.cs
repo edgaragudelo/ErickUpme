@@ -45,7 +45,7 @@ namespace UpmeSubasta2019
 
         private void GenerarReporte()
         {
-            var dt = DAL.ExecuteQuery("select * from asignaciones order by energia");
+            var dt = DAL.ExecuteQuery("select * from asignaciones where proceso='Subasta' order by energia");
 
             AsignacionGraficoReport.Reset();
             ReportDataSource ds = new ReportDataSource("AsignacionGraficoDataSet", dt);
