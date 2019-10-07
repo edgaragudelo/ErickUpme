@@ -1,7 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:wizard="clr-namespace:UpmeSubasta2019.Wizard"
+        xmlns:wizard="clr-namespace:UpmeSubasta2019.WizardView"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="UpmeSubasta2019.MainWindow"
         Title="MainWindow" Height="922.464" Width="991.416">
     <Grid>

@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WizardItemHeader.cs" company="Vestas Technology R&D">
-//   WizardItemHeader
-// </copyright>
-// <summary>
-//   Defines the WizardItemHeader type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace UpmeSubasta2019.Wizard
+﻿namespace UpmeSubasta2019.WizardView
 {
     internal class WizardItemHeader
     {

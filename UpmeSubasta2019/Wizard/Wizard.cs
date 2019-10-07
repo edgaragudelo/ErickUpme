@@ -1,4 +1,4 @@
-﻿namespace UpmeSubasta2019.Wizard
+﻿namespace UpmeSubasta2019.WizardView
 {
     using System.Collections.Generic;
     using System.Drawing;
@@ -13,9 +13,6 @@
 
     public class Wizard : Grid
     {
-        /// <summary>
-        ///     The is enabled property.
-        /// </summary>
         private static readonly DependencyProperty WizardItemsProperty =
             DependencyProperty.RegisterAttached(
                 "WizardItems",
@@ -42,7 +39,7 @@
                 typeof(string),
                 typeof(Wizard),
                 new PropertyMetadata(default(string)));
-        
+
         private readonly object lockObject = new object();
 
         private Button buttonBack;
@@ -56,6 +53,7 @@
             this.RowDefinitions.Add(new RowDefinition { Height = new GridLength(35) });
 
             this.Loaded += this.WizardLoaded;
+            this.IsVisibleChanged += this.WizardIsVisibleChanged;
 
             this.SetContent();
             this.SetFooter();
@@ -130,24 +128,14 @@
 
         public TabControl WizardTab { get; set; }
 
-        public static ICommand GetCancelCommand(DependencyObject obj)
+        private void WizardIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            return (ICommand)obj.GetValue(CancelCommandProperty);
-        }
-
-        public static void SetCancelCommand(DependencyObject obj, ICommand value)
-        {
-            obj.SetValue(CancelCommandProperty, value);
-        }
-
-        public static IList<object> GetWizardItems(DependencyObject obj)
-        {
-            return (IList<object>)obj.GetValue(WizardItemsProperty);
-        }
-
-        public static void SetWizardItems(DependencyObject obj, IList<object> value)
-        {
-            obj.SetValue(WizardItemsProperty, value);
+            var visibility = (bool)e.NewValue;
+            if (visibility)
+            {
+                this.Focusable = true;
+                this.Focus();
+            }
         }
 
         private void WizardKeyDown(object sender, KeyEventArgs e)
@@ -155,14 +143,15 @@
             if ((e.Key == Key.Enter) || (e.Key == Key.Right))
             {
                 this.HandleNext();
+                e.Handled = true;
+                this.Focus();
             }
             else if (e.Key == Key.Left)
             {
                 this.HandleBackCommand();
+                e.Handled = true;
+                this.Focus();
             }
-
-            FocusManager.SetFocusedElement(this, this.WizardTab);
-            e.Handled = true;
         }
 
         private void WizardLoaded(object sender, RoutedEventArgs e)
@@ -178,6 +167,11 @@
             int count = 0;
             int maxTabWidth = 0;
             IList<FrameworkElement> list = new List<FrameworkElement>();
+
+            if (this.WizardItems == null)
+            {
+                return;
+            }
 
             foreach (var wizardItem in this.WizardItems)
             {
@@ -199,11 +193,11 @@
                     var wizardItem = frameworkElement.DataContext as IWizardItem;
 
                     var header = new WizardItemHeader
-                                     {
-                                         ItemNumber = ++count,
-                                         ItemHeader =
+                    {
+                        ItemNumber = ++count,
+                        ItemHeader =
                                              (wizardItem != null) ? wizardItem.GetHeader() : string.Empty
-                                     };
+                    };
 
                     var ti = new TabItem { Header = header };
 
@@ -240,9 +234,15 @@
                     if (baseFrameworkElement != null)
                     {
                         var baseWizard = baseFrameworkElement.DataContext as IWizardItem;
+
                         if (baseWizard != null)
                         {
-                            baseWizard.OnWizardItemNavigatedTo();
+                            bool autoAcknoledgeNextButton = false;
+                            baseWizard.OnWizardItemNavigatedTo(ref autoAcknoledgeNextButton);
+                            if (autoAcknoledgeNextButton)
+                            {
+                                this.HandleNextCommand();
+                            }
                         }
                     }
                 }
@@ -263,15 +263,13 @@
                     tabItem.Width = (maxTabWidth > 100) ? maxTabWidth : 100;
                 }
             }
-
-            FocusManager.SetFocusedElement(this, this.WizardTab);
         }
 
         private int GetWidth(string header)
         {
             var textBitmap = new Bitmap(1, 1);
             Graphics drawGraphics = Graphics.FromImage(textBitmap);
-            var drawFont = new Font("Arial", 12);
+            var drawFont = new Font("Arial", 10);
 
             int width = (int)drawGraphics.MeasureString(header, drawFont).Width;
             return width;
@@ -285,15 +283,13 @@
             var contentPresenter = new FrameworkElementFactory(typeof(ContentPresenter));
 
             contentPresenter.SetValue(NameProperty, "ContentSite");
-            contentPresenter.SetValue(MarginProperty, new Thickness(10, 5, 17, 12)); // 5, 2, 12, 2
             contentPresenter.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Center);
             contentPresenter.SetValue(VerticalAlignmentProperty, VerticalAlignment.Center);
             contentPresenter.SetValue(ContentPresenter.ContentSourceProperty, "Header");
-            
+
             var selectedSetter2 = new Setter { Property = ZIndexProperty, Value = -500 };
 
             var selectedTrigger = new Trigger { Property = TabItem.IsSelectedProperty, Value = true };
-            
             selectedTrigger.Setters.Add(selectedSetter2);
 
             controlTemplate.Triggers.Add(selectedTrigger);
@@ -315,7 +311,7 @@
             var cardLayout = new DataTemplate { DataType = typeof(TabItem) };
 
             // set up the stack panel
-            var stackPanel = new FrameworkElementFactory(typeof(StackPanel)) { Name = "myStackPanel" };
+            var stackPanel = new FrameworkElementFactory(typeof(StackPanel)) { Name = "myComboFactory" };
 
             // set up the border
             var mainBorder = new FrameworkElementFactory(typeof(Border)) { Name = "Border" };
@@ -404,7 +400,7 @@
                 int newIndex = selectedIndex - 1;
                 var tabItem = this.WizardTab.Items[newIndex] as TabItem;
                 this.WizardTab.SelectedIndex = newIndex;
-                
+
                 if (tabItem != null && !tabItem.IsEnabled)
                 {
                     this.HandleBackCommand();
@@ -414,7 +410,7 @@
 
         private void HandleNextCommand()
         {
-            int selectedIndex = this.WizardTab.SelectedIndex;
+            int selectedIndex = (this.WizardTab.SelectedIndex < 0) ? 0 : this.WizardTab.SelectedIndex;
             if ((this.WizardTab.Items.Count - 1) > selectedIndex)
             {
                 int newIndex = selectedIndex + 1;
@@ -425,16 +421,16 @@
                     var element = currentWizardItemObject as FrameworkElement;
                     if (element != null)
                     {
-                        var item = element.DataContext;
+                        var item = element.DataContext as IWizardItem;
                         if (item != null)
                         {
-                            ////item.IsActive = false;
-                            var oldWizardItem = item as IWizardItem;
-                            if (oldWizardItem != null)
+                            if (item.CanDisplay())
                             {
-                                if (oldWizardItem.CanDisplay())
+                                bool canNavigate = true;
+                                item.OnWizardItemNavigatedFrom(ref canNavigate);
+                                if (!canNavigate)
                                 {
-                                    oldWizardItem.OnWizardItemNavigatedFrom();
+                                    return;
                                 }
                             }
                         }
@@ -472,10 +468,22 @@
                                     tabItem.IsEnabled = true;
                                 }
 
-                                wizardItem.OnWizardItemNavigatedTo();
+                                bool autoAcknoledgeNextButton = false;
+                                wizardItem.OnWizardItemNavigatedTo(ref autoAcknoledgeNextButton);
+                                if (autoAcknoledgeNextButton)
+                                {
+                                    this.HandleNextCommand();
+                                }
                             }
                         }
                     }
+                }
+            }
+            else
+            {
+                if (this.OkCommand != null)
+                {
+                    this.OkCommand.Execute(null);
                 }
             }
         }
@@ -483,6 +491,7 @@
         private void SetContent()
         {
             this.WizardTab = new TabControl();
+            this.WizardTab.IsSynchronizedWithCurrentItem = true;
             SetRow(this.WizardTab, 0);
             this.Children.Add(this.WizardTab);
             this.WizardTab.SelectionChanged += this.TabSelectionChanged;
@@ -509,7 +518,7 @@
                 {
                     if (string.IsNullOrEmpty(this.FinalButtonText))
                     {
-                        this.buttonNext.Content = "Siguiente";
+                        this.buttonNext.Content = "Next";
                     }
                     else
                     {
@@ -518,13 +527,8 @@
                 }
                 else
                 {
-                    this.buttonNext.Content = "Siguiente";
+                    this.buttonNext.Content = "Next";
                 }
-            }
-
-            if ((tabControl != null) && (tabControl.Items.Count > 0))
-            {
-                FocusManager.SetFocusedElement(this, this.WizardTab.Items[tabControl.SelectedIndex] as TabItem);
             }
 
             e.Handled = true;
@@ -537,11 +541,11 @@
             {
                 Height = 25,
                 Width = 100,
-                Content = "Anterior",
+                Content = "Back",
                 HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = new Thickness(10, 0, 10, 0),
                 Visibility = Visibility.Visible,
-                ToolTip = "Use LEFT ARROW as shortcut"
+                ToolTip = "Shortcut: LEFT ARROW"
             };
             this.buttonBack.Click += this.OnBackButtonClick;
 
@@ -549,11 +553,11 @@
             {
                 Height = 25,
                 Width = 100,
-                Content = "Siguiente",
+                Content = "Next",
                 HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = new Thickness(10, 0, 10, 0),
                 Visibility = Visibility.Visible,
-                ToolTip = "Use RIGHT ARROW as shortcut"
+                ToolTip = "Shortcut: RIGHT ARROW or ENTER"
             };
 
             this.buttonNext.Click += this.OnNextButtonClick;
@@ -562,7 +566,7 @@
             {
                 Height = 25,
                 Width = 100,
-                Content = "Salir",
+                Content = "Cancel",
                 HorizontalAlignment = HorizontalAlignment.Right,
                 Margin = new Thickness(10, 0, 10, 0),
                 Visibility = Visibility.Visible
@@ -610,7 +614,12 @@
                             var item = baseWizard.DataContext as IWizardItem;
                             if (item != null)
                             {
-                                item.OnWizardItemNavigatedFrom();
+                                bool canNavigate = true;
+                                item.OnWizardItemNavigatedFrom(ref canNavigate);
+                                if (!canNavigate)
+                                {
+                                    return;
+                                }
                             }
                         }
                     }

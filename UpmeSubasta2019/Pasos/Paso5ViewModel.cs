@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UpmeSubasta2019
 {
-    using UpmeSubasta2019.Wizard;
+    using UpmeSubasta2019.WizardView;
 
     class Paso5ViewModel : IWizardItem
     {
@@ -20,12 +20,14 @@ namespace UpmeSubasta2019
             return true;
         }
 
-        public void OnWizardItemNavigatedTo()
+        public void OnWizardItemNavigatedTo(ref bool autoAcknoledgeNext)
         {
+            autoAcknoledgeNext = false;
         }
 
-        public void OnWizardItemNavigatedFrom()
+        public void OnWizardItemNavigatedFrom(ref bool canNavigateAway)
         {
+            canNavigateAway = true;
         }
     }
 }

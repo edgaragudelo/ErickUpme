@@ -27,9 +27,19 @@ namespace UpmeSubasta2019
     {
         public AsignacionGrafico()
         {
-            //WindowState = WindowState.Maximized;
             InitializeComponent();
 
+            // WindowState = WindowState.Maximized;
+
+            // Centrar la ventana
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
+
+            // Reporte
             GenerarReporte();
         }
 
@@ -43,6 +53,11 @@ namespace UpmeSubasta2019
             AsignacionGraficoReport.LocalReport.DataSources.Add(ds);
             AsignacionGraficoReport.RefreshReport();
             Exportar.ExportaPDF(AsignacionGraficoReport, "AsignacionGraficoReporte");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace UpmeSubasta2019
     using LiveCharts;
     using LiveCharts.Wpf;
     using System.Windows.Controls;
-    using UpmeSubasta2019.Wizard;
+    using UpmeSubasta2019.WizardView;
 
     class Paso2ViewModel : IWizardItem
     {
@@ -19,17 +19,19 @@ namespace UpmeSubasta2019
 
         public bool CanDisplay()
         {
-            return true; ;
+            return true;
         }
 
-        public void OnWizardItemNavigatedTo()
+        public void OnWizardItemNavigatedTo(ref bool autoAcknoledgeNext)
         {
+            autoAcknoledgeNext = false;
         }
 
-        public void OnWizardItemNavigatedFrom()
+        public void OnWizardItemNavigatedFrom(ref bool canNavigateAway)
         {
+            canNavigateAway = true;
         }
 
-     
+
     }
 }

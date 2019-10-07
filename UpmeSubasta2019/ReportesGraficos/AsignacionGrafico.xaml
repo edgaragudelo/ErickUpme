@@ -6,21 +6,12 @@
         xmlns:local="clr-namespace:UpmeSubasta2019"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         mc:Ignorable="d"
-        Title="AsignacionGrafico" Height="618.75" Width="1132.701">
+        Title="AsignacionGrafico" Height="604.8" Width="1024">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="111">
-            <Image.Source>
-                <BitmapImage UriSource="logoUpme.png"></BitmapImage>
-            </Image.Source>
-        </Image>
-        <Image HorizontalAlignment="Center" Height="65" Margin="1007,0,8.4,0" VerticalAlignment="Top" Width="111">
-            <Image.Source>
-                <BitmapImage UriSource="MINMINAS.png"></BitmapImage>
-            </Image.Source>
-        </Image>
-        <WindowsFormsHost  Name="wrepor" Margin="15,60,15,20" >
+        <WindowsFormsHost  Name="wrepor" Margin="20,59,19.6,16.2" >
             <rv:ReportViewer x:Name="AsignacionGraficoReport"  AutoScroll="True" />
         </WindowsFormsHost>
+        <Button Name="CerrarButton" Content="Cerrar" HorizontalAlignment="Left" Margin="33,21,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.027,0.75" Click="Button_Click"/>
 
     </Grid>
 </Window>
