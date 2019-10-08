@@ -28,6 +28,10 @@ namespace UpmeSubasta2019
             InitializeComponent();
 
             mensajeErrorLabel.Content = "";
+
+            //Leer de la Base de datos
+
+            // Asignar valor a cada textbox
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

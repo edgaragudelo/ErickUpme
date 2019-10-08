@@ -204,6 +204,9 @@
     <Compile Include="ReportesGraficos\AsignacionGrafico.xaml.cs">
       <DependentUpon>AsignacionGrafico.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReportesGraficos\Reportes\AsignacionGraficoDataSet.cs">
+      <DependentUpon>AsignacionGraficoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportesGraficos\Reportes\AsignacionGraficoDataSet.Designer.cs" />
     <Compile Include="Reportes\Exportar.cs" />
     <Compile Include="Reportes\SubastaDataSet.cs">
@@ -261,6 +264,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SubastaDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SubastaDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet5.xsd</DependentUpon>
     </Compile>
     <Compile Include="Wizard\IWizardItem.cs" />
     <Compile Include="Wizard\Wizard.cs" />
@@ -541,6 +549,17 @@
     </None>
     <None Include="SubastaDataSet4.xss">
       <DependentUpon>SubastaDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet5.xsc">
+      <DependentUpon>SubastaDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet5.xss">
+      <DependentUpon>SubastaDataSet5.xsd</DependentUpon>
     </None>
     <None Include="UpmeSubasta2019_TemporaryKey.pfx" />
   </ItemGroup>
