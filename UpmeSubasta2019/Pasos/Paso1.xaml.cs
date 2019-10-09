@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using UpmeSubasta2019.Data;
+using System.Data;
 namespace UpmeSubasta2019
 {
     /// <summary>
@@ -26,9 +27,8 @@ namespace UpmeSubasta2019
         {
             DataContext = new Paso1ViewModel();
             InitializeComponent();
-
             mensajeErrorLabel.Content = "";
-
+            ConsultarDatos();
             //Leer de la Base de datos
 
             // Asignar valor a cada textbox
@@ -44,6 +44,40 @@ namespace UpmeSubasta2019
             Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
         }
 
+        private void ConsultarDatos()
+        {
+            string QueryParametros = null;
+            string Mensaje = null;
+            DataTable dt = null;
+            QueryParametros = "SELECT [IdParametroSubasta],[DemandaObjetivo],[TopeMaximoPromedio],[TopeMaximoIndividual],[TamanoPaquete] FROM[dbo].[ParametrosSubasta]";
+
+            try
+            {
+                dt = DAL.ExecuteQuery(QueryParametros);
+            }
+            catch (Exception ex1)
+            {
+                MessageBox.Show(ex1.Message, "Error en la consulta de datos de Parametros");
+                Mensaje = "Error en la consulta de datos de las ofertas ..." + ex1.Message + "\r\n";
+                //LogOfe = LogOfe + Mensaje;
+                DAL.InsertarLog(Mensaje, "Datos Ofertas Venta", "Datos Ofertas Venta");
+                //throw;
+
+            }
+
+
+            foreach (DataRow row in dt.Rows)
+            {
+                tamanoPaqueteTextBox.Text = row[4].ToString();
+                TopeMaximoPromedioTextBox.Text = row[2].ToString();
+                TopeMaximoIndividualTextBox.Text = row[3].ToString();
+                demandaObjetivoTextBox.Text = row[1].ToString();
+
+            }
+
+
+        }
+
         private void GuardarParametros(object sender, RoutedEventArgs e)
         {
             double tamanoPaquete;
@@ -51,16 +85,17 @@ namespace UpmeSubasta2019
             double precioMaximo;
             double demandaObjetivo;
             string msg = string.Empty;
+            
 
-            if (!double.TryParse(tamanoPaqueteTextBox.Text, out tamanoPaquete))
+                if (!double.TryParse(tamanoPaqueteTextBox.Text, out tamanoPaquete))
             {
                 msg += "Error: El valor en el campo Tamaño Paquete debe ser numérico." + System.Environment.NewLine;
             }
-            if (!double.TryParse(precioTopeTextBox.Text, out precioTope))
+            if (!double.TryParse(TopeMaximoPromedioTextBox.Text, out precioTope))
             {
                 msg += "Error: El valor en el campo Precio Tope debe ser numérico." + System.Environment.NewLine;
             }
-            if (!double.TryParse(PrecioMaximoVentaTextBox.Text, out precioMaximo))
+            if (!double.TryParse(TopeMaximoIndividualTextBox.Text, out precioMaximo))
             {
                 msg += "Error: El valor en el campo Precio Máximo de venta debe ser numérico." + System.Environment.NewLine;
             }

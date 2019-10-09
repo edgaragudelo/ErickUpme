@@ -173,7 +173,7 @@ namespace UpmeSubasta2019
                     //QueryPostCompra = QueryPostCompra + "where OfeCom.\"Comercializador_id\" = Ofe.\"IdOferente\" and Ofe.\"IdComercializador_id\" = Com.\"IdComercializador\"";
 
                     QueryPostCompra = "	SELECT Com.\"NombreCorto\" nombre,OfeCom.\"Codigo\" ID_oferta,OfeCom.\"CantidadMaxima\" energiaMax,COALESCE(OfeCom.\"PrecioOferta\", 0) precio, ";
-                    QueryPostCompra = QueryPostCompra + "row_number() over(order by OfeCom.\"HoraRegistroPrecio\" desc) ordenllegada,2 Sobre,'Subasta' Proceso,COALESCE(Mec.\"Minimo\",0) energiaMin ";
+                    QueryPostCompra = QueryPostCompra + "row_number() over(order by OfeCom.\"HoraRegistroPrecio\" asc) ordenllegada,2 Sobre,'Subasta' Proceso,COALESCE(Mec.\"Minimo\",0) energiaMin ";
                     QueryPostCompra = QueryPostCompra + " FROM public.\"OfertasComercializador\" OfeCom, public.\"Comercializadores\" Com, public.\"Oferentes\" Ofe, public.\"MecanismoComplementario\" Mec";
                     QueryPostCompra = QueryPostCompra + " where OfeCom.\"Comercializador_id\" = Ofe.\"IdOferente\" and Ofe.\"IdComercializador_id\" = Com.\"IdComercializador\" ";
                     QueryPostCompra = QueryPostCompra + " and Mec.\"Comercializador_id\" = Ofe.\"IdComercializador_id\" --and Mec.\"CodigoOferta\" = OfeCom.\"Codigo\"";
@@ -187,15 +187,15 @@ namespace UpmeSubasta2019
                     // Proceso de carga de ofertas de generadores -- OfertaVenta
                     //QueryPostVenta = "SELECT * FROM public.\"ofertasVenta\" where sobre=2 and \"Proceso\"='Subasta'";
 
-                    QueryPostVenta = "SELECT OfePro.\"Codigo\" nombre, OfePro.\"IdOferta\" ID_oferta, Blo.\"Bloque\" bloque, OfePro.\"MaxPaquetes\" numPaquetesMax, OfePro.\"MinPaquetes\" numPaquetesMin,";
+                    QueryPostVenta = "SELECT  Pry.\"Codigo\" nombre, OfePro.\"Codigo\" ID_oferta, Blo.\"Bloque\" bloque, OfePro.\"MaxPaquetes\" numPaquetesMax, OfePro.\"MinPaquetes\" numPaquetesMin,";
                     QueryPostVenta = QueryPostVenta + "COALESCE(OfePro.\"PrecioOferta\", 0) precio,(select (CASE WHEN OfePro.\"RestriccionOferta\" = 'SIM' THEN (select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" )";
                     QueryPostVenta = QueryPostVenta + "END)) as simultanea, (select (CASE WHEN OfePro.\"RestriccionOferta\" = 'EXC' THEN";
                     QueryPostVenta = QueryPostVenta + " (select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" ) END)) as excluyente, ";
                     QueryPostVenta = QueryPostVenta + "(select (CASE WHEN OfePro.\"RestriccionOferta\" = 'DEP' THEN";
                     QueryPostVenta = QueryPostVenta + "(select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" )";
-                    QueryPostVenta = QueryPostVenta + "END)) as dependiente,row_number() over (order by OfePro.\"HoraRegistroPrecio\" desc) ordenllegada,2 Sobre,'Subasta' Proceso";
-                    QueryPostVenta = QueryPostVenta + " FROM public.\"OfertasProyectos\" OfePro,public.\"Convocatoria_Bloques\" Blo";
-                    QueryPostVenta = QueryPostVenta + " Where OfePro.\"Bloque_id\" = Blo.\"IdBloque\"";
+                    QueryPostVenta = QueryPostVenta + "END)) as dependiente,row_number() over (order by OfePro.\"HoraRegistroPrecio\" asc) ordenllegada,2 Sobre,'Subasta' Proceso";
+                    QueryPostVenta = QueryPostVenta + " FROM public.\"OfertasProyectos\" OfePro,public.\"Convocatoria_Bloques\" Blo, public.\"Proyectos\" Pry";
+                    QueryPostVenta = QueryPostVenta + " Where OfePro.\"Bloque_id\" = Blo.\"IdBloque\" and OfePro.\"Proyecto_id\" =Pry.\"IdProyecto\"";
 
                     //QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,null empresa,'Subasta' Proceso";
                     //QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue";
@@ -369,7 +369,7 @@ namespace UpmeSubasta2019
                         Mensaje = "Cargando datos de Parametros de la subasta" + "\r\n";
                         DAL.InsertarLog(Mensaje, "Carga de Parametros de la subasta", "Carga de Parametros de la subasta Sobre 2");
 
-                        int Regsparametros = DAL.ExecuteQueryParametro(QueryCargaBloques, "@Bloques", dtparametros);
+                        int Regsparametros = DAL.ExecuteQueryParametro(QueryCargaParametros, "@Parametros", dtparametros);
                         if (!ValidarRegistrosCargados.ValidarCargas(dtparametros.Rows.Count, Regsparametros, Mensaje))
                         {
                             Mensaje = "Numero de registros leidos de Parametros de la subasta no es igual a los insertados..." + "\r\n";

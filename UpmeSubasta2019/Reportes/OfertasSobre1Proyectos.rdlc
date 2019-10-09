@@ -84,20 +84,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="Image3">
-        <Source>Embedded</Source>
-        <Value>MINMINAS</Value>
-        <Sizing>FitProportional</Sizing>
-        <Left>11.72574cm</Left>
-        <Height>1.559cm</Height>
-        <Width>4.17596cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -332,18 +318,32 @@
         <Left>0.1397cm</Left>
         <Height>1.2cm</Height>
         <Width>15.762cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Image Name="Image3">
+        <Source>Embedded</Source>
+        <Value>MINMINAS</Value>
+        <Sizing>FitProportional</Sizing>
+        <Left>11.65228cm</Left>
+        <Height>2.02875cm</Height>
+        <Width>4.21299cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>1.35244in</Height>
     <Style />
   </Body>
-  <Width>6.33368in</Width>
+  <Width>6.30867in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

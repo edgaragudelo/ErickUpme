@@ -256,7 +256,7 @@
                       <Color>#5c5c5c</Color>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption />
+                      <Caption>Total en Mw</Caption>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <Color>#5c5c5c</Color>
@@ -416,7 +416,7 @@
             <Top>2.3622cm</Top>
             <Left>0.37253cm</Left>
             <Height>5.21167cm</Height>
-            <Width>14.12188cm</Width>
+            <Width>15.12189cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -487,18 +487,20 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Sobre 1 Comercializadores</Value>
+                    <Value>Sobre 1 Compradores vs Generadores</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>1.44054cm</Top>
-            <Left>4.97003cm</Left>
+            <Left>4.09691cm</Left>
             <Height>0.57354cm</Height>
-            <Width>4.65371cm</Width>
+            <Width>6.7545cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -514,10 +516,10 @@
             <Source>Embedded</Source>
             <Value>MINMINAS</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>0.09878cm</Top>
-            <Left>11.18016cm</Left>
-            <Height>1.559cm</Height>
-            <Width>3.31425cm</Width>
+            <Top>0.09497cm</Top>
+            <Left>11.28143cm</Left>
+            <Height>2.02875cm</Height>
+            <Width>4.21299cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -529,7 +531,7 @@
         <Height>3.1235in</Height>
         <Style />
       </Body>
-      <Width>5.79167in</Width>
+      <Width>6.1835in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

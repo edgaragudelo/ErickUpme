@@ -55,16 +55,16 @@
               <Width>1.90733cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03433cm</Width>
+              <Width>2.37829cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.14017cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.26717cm</Width>
+              <Width>2.42592cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.36229cm</Width>
+              <Width>1.5475cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.37817cm</Width>
@@ -817,7 +817,7 @@
         <Top>2.46195cm</Top>
         <Left>0.20849cm</Left>
         <Height>1.37668cm</Height>
-        <Width>23.60425cm</Width>
+        <Width>24.29217cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -864,21 +864,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="Image3">
-        <Source>Embedded</Source>
-        <Value>MINMINAS</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.08706cm</Top>
-        <Left>17.6564cm</Left>
-        <Height>1.98233cm</Height>
-        <Width>6.15634cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Image Name="Image4">
         <Source>Embedded</Source>
         <Value>LogoUpme1</Value>
@@ -887,6 +872,20 @@
         <Left>0.03175cm</Left>
         <Height>1.66694cm</Height>
         <Width>4.34891cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Image3">
+        <Source>Embedded</Source>
+        <Value>MINMINAS</Value>
+        <Sizing>FitProportional</Sizing>
+        <Left>20.28767cm</Left>
+        <Height>2.02875cm</Height>
+        <Width>4.21299cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -898,10 +897,10 @@
     <Height>1.68211in</Height>
     <Style />
   </Body>
-  <Width>9.46285in</Width>
+  <Width>9.6545in</Width>
   <Page>
     <PageFooter>
-      <Height>0.74083cm</Height>
+      <Height>0.71437cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -922,7 +921,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>7.41745cm</Left>
           <Height>0.6cm</Height>
           <Width>1.484cm</Width>
@@ -953,7 +951,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>12.72328cm</Left>
           <Height>0.55202cm</Height>
           <Width>1.90733cm</Width>

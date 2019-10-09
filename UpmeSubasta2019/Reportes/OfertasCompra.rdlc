@@ -12,7 +12,7 @@
               <Width>2.46472cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.53019cm</Width>
+              <Width>3.76831cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.02917cm</Width>
@@ -24,12 +24,12 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.45792cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.02333cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -232,7 +232,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>energia Min</Value>
+                              <Value>Energia Mecanismo Complementario Mwh_d</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -498,8 +498,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.54cm</Top>
         <Left>0.07298cm</Left>
-        <Height>1.2cm</Height>
-        <Width>21.45352cm</Width>
+        <Height>1.62333cm</Height>
+        <Width>23.64955cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -548,8 +548,8 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.02736cm</Top>
-        <Left>17.35054cm</Left>
+        <Top>0.1402cm</Top>
+        <Left>19.54657cm</Left>
         <Height>2.20289cm</Height>
         <Width>4.17596cm</Width>
         <ZIndex>2</ZIndex>
@@ -607,10 +607,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>1.54167in</Height>
+    <Height>1.71202in</Height>
     <Style />
   </Body>
-  <Width>8.55833in</Width>
+  <Width>9.4125in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
