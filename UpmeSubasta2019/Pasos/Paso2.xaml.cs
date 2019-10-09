@@ -223,14 +223,13 @@ namespace UpmeSubasta2019
                     //QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue";
                     //QueryPostProyectos = QueryPostProyectos + " where Pry.\"RequisitoTecnico_id\" = ReqT.\"IdRequisitoTecnico\" and Pry.\"Fuente_id\" = Fue.\"IdFuenteEnergia\";";
 
-                    QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,Oferentes.\"RazonSocial\" empresa,'Subasta' Proceso";
+                    QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,Oferentes.\"RazonSocial\" empresa,'Subasta' Proceso , Vin.\"Codigo\" codigoempresa";
                     QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue, public.\"VinculosEconomicos\" Vin, public.\"Oferentes\" Oferentes";
                     QueryPostProyectos = QueryPostProyectos + " where Pry.\"RequisitoTecnico_id\" = ReqT.\"IdRequisitoTecnico\" and Pry.\"Fuente_id\" = Fue.\"IdFuenteEnergia\"";
                     QueryPostProyectos = QueryPostProyectos + " and Oferentes.\"IdOferente\" = Pry.\"Generador_id\" and Vin.\"Declarante_id\" = Oferentes.\"IdOferente\" and Pry.\"Estado\"='CAL_GAR'";
 
-                    QueryPostParametros = "SELECT \"IdParametroSubasta\",\"DemandaObjetivo\",\"TopeMaximoPromedio\", \"TopeMaximoIndividual\", \"TamanoPaquete\",\"HoraRegistro\" FROM public.\"ParametrosSubasta\"";
-                    QueryBorrarParametros = "DELETE FROM [dbo].[ParametrosSubasta]";
-
+                    QueryPostParametros = "SELECT \"IdParametroSubasta\",\"DemandaObjetivo\",\"TopeMaximoPromedio\", \"TopeMaximoIndividual\", \"TamanoPaquete\" FROM public.\"ParametrosSubasta\"";
+                   
                     QueryCargaVenta = "dbo.GrabarOfertasVenta";
                     QueryBorrarVenta = "DELETE FROM [dbo].[ofertasVenta] where sobre=1 and proceso='Subasta'";
 
@@ -241,6 +240,7 @@ namespace UpmeSubasta2019
                     QueryBorrarBloques = "DELETE FROM [dbo].[Bloques] ";
 
                     QueryCargaParametros = "dbo.[GrabarParametros]";
+                    QueryBorrarParametros = "DELETE FROM [dbo].[ParametrosSubasta]";
 
 
                     // Proceso de lectura de ofertas desde la bd fuente -- POSTGRES
@@ -275,6 +275,8 @@ namespace UpmeSubasta2019
                         LogOfe = LogOfe + Mensaje;
                         dtproyectos = DAL.ExecuteQueryPostgres(QueryPostProyectos);
                         DAL.InsertarLog(Mensaje, "Carga de Proyectos de Generación Sobre 1", "Carga de Proyectos de Generación Sobre 1");
+                        Pruebas.ItemsSource = dtventa.Rows;
+
 
                         Mensaje = "Lectura de datos de Bloques de Ofertas de la UPME..." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
@@ -311,7 +313,7 @@ namespace UpmeSubasta2019
                         Mensaje = "No cargo datos de Generadores de la UPME..." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
                         DAL.InsertarLog(Mensaje, "Carga de Ofertas Sobre 1", "Carga de Ofertas Sobre 1");
-                        return;
+                        /*return*/;
                     }
 
                     if (dtproyectos.Rows.Count == 0)
@@ -363,7 +365,7 @@ namespace UpmeSubasta2019
                         }
 
 
-                        Mensaje = "Cargando datos de Proyectos de Generación..." + "\r\n";                       
+                        Mensaje = "Cargando datos de Proyectos de Generación..." + "\r\n";
                         LogOfe = LogOfe + Mensaje;
                         DAL.InsertarLog(Mensaje, "Carga de Proyectos de Generación", "Carga de Ofertas Sobre 1");
 
@@ -389,7 +391,10 @@ namespace UpmeSubasta2019
 
                         Mensaje = "Cargando datos de Parametros de la subasta" + "\r\n";
                         DAL.InsertarLog(Mensaje, "Carga de Parametros de la subasta", "Carga de Parametros de la subasta Sobre 1");
-                        int Regsparametros = DAL.ExecuteQueryParametro(QueryCargaBloques, "@Bloques", dtparametros);
+
+
+
+                        int Regsparametros = DAL.ExecuteQueryParametro(QueryCargaParametros, "@Parametros", dtparametros);
                         if (!ValidarRegistrosCargados.ValidarCargas(dtparametros.Rows.Count, Regsparametros, Mensaje))
                         {
                             Mensaje = "Numero de registros leidos de Parametros de la subasta no es igual a los insertados..." + "\r\n";

@@ -25,7 +25,7 @@
             <rv:ReportViewer x:Name="ReporteCompravsGene"  AutoScroll="True" />
         </WindowsFormsHost>
 
-        <WindowsFormsHost  Name="wrepor4" Margin="553,450,187,520.6" Grid.ColumnSpan="2" >            
+        <WindowsFormsHost  Name="wrepor4" Margin="553,450,187,520.6" Grid.ColumnSpan="2" >
             <rv:ReportViewer x:Name="ReporteCriterios"  AutoScroll="True" />
         </WindowsFormsHost>
 
@@ -33,7 +33,7 @@
         <WindowsFormsHost  Name="wrepor1" Margin="550,149,187,771.6" Grid.ColumnSpan="2" >
             <rv:ReportViewer x:Name="ReporteGeneradores" />
         </WindowsFormsHost>
-        
+
         <Button Content="Cargar Ofertas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="CargaOfertas" Grid.ColumnSpan="2"/>
         <Button Content="Desplegar Ofertas" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Width="105" Click="MostrarOfertas" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="472,36,0,0" TextWrapping="Wrap" Text="Log del Proceso" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
@@ -42,8 +42,9 @@
         <Button Content="Cerrar Paso" HorizontalAlignment="Left" Margin="355,10,0,0" VerticalAlignment="Top" Width="105" Click="CerrarPaso" Grid.ColumnSpan="2"/>
         <TextBlock Margin="553,133,808,1048.6" Grid.ColumnSpan="2" ><Run Text="Generadores"/><Run Text=" Sobre No 1"/></TextBlock>
         <Button Content="Criterio Competencia" HorizontalAlignment="Left" Margin="229,10,0,0" VerticalAlignment="Top" Width="119" Click="CriterioCompetencia" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="10,435,1348,746.6" Grid.ColumnSpan="2" ><Run Text="C"/><Run Text="riterio de  Competencia "/></TextBlock>
-        <TextBlock Margin="553,435,805,746.6" Grid.ColumnSpan="2" ><Run Text="C"/><Run Text="riterio de  Competencia "/></TextBlock>
+        <TextBlock Margin="10,435,1321,746.6" Grid.ColumnSpan="2" ><Run  Text="Compradores vs Generadores"/></TextBlock>
+        <TextBlock Margin="553,435,805,746.6" Grid.ColumnSpan="2" ><Run Text="Criterio de  Competencia "/></TextBlock>
+        <DataGrid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="150" Margin="31,703,0,0" VerticalAlignment="Top" Width="1278" Name="Pruebas"/>
     </Grid>
 </UserControl>
 

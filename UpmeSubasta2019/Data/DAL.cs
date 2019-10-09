@@ -112,10 +112,22 @@ namespace UpmeSubasta2019.Data
                     param.Value = Registros;
                     sqlCommand.Parameters.Add(param);
                     sqlConn.Open();
-                    da = sqlCommand.ExecuteNonQuery(); //  new SqlDataAdapter(sqlCommand);
+                    //try
+                    //{
+                      da = sqlCommand.ExecuteNonQuery(); //  new SqlDataAdapter(sqlCommand);
+                    //}
+                    //catch (Exception Ex2)
+                    //{
+                    //String Mensaje = "Error en la ejecucion del proceso de guardado en SQl Server..." + "\r\n" + Ex2.Message + "\r\n";
+                    ////LogOfe = Mensaje;
+                    //InsertarLog(Mensaje, "Carga de Ofertas UPME", "Carga de Ofertas");
+                    //MessageBox.Show(Ex2.Message, "Error Conexion BD");
+                    //sqlConn.Close();
+                }
+                
                     //da.Fill(dataset);
                     sqlConn.Close();
-                }
+                //}
             //}
 
             return da;
