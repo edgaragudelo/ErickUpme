@@ -7,13 +7,15 @@ using System.Windows;
 using System.Configuration;
 using System.Net;
 using System.Net.Sockets;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace UpmeSubasta2019.Data
 {
     public class DAL
     {
         public static SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["UpmeSubasta2019.Properties.Settings.SubastaConnectionString"].ConnectionString);
-        public static string myConnString1 = "Server=localhost;Port=5432;User id=postgres;Password=Mariajose;Database = Upme;";
+        //public static string myConnString1 = "Server=localhost;Port=5432;User id=postgres;Password=Mariajose;Database = Upme;";
         public static NpgsqlConnection posConn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["UpmeSubasta2019.Properties.Settings.SubastaUpmePostGresConnectionString"].ConnectionString);
     
 
@@ -41,20 +43,18 @@ namespace UpmeSubasta2019.Data
         public static int ExecuteQueryNormal(string query)
         {
             int da = 0;
-
-           // var connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Subasta;Integrated Security=True";
-            //var connectionString = @"Data Source=SRVTESTSUBASTA\SQLEXPRESS;Initial Catalog=Subasta;Integrated Security=True";
-
-            //using (var sqlConn = new SqlConnection(connectionString))
-            //using (var sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["UpmeSubasta2019.Properties.Settings.SubastaConnectionString"].ConnectionString))
-            //{
-                using (var sqlCommand = new SqlCommand(query, sqlConn))
+            using (var sqlCommand = new SqlCommand(query, sqlConn))
+            {
+                try
                 {
                     sqlConn.Open();
                     da = sqlCommand.ExecuteNonQuery();
+                }
+                finally
+                {
                     sqlConn.Close();
                 }
-            //}
+            }
 
             return da;
         }
@@ -72,8 +72,6 @@ namespace UpmeSubasta2019.Data
                 }
             } return localIP;
         }
-
-   
 
         public static void InsertarLog(string Valor, string Tipo, string Proceso)
         {
@@ -100,11 +98,10 @@ namespace UpmeSubasta2019.Data
         {
             var dataset = new DataSet();
             int da = 0;
-            //var connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Subasta;Integrated Security=True";
-            //var connectionString = @"Data Source=SRVTESTSUBASTA\SQLEXPRESS;Initial Catalog=Subasta;Integrated Security=True";
-            //using (var sqlConn = new SqlConnection(connectionString))
-            //{
-                using (var sqlCommand = new SqlCommand(query, sqlConn))
+
+            using (var sqlCommand = new SqlCommand(query, sqlConn))
+            {
+                try
                 {
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     SqlParameter param = new SqlParameter();
@@ -112,23 +109,14 @@ namespace UpmeSubasta2019.Data
                     param.Value = Registros;
                     sqlCommand.Parameters.Add(param);
                     sqlConn.Open();
-                    //try
-                    //{
-                      da = sqlCommand.ExecuteNonQuery(); //  new SqlDataAdapter(sqlCommand);
-                    //}
-                    //catch (Exception Ex2)
-                    //{
-                    //String Mensaje = "Error en la ejecucion del proceso de guardado en SQl Server..." + "\r\n" + Ex2.Message + "\r\n";
-                    ////LogOfe = Mensaje;
-                    //InsertarLog(Mensaje, "Carga de Ofertas UPME", "Carga de Ofertas");
-                    //MessageBox.Show(Ex2.Message, "Error Conexion BD");
-                    //sqlConn.Close();
+
+                    da = sqlCommand.ExecuteNonQuery();
                 }
-                
-                    //da.Fill(dataset);
+                finally
+                {
                     sqlConn.Close();
-                //}
-            //}
+                }
+            }
 
             return da;
         }
@@ -160,8 +148,5 @@ namespace UpmeSubasta2019.Data
 
             return dataset.Tables[0];
         }
-
-
-
     }
 }

@@ -156,7 +156,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CriterioCompetencia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Data\ConsultasBd.cs" />
     <Compile Include="Data\DAL.cs" />
+    <Compile Include="Data\Helper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

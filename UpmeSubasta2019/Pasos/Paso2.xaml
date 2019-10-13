@@ -37,7 +37,7 @@
         <Button Content="Cargar Ofertas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="CargaOfertas" Grid.ColumnSpan="2"/>
         <Button Content="Desplegar Ofertas" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Width="105" Click="MostrarOfertas" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="472,36,0,0" TextWrapping="Wrap" Text="Log del Proceso" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1299" Name="LogOfertas" Grid.ColumnSpan="2" 
+        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1299" Name="LogOfertas" Grid.ColumnSpan="2" 
                  TextChanged="LogOfertasTextBox_TextChanged"  VerticalScrollBarVisibility="Auto" IsReadOnly="False" />
         <Button Content="Cerrar Paso" HorizontalAlignment="Left" Margin="355,10,0,0" VerticalAlignment="Top" Width="105" Click="CerrarPaso" Grid.ColumnSpan="2"/>
         <TextBlock Margin="553,133,808,1048.6" Grid.ColumnSpan="2" ><Run Text="Generadores"/><Run Text=" Sobre No 1"/></TextBlock>
