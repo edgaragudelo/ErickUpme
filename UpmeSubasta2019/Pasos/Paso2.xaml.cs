@@ -193,12 +193,23 @@ namespace UpmeSubasta2019
                     //QueryPostCompra = "SELECT Com.\"NombreCorto\" nombre,OfeCom.\"Codigo\" ID_oferta,OfeCom.\"CantidadMaxima\" energiaMax,COALESCE(OfeCom.\"PrecioOferta\", 0) precio, row_number() over (order by OfeCom.\"HoraRegistroPrecio\" desc) ordenllegada,1 Sobre,'Subasta' Proceso,23 energiaMin";
                     //QueryPostCompra = QueryPostCompra + " FROM public.\"OfertasComercializador\" OfeCom, public.\"Comercializadores\" Com where OfeCom.\"Comercializador_id\" = Com.\"IdComercializador\"";
 
-                    QueryPostCompra = "	SELECT Com.\"NombreCorto\" nombre,OfeCom.\"Codigo\" ID_oferta,OfeCom.\"CantidadMaxima\" energiaMax,COALESCE(OfeCom.\"PrecioOferta\", 0) precio, ";
-                    QueryPostCompra = QueryPostCompra + "row_number() over(order by OfeCom.\"HoraRegistroPrecio\" asc) ordenllegada,1 Sobre,'Subasta' Proceso,COALESCE(Mec.\"Minimo\",0) energiaMin ";
-                    QueryPostCompra = QueryPostCompra + " FROM public.\"OfertasComercializador\" OfeCom, public.\"Comercializadores\" Com, public.\"Oferentes\" Ofe, public.\"MecanismoComplementario\" Mec";
-                    QueryPostCompra = QueryPostCompra + " where OfeCom.\"Comercializador_id\" = Ofe.\"IdOferente\" and Ofe.\"IdComercializador_id\" = Com.\"IdComercializador\" ";
-                    QueryPostCompra = QueryPostCompra + " and Mec.\"Comercializador_id\" = Ofe.\"IdComercializador_id\" --and Mec.\"CodigoOferta\" = OfeCom.\"Codigo\"";
+                    //QueryPostCompra = "	SELECT Com.\"Nombre\" nombre,OfeCom.\"Codigo\" ID_oferta,ReqF.\"CantidadMaxima\" energiaMax,COALESCE(OfeCom.\"PrecioOferta\", 0) precio, ";
+                    //QueryPostCompra = QueryPostCompra + "row_number() over(order by OfeCom.\"HoraRegistroPrecio\" asc) ordenllegada,1 Sobre,'Subasta' Proceso,COALESCE(Mec.\"Minimo\",0) energiaMin ";
+                    //QueryPostCompra = QueryPostCompra + " FROM public.\"OfertasComercializador\" OfeCom, public.\"Comercializadores\" Com, public.\"Oferentes\" Ofe, public.\"MecanismoComplementario\" Mec";
+                    //QueryPostCompra = QueryPostCompra + " ,public.\"RequisitosFinancieros\" ReqF where OfeCom.\"Comercializador_id\" = Ofe.\"IdOferente\" and Ofe.\"IdComercializador_id\" = Com.\"IdComercializador\" ";
+                    //QueryPostCompra = QueryPostCompra + " and Mec.\"Comercializador_id\" = Ofe.\"IdComercializador_id\" and ReqF.\"IdRequisitoFinanciero\" = Ofe.\"RequisitoFinanciero_id\" ";
 
+                    QueryPostCompra = "SELECT Com.\"NombreCorto\" nombre,OfeCom.\"Codigo\" ID_oferta,OfeCom.\"CantidadMaxima\" energiaMax,OfeCom.\"PrecioOferta\""; 
+                    QueryPostCompra = QueryPostCompra + ",row_number() over(order by OfeCom.\"HoraRegistroPrecio\" asc) ordenllegada,1 Sobre,'Subasta' Proceso,Mec.\"Minimo\" energiaMin";
+                    QueryPostCompra = QueryPostCompra + " FROM public.\"OfertasComercializador\" OfeCom, public.\"Comercializadores\" Com, public.\"Oferentes\" Ofe, public.\"MecanismoComplementario\" Mec";
+                    QueryPostCompra = QueryPostCompra + " where OfeCom.\"Comercializador_id\" = Ofe.\"IdOferente\" and Ofe.\"IdComercializador_id\" = Com.\"IdComercializador\"";
+                    QueryPostCompra = QueryPostCompra + " and Mec.\"Comercializador_id\" = Ofe.\"IdComercializador_id\"";
+                    QueryPostCompra = QueryPostCompra + " union all";
+                    QueryPostCompra = QueryPostCompra + " SELECT Com.\"NombreCorto\" nombre, Mec.\"CodigoOferta\" ID_oferta, Mec.\"EnergiaMaxOferta\" energiaMax,Mec.\"PrecioOferta\" precio,";
+                    QueryPostCompra = QueryPostCompra + "0 ordenllegada,1 Sobre,'Subasta' Proceso, Mec.\"Minimo\" energiaMin FROM public.\"Comercializadores\" Com, public.\"Oferentes\" Ofe,";
+                    QueryPostCompra = QueryPostCompra + " public.\"MecanismoComplementario\" Mec where Ofe.\"IdComercializador_id\" = Com.\"IdComercializador\"";
+                    QueryPostCompra = QueryPostCompra + " and Mec.\"Comercializador_id\" = Ofe.\"IdComercializador_id\" and Mec.\"CodigoOferta\" not in (select OfeCom.\"Codigo\" from public.\"OfertasComercializador\" OfeCom)";
+                    QueryPostCompra = QueryPostCompra + " order by 2";
 
                     QueryPostBloques = "SELECT \"Bloque\",\"Pi\",\"Pf\" FROM public.\"Convocatoria_Bloques\"";
 
@@ -217,16 +228,27 @@ namespace UpmeSubasta2019
                     QueryPostVenta = QueryPostVenta + "(select OfeP1.\"Codigo\" from public.\"OfertasProyectos\" OfeP1 where OfeP1.\"IdOferta\" = OfePro.\"OfertaRestriccion_id\" )";
                     QueryPostVenta = QueryPostVenta + "END)) as dependiente,row_number() over (order by OfePro.\"HoraRegistroPrecio\" asc) ordenllegada,1 Sobre,'Subasta' Proceso";
                     QueryPostVenta = QueryPostVenta + " FROM public.\"OfertasProyectos\" OfePro,public.\"Convocatoria_Bloques\" Blo, public.\"Proyectos\" Pry";
-                    QueryPostVenta = QueryPostVenta + " Where OfePro.\"Bloque_id\" = Blo.\"IdBloque\" and OfePro.\"Proyecto_id\" =Pry.\"IdProyecto\"";                 
+                    QueryPostVenta = QueryPostVenta + " Where OfePro.\"Bloque_id\" = Blo.\"IdBloque\" and OfePro.\"Proyecto_id\" =Pry.\"IdProyecto\"";
 
                     //QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,null empresa,'Subasta' Proceso";
                     //QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue";
                     //QueryPostProyectos = QueryPostProyectos + " where Pry.\"RequisitoTecnico_id\" = ReqT.\"IdRequisitoTecnico\" and Pry.\"Fuente_id\" = Fue.\"IdFuenteEnergia\";";
 
-                    QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,Oferentes.\"RazonSocial\" empresa,'Subasta' Proceso , Vin.\"Codigo\" codigoempresa";
-                    QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue, public.\"VinculosEconomicos\" Vin, public.\"Oferentes\" Oferentes";
-                    QueryPostProyectos = QueryPostProyectos + " where Pry.\"RequisitoTecnico_id\" = ReqT.\"IdRequisitoTecnico\" and Pry.\"Fuente_id\" = Fue.\"IdFuenteEnergia\"";
-                    QueryPostProyectos = QueryPostProyectos + " and Oferentes.\"IdOferente\" = Pry.\"Generador_id\" and Vin.\"Declarante_id\" = Oferentes.\"IdOferente\" and Pry.\"Estado\"='CAL_GAR'";
+                    //QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,Oferentes.\"RazonSocial\" empresa,'Subasta' Proceso , Vin.\"Codigo\" codigoempresa";
+                    //QueryPostProyectos = QueryPostProyectos + " FROM public.\"Proyectos\" Pry, public.\"RequisitosTecnicos\" ReqT, public.\"Fuentes_Energia\" Fue, public.\"VinculosEconomicos\" Vin, public.\"Oferentes\" Oferentes";
+                    //QueryPostProyectos = QueryPostProyectos + " where Pry.\"RequisitoTecnico_id\" = ReqT.\"IdRequisitoTecnico\" and Pry.\"Fuente_id\" = Fue.\"IdFuenteEnergia\"";
+                    //QueryPostProyectos = QueryPostProyectos + " and Oferentes.\"IdOferente\" = Pry.\"Generador_id\" and Vin.\"Declarante_id\" = Oferentes.\"IdOferente\" and Pry.\"Estado\"='CAL_GAR'";
+
+                    QueryPostProyectos = "SELECT Pry.\"Codigo\" nombre,ReqT.\"CapacidadEfectivaTotal\" capacidadMaxima,Fue.\"Factor\" factorPlanta,Oferentes.\"RazonSocial\" empresa,'Subasta' Proceso,";
+                    QueryPostProyectos = QueryPostProyectos + "Vin.\"Codigo\" codigoempresa,\"CantidadMaxima\" energiamaximagarantizada FROM public.\"Proyectos\" Pry";
+                    QueryPostProyectos = QueryPostProyectos + " inner join public.\"Fuentes_Energia\" Fue ON Pry.\"Fuente_id\"=Fue.\"IdFuenteEnergia\"";
+                    QueryPostProyectos = QueryPostProyectos + " inner join public.\"RequisitosTecnicos\" ReqT on Pry.\"RequisitoTecnico_id\"=ReqT.\"IdRequisitoTecnico\"";
+                    QueryPostProyectos = QueryPostProyectos + " inner join public.\"RequisitosFinancieros\" ReqF ON Pry.\"RequisitoFinanciero_id\"=ReqF.\"IdRequisitoFinanciero\"";
+                    QueryPostProyectos = QueryPostProyectos + " inner join public.\"Oferentes\" Oferentes on Pry.\"Generador_id\"=Oferentes.\"IdOferente\"";
+                    QueryPostProyectos = QueryPostProyectos + " left outer join public.\"VinculosEconomicos\" Vin on Oferentes.\"IdOferente\"=Vin.\"Declarante_id\"";
+                    QueryPostProyectos = QueryPostProyectos + " WHERE Oferentes.\"TipoParticipante\" = 'GENERADOR' AND Pry.\"Estado\"='CAL_GAR'";
+                    
+
 
                     QueryPostParametros = "SELECT \"IdParametroSubasta\",\"DemandaObjetivo\",\"TopeMaximoPromedio\", \"TopeMaximoIndividual\", \"TamanoPaquete\" FROM public.\"ParametrosSubasta\"";
                    

@@ -2,18 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Image Name="Image4">
-        <Source>Embedded</Source>
-        <Value>LogoUpme1</Value>
-        <Sizing>FitProportional</Sizing>
-        <Height>1.66694cm</Height>
-        <Width>4.34891cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox7">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -26,7 +14,7 @@
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
@@ -38,10 +26,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Left>7.79632cm</Left>
+        <Left>7.47882cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -59,19 +46,21 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Asignaciones Compras</Value>
-                <Style />
+                <Value>="Asignaciones Compras del proceso de " + First(Fields!Proceso.Value, "DataSet1")</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.37852cm</Top>
-        <Left>9.15436cm</Left>
+        <Top>2.21403cm</Top>
+        <Left>0.17632cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.73001cm</Width>
-        <ZIndex>2</ZIndex>
+        <Width>9.2945cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -86,10 +75,10 @@
         <Source>Embedded</Source>
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>15.72624cm</Left>
-        <Height>1.559cm</Height>
-        <Width>4.17596cm</Width>
-        <ZIndex>3</ZIndex>
+        <Left>14.78367cm</Left>
+        <Height>2.81403cm</Height>
+        <Width>5.11853cm</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -100,22 +89,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.8175cm</Width>
+              <Width>5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.92383cm</Width>
+              <Width>2.11433cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.14017cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.64817cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.02917cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -138,7 +124,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Comercializador</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -168,7 +156,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>ID OFE</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -198,7 +188,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Precio (Cop/kWh)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -227,12 +219,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Desempate </Value>
-                              <Style />
-                            </TextRun>
-                            <TextRun>
-                              <Value> (Cop/kWh)</Value>
-                              <Style />
+                              <Value>Desempate  (Cop/kWh)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -261,12 +251,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Energia Max Dia </Value>
-                              <Style />
-                            </TextRun>
-                            <TextRun>
-                              <Value> (Cop/kWh)</Value>
-                              <Style />
+                              <Value>Energia Max Dia  (Cop/kWh)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -295,12 +283,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Asignacion </Value>
-                              <Style />
-                            </TextRun>
-                            <TextRun>
-                              <Value> (kWh-d)</Value>
-                              <Style />
+                              <Value>Asignacion  (kWh-d)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -330,43 +316,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>porcentaje Asignacion</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox20">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Proceso</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox20</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -458,7 +416,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>precio</rd:DefaultName>
@@ -488,7 +448,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>desempate</rd:DefaultName>
@@ -518,7 +480,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>energia_max_dia</rd:DefaultName>
@@ -548,7 +512,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>asignacion</rd:DefaultName>
@@ -578,40 +544,12 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>porcentajeAsignacion</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Proceso">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Proceso.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Proceso</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -638,7 +576,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -652,11 +589,11 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.21403cm</Top>
-        <Left>0.37253cm</Left>
+        <Top>2.97603cm</Top>
+        <Left>0.11853cm</Left>
         <Height>1.53867cm</Height>
-        <Width>19.52967cm</Width>
-        <ZIndex>4</ZIndex>
+        <Width>19.78367cm</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -664,10 +601,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.50833in</Height>
+    <Height>1.8in</Height>
     <Style />
   </Body>
-  <Width>7.91051in</Width>
+  <Width>7.9235in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
