@@ -114,7 +114,7 @@ namespace UpmeSubasta2019
                         int numRegistrosInsertados = DAL.ExecuteQueryParametro(spCarga.Sql, spCarga.Parametro, dtDatos);
                         if (numRegistrosLeidos != numRegistrosInsertados)
                         {
-                             mensaje = string.Format("Numero de registros leidos de Generadores no es igual a los insertados... \r\n Nombre de la consulta: {0}", nombreConsulta);
+                             mensaje = string.Format("Numero de registros leidos de {0} no es igual a los insertados... \r\n Nombre de la consulta: {1}", consultaBd.Tipo, nombreConsulta);
                             LogError(mensaje, consultaBd.Tipo, consultaBd.Proceso);
                             return false;
                         }
@@ -141,7 +141,7 @@ namespace UpmeSubasta2019
 
         public bool LimpiarTablas()
         {
-            string errorTipo = "Carga de Ofertas Upme Sobre 1";
+            string errorTipo = "Borrado de datos Upme Sobre 1";
             try
             {
                 var consultasBorrar = DAL.ExecuteQuery("SELECT * FROM ConsultasBD WHERE Operacion = 'delete' AND Proceso = 'sobre1' AND BD =  'sql'");
@@ -154,7 +154,7 @@ namespace UpmeSubasta2019
             }
             catch (Exception error)
             {
-                var mensaje = string.Format("Error en la lectura de las ofertas... {0}\r\n", error.Message);
+                var mensaje = string.Format("Error en borrado de las ofertas... {0}\r\n", error.Message);
                 LogError(mensaje, errorTipo, errorTipo, true);
                 return false;
             }

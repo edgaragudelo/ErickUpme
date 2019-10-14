@@ -1,26 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UpmeSubasta2019.Data;
 using System.Data;
+using System.Linq;
+
 namespace UpmeSubasta2019
 {
     /// <summary>
-    /// Interaction logic for Paso1.xaml
+    /// Paso 1
     /// </summary>
-    /// //Hola 3
-    /// //Hola 2
     public partial class Paso1 : UserControl
     {
         public Paso1()
@@ -28,10 +17,10 @@ namespace UpmeSubasta2019
             DataContext = new Paso1ViewModel();
             InitializeComponent();
             mensajeErrorLabel.Content = "";
-            ConsultarDatos();
-            //Leer de la Base de datos
 
-            // Asignar valor a cada textbox
+            LimpiarTablaParametros();
+            CargarParametros();
+            MostrarDatos();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -44,7 +33,65 @@ namespace UpmeSubasta2019
             Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
         }
 
-        private void ConsultarDatos()
+        public bool LimpiarTablaParametros()
+        {
+            string errorTipo = "Carga de Parámetros Upme";
+            try
+            {
+                var consultasBorrar = DAL.ExecuteQuery("SELECT * FROM ConsultasBD WHERE Operacion = 'delete' AND Proceso = 'paso1' AND BD =  'sql'");
+                var consultasBorrarTablasSql = Helper.ConvertDataTableToList<ConsultasBd>(consultasBorrar);
+                foreach (var consultaBd in consultasBorrarTablasSql)
+                {
+                    DAL.ExecuteQueryNormal(consultaBd.Sql);
+                }
+                return true;
+            }
+            catch (Exception error)
+            {
+                var mensaje = string.Format("Error en borrado de los parametros... {0}\r\n", error.Message);
+                LogError(mensaje, errorTipo, errorTipo, true);
+                return false;
+            }
+        }
+
+        private bool CargarParametros()
+        {
+            var nombreConsulta = string.Empty;
+            var mensaje = string.Empty; string errorTipo = "Carga de Parámetros Upme";
+
+            try
+            {
+                var dt = DAL.ExecuteQuery("SELECT * FROM ConsultasBD WHERE (Proceso = 'paso1')");
+                var consultas = Helper.ConvertDataTableToList<ConsultasBd>(dt);
+                var consultasPostgresql = consultas.First(c => c.Operacion == "query");
+
+                nombreConsulta = consultasPostgresql.Nombre;
+                var dtDatos = DAL.ExecuteQueryPostgres(consultasPostgresql.Sql);
+                int numRegistrosLeidos = dtDatos.Rows.Count;
+                if (numRegistrosLeidos > 0)
+                {
+                    var spCarga = consultas.First(c => c.Operacion == "grabar" && c.Tipo == consultasPostgresql.Tipo && c.Proceso == consultasPostgresql.Proceso);
+                    int numRegistrosInsertados = DAL.ExecuteQueryParametro(spCarga.Sql, spCarga.Parametro, dtDatos);
+                    if (numRegistrosLeidos != numRegistrosInsertados)
+                    {
+                        mensaje = string.Format("Numero de registros leidos de {0} no es igual a los insertados... \r\n Nombre de la consulta: {1}", consultasPostgresql.Tipo, nombreConsulta);
+                        LogError(mensaje, consultasPostgresql.Tipo, consultasPostgresql.Proceso);
+                        return false;
+                    }
+                }
+                mensaje = string.Format("Se cargaron los datos de {0} de {1}\r\n", consultasPostgresql.Tipo, consultasPostgresql.Proceso);
+                DAL.InsertarLog(mensaje, consultasPostgresql.Tipo, consultasPostgresql.Proceso);
+                return true;
+            }
+            catch (Exception error)
+            {
+                mensaje = string.Format("Error en la lectura de los parametros... {0}\r\nNombre de la consulta: {1}", error.Message, nombreConsulta);
+                LogError(mensaje, errorTipo, errorTipo, true);
+                return false;
+            }
+        }
+
+        private void MostrarDatos()
         {
             string QueryParametros = null;
             string Mensaje = null;
@@ -65,7 +112,6 @@ namespace UpmeSubasta2019
 
             }
 
-
             foreach (DataRow row in dt.Rows)
             {
                 tamanoPaqueteTextBox.Text = row[4].ToString();
@@ -74,37 +120,12 @@ namespace UpmeSubasta2019
                 demandaObjetivoTextBox.Text = row[1].ToString();
 
             }
-
-
         }
 
-        private void GuardarParametros(object sender, RoutedEventArgs e)
+        private void LogError(string mensaje, string tipo, string proceso, bool messageBox = false)
         {
-            double tamanoPaquete;
-            double precioTope;
-            double precioMaximo;
-            double demandaObjetivo;
-            string msg = string.Empty;
-            
-
-                if (!double.TryParse(tamanoPaqueteTextBox.Text, out tamanoPaquete))
-            {
-                msg += "Error: El valor en el campo Tamaño Paquete debe ser numérico." + System.Environment.NewLine;
-            }
-            if (!double.TryParse(TopeMaximoPromedioTextBox.Text, out precioTope))
-            {
-                msg += "Error: El valor en el campo Precio Tope debe ser numérico." + System.Environment.NewLine;
-            }
-            if (!double.TryParse(TopeMaximoIndividualTextBox.Text, out precioMaximo))
-            {
-                msg += "Error: El valor en el campo Precio Máximo de venta debe ser numérico." + System.Environment.NewLine;
-            }
-            if (!double.TryParse(demandaObjetivoTextBox.Text, out demandaObjetivo))
-            {
-                msg += "Error: El valor en el campoDemanda Objetivo debe ser numérico." + System.Environment.NewLine;
-            }
-
-            mensajeErrorLabel.Content = msg;
+            DAL.InsertarLog(mensaje, tipo, proceso);
+            if (messageBox) MessageBox.Show(mensaje, "Error");
         }
     }
 }
