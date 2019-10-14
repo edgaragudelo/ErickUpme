@@ -6,8 +6,8 @@
         <Source>Embedded</Source>
         <Value>LogoUpme1</Value>
         <Sizing>FitProportional</Sizing>
-        <Height>1.66694cm</Height>
-        <Width>4.34891cm</Width>
+        <Height>1.91064cm</Height>
+        <Width>4.51824cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -26,7 +26,7 @@
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
@@ -69,8 +69,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.36688cm</Top>
-        <Left>7.72906cm</Left>
+        <Top>2.00188cm</Top>
+        <Left>0.09525cm</Left>
         <Height>0.6cm</Height>
         <Width>3.85996cm</Width>
         <ZIndex>2</ZIndex>
@@ -91,7 +91,7 @@
               <Width>5.8474cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.69691cm</Width>
+              <Width>4.35308cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.87583cm</Width>
@@ -148,7 +148,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Capacidad Empresa</Value>
+                              <Value>Capacidad Empresa MW</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -180,7 +180,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Capacidad Total</Value>
+                              <Value>Capacidad Total MW</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -312,10 +312,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!SumaCapacidadMax.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>n2</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>SumaCapacidadMax</rd:DefaultName>
@@ -342,10 +346,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CapacidadMaxTotal.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>n2</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>CapacidadMaxTotal</rd:DefaultName>
@@ -372,10 +380,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Criterio.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>n4</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Criterio</rd:DefaultName>
@@ -405,7 +417,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Cumple</rd:DefaultName>
@@ -447,10 +461,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.08703cm</Top>
+        <Top>2.72203cm</Top>
         <Left>0.11853cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.68472cm</Width>
+        <Width>19.34089cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -463,8 +477,8 @@
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.06247cm</Top>
-        <Left>14.68341cm</Left>
-        <Height>2.02875cm</Height>
+        <Left>15.24643cm</Left>
+        <Height>2.48317cm</Height>
         <Width>4.21299cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -474,13 +488,13 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.34791in</Height>
+    <Height>1.58124in</Height>
     <Style />
   </Body>
-  <Width>7.4704in</Width>
+  <Width>7.75285in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <InteractiveHeight>21.59cm</InteractiveHeight>
     <InteractiveWidth>45cm</InteractiveWidth>
     <LeftMargin>2cm</LeftMargin>

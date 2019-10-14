@@ -10,15 +10,17 @@
             <TextRuns>
               <TextRun>
                 <Value>="Asignación de Contratos ASIC " + First(Fields!Proceso.Value, "DataSet1")</Value>
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.90712cm</Top>
-        <Left>16.93577cm</Left>
+        <Top>2.22462cm</Top>
+        <Left>0.10827cm</Left>
         <Height>0.6cm</Height>
         <Width>6.75905cm</Width>
         <Style>
@@ -31,20 +33,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="Image4">
-        <Source>Embedded</Source>
-        <Value>LogoUpme1</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.15875cm</Top>
-        <Height>2.20289cm</Height>
-        <Width>4.83574cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox7">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -57,7 +45,7 @@
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
@@ -73,7 +61,7 @@
         <Left>16.94032cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -89,10 +77,10 @@
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.15875cm</Top>
-        <Left>36.07716cm</Left>
-        <Height>2.20289cm</Height>
+        <Left>36.56322cm</Left>
+        <Height>2.93723cm</Height>
         <Width>4.70513cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -185,9 +173,6 @@
             </TablixColumn>
             <TablixColumn>
               <Width>1.35181cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.63216cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1118,39 +1103,6 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox4">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Proceso</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -2052,45 +2004,12 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Proceso">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Proceso.Value</Value>
-                              <Style>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Proceso</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>1pt</PaddingLeft>
-                        <PaddingRight>1pt</PaddingRight>
-                        <PaddingTop>1pt</PaddingTop>
-                        <PaddingBottom>1pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -2135,11 +2054,10 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.63737cm</Top>
-        <Left>0.3175cm</Left>
+        <Top>2.95487cm</Top>
         <Height>1.2cm</Height>
-        <Width>42.58301cm</Width>
-        <ZIndex>4</ZIndex>
+        <Width>40.95085cm</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2147,8 +2065,21 @@
           <FontSize>8pt</FontSize>
         </Style>
       </Tablix>
+      <Image Name="Image5">
+        <Source>Embedded</Source>
+        <Value>LogoUpme1</Value>
+        <Sizing>FitProportional</Sizing>
+        <Height>2.07292cm</Height>
+        <Width>6.77092cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
-    <Height>3.125in</Height>
+    <Height>1.68333in</Height>
     <Style />
   </Body>
   <Width>16.96497in</Width>

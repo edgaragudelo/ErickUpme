@@ -86,8 +86,10 @@ namespace UpmeSubasta2019
             LogOfertas.ScrollToEnd();
         }
 
-        public bool CargarOfertasDePostgresql()
+        public bool CargarOfertasDePostgresql(string QueryaCargar)
         {
+            // QueryaCargar = Tendra la condicion que determina cuales tablas va a cargar
+            // PErmitir carga una tabla especifica o todas
             bool resultado = false;
             var nombreConsulta = string.Empty;
             string errorTipo = "Carga de Ofertas Upme Sobre 1";
@@ -99,7 +101,8 @@ namespace UpmeSubasta2019
                 LogOfertas.Text += mensaje;
                 DAL.InsertarLog(mensaje, "", "Sobre1");
 
-                var dt = DAL.ExecuteQuery("SELECT * FROM ConsultasBD WHERE (Operacion = 'query' OR Operacion = 'grabar') AND Proceso = 'sobre1'");
+                //var dt = DAL.ExecuteQuery("SELECT * FROM ConsultasBD WHERE (Operacion = 'query' OR Operacion = 'grabar') AND Proceso = 'sobre1'");
+                var dt = DAL.ExecuteQuery(QueryaCargar);
                 var consultas = Helper.ConvertDataTableToList<ConsultasBd>(dt);
                 var consultasPostgresql = consultas.Where(c => c.Operacion == "query");
 
@@ -177,7 +180,7 @@ namespace UpmeSubasta2019
                 var resultado = LimpiarTablas();
                 if (resultado)
                 {
-                    resultado = CargarOfertasDePostgresql();
+                    resultado = CargarOfertasDePostgresql("SELECT * FROM ConsultasBD WHERE (Operacion = 'query' OR Operacion = 'grabar') AND Proceso = 'sobre1'");
                     if (resultado)
                     {
                         MostrarResumenOfertasCompra();

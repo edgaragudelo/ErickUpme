@@ -571,7 +571,6 @@
   <ItemGroup>
     <Resource Include="MINMINAS.png" />
     <Resource Include="RIGHTSIDE.png" />
-    <Resource Include="logoUpme.png" />
     <Resource Include="rightside.jpg" />
   </ItemGroup>
   <ItemGroup>

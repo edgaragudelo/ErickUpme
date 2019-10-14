@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultaDatosOfertaCompraTableAdapter" GeneratorDataComponentClassName="ConsultaDatosOfertaCompraTableAdapter" Name="ConsultaDatosOfertaCompra" UserDataComponentName="ConsultaDatosOfertaCompraTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SubastaConnectionString (Settings)" DbObjectName="Subasta.dbo.ConsultaDatosOfertaCompra" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="SubastaConnectionString (Settings)" DbObjectName="Subasta.dbo.ConsultaDatosOfertaCompra" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ConsultaDatosOfertaCompra</CommandText>
@@ -26,10 +26,10 @@
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="ID_oferta" DataSetColumn="ID_oferta" />
               <Mapping SourceColumn="energiaMax" DataSetColumn="energiaMax" />
-              <Mapping SourceColumn="precio" DataSetColumn="precio" />
-              <Mapping SourceColumn="ordenllegada" DataSetColumn="ordenllegada" />
               <Mapping SourceColumn="Sobre" DataSetColumn="Sobre" />
               <Mapping SourceColumn="Proceso" DataSetColumn="Proceso" />
+              <Mapping SourceColumn="precio" DataSetColumn="precio" />
+              <Mapping SourceColumn="ordenllegada" DataSetColumn="ordenllegada" />
               <Mapping SourceColumn="energiaMin" DataSetColumn="energiaMin" />
             </Mappings>
             <Sources />
@@ -42,7 +42,7 @@
   <xs:element name="OfertasCompraSobre1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="OfertasCompraSobre1" msprop:Generator_UserDSName="OfertasCompraSobre1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ConsultaDatosOfertaCompra" msprop:Generator_TableClassName="ConsultaDatosOfertaCompraDataTable" msprop:Generator_TableVarName="tableConsultaDatosOfertaCompra" msprop:Generator_TablePropName="ConsultaDatosOfertaCompra" msprop:Generator_RowDeletingName="ConsultaDatosOfertaCompraRowDeleting" msprop:Generator_RowChangingName="ConsultaDatosOfertaCompraRowChanging" msprop:Generator_RowEvHandlerName="ConsultaDatosOfertaCompraRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaDatosOfertaCompraRowDeleted" msprop:Generator_UserTableName="ConsultaDatosOfertaCompra" msprop:Generator_RowChangedName="ConsultaDatosOfertaCompraRowChanged" msprop:Generator_RowEvArgName="ConsultaDatosOfertaCompraRowChangeEvent" msprop:Generator_RowClassName="ConsultaDatosOfertaCompraRow">
+        <xs:element name="ConsultaDatosOfertaCompra" msprop:Generator_TableClassName="ConsultaDatosOfertaCompraDataTable" msprop:Generator_TableVarName="tableConsultaDatosOfertaCompra" msprop:Generator_RowChangedName="ConsultaDatosOfertaCompraRowChanged" msprop:Generator_TablePropName="ConsultaDatosOfertaCompra" msprop:Generator_RowDeletingName="ConsultaDatosOfertaCompraRowDeleting" msprop:Generator_RowChangingName="ConsultaDatosOfertaCompraRowChanging" msprop:Generator_RowEvHandlerName="ConsultaDatosOfertaCompraRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaDatosOfertaCompraRowDeleted" msprop:Generator_RowClassName="ConsultaDatosOfertaCompraRow" msprop:Generator_UserTableName="ConsultaDatosOfertaCompra" msprop:Generator_RowEvArgName="ConsultaDatosOfertaCompraRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
@@ -59,7 +59,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="energiaMax" msprop:Generator_ColumnVarNameInTable="columnenergiaMax" msprop:Generator_ColumnPropNameInRow="energiaMax" msprop:Generator_ColumnPropNameInTable="energiaMaxColumn" msprop:Generator_UserColumnName="energiaMax" type="xs:float" />
+              <xs:element name="energiaMax" msprop:Generator_ColumnVarNameInTable="columnenergiaMax" msprop:Generator_ColumnPropNameInRow="energiaMax" msprop:Generator_ColumnPropNameInTable="energiaMaxColumn" msprop:Generator_UserColumnName="energiaMax" type="xs:float" minOccurs="0" />
               <xs:element name="Sobre" msprop:Generator_ColumnVarNameInTable="columnSobre" msprop:Generator_ColumnPropNameInRow="Sobre" msprop:Generator_ColumnPropNameInTable="SobreColumn" msprop:Generator_UserColumnName="Sobre" type="xs:int" />
               <xs:element name="Proceso" msprop:Generator_ColumnVarNameInTable="columnProceso" msprop:Generator_ColumnPropNameInRow="Proceso" msprop:Generator_ColumnPropNameInTable="ProcesoColumn" msprop:Generator_UserColumnName="Proceso">
                 <xs:simpleType>
@@ -68,6 +68,9 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:float" minOccurs="0" />
+              <xs:element name="ordenllegada" msprop:Generator_ColumnVarNameInTable="columnordenllegada" msprop:Generator_ColumnPropNameInRow="ordenllegada" msprop:Generator_ColumnPropNameInTable="ordenllegadaColumn" msprop:Generator_UserColumnName="ordenllegada" type="xs:int" />
+              <xs:element name="energiaMin" msprop:Generator_ColumnVarNameInTable="columnenergiaMin" msprop:Generator_ColumnPropNameInRow="energiaMin" msprop:Generator_ColumnPropNameInTable="energiaMinColumn" msprop:Generator_UserColumnName="energiaMin" type="xs:float" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UpmeSubasta2019.Data;
 using System.Data;
+
 namespace UpmeSubasta2019
 {
     /// <summary>
@@ -50,6 +51,8 @@ namespace UpmeSubasta2019
             string Mensaje = null;
             DataTable dt = null;
             QueryParametros = "SELECT [IdParametroSubasta],[DemandaObjetivo],[TopeMaximoPromedio],[TopeMaximoIndividual],[TamanoPaquete] FROM[dbo].[ParametrosSubasta]";
+
+            //var resultado = UpmeSubasta2019.   CargarOfertasDePostgresql("SELECT * FROM ConsultasBD WHERE (Operacion = 'query' OR Operacion = 'grabar') AND Proceso = 'sobre1'");
 
             try
             {

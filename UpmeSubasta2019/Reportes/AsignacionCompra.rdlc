@@ -600,14 +600,28 @@
           </Border>
         </Style>
       </Tablix>
+      <Image Name="Image5">
+        <Source>Embedded</Source>
+        <Value>LogoUpme1</Value>
+        <Sizing>FitProportional</Sizing>
+        <Left>0.17632cm</Left>
+        <Height>2.07292cm</Height>
+        <Width>6.77092cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>1.8in</Height>
     <Style />
   </Body>
   <Width>7.9235in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
