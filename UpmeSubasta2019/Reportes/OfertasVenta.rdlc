@@ -748,6 +748,11 @@
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!precio.Value</Value>
+          </SortExpression>
+        </SortExpressions>
         <Top>2.46195cm</Top>
         <Left>0.20849cm</Left>
         <Height>1.37668cm</Height>
@@ -855,7 +860,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>7.41745cm</Left>
           <Height>0.6cm</Height>
           <Width>1.484cm</Width>
@@ -879,6 +883,7 @@
                   <Value>=Sum(Fields!precio.Value, "DataSet1")</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
+                    <Format>n2</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -886,7 +891,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>12.72328cm</Left>
           <Height>0.55202cm</Height>
           <Width>1.90733cm</Width>

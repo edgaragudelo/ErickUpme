@@ -6,15 +6,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="428.673" Width="1024">
     <Grid>
-        <Label Content="Tamaño del Paquete MWh" HorizontalAlignment="Left" Margin="48,23,0,0" VerticalAlignment="Top" Width="149"/>
-        <TextBox x:Name="tamanoPaqueteTextBox" HorizontalAlignment="Left" Height="23" Margin="202,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Tope Máximo Promedio $/kWh" HorizontalAlignment="Left" Margin="22,55,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TopeMaximoPromedioTextBox" HorizontalAlignment="Left" Height="23" Margin="202,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Demanda Objetivo MWh/dia" HorizontalAlignment="Left" Margin="35,86,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="demandaObjetivoTextBox" HorizontalAlignment="Left" Height="23" Margin="202,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Tope Máximo Individual $/kWh" HorizontalAlignment="Left" Margin="20,115,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TopeMaximoIndividualTextBox" HorizontalAlignment="Left" Height="23" Margin="202,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tamaño del Paquete MWh" HorizontalAlignment="Left" Margin="48,65,0,0" VerticalAlignment="Top" Width="149"/>
+        <TextBox x:Name="tamanoPaqueteTextBox" HorizontalAlignment="Left" Height="23" Margin="202,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tope Máximo Promedio $/kWh" HorizontalAlignment="Left" Margin="22,97,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TopeMaximoPromedioTextBox" HorizontalAlignment="Left" Height="23" Margin="202,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Demanda Objetivo MWh/dia" HorizontalAlignment="Left" Margin="35,128,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="demandaObjetivoTextBox" HorizontalAlignment="Left" Height="23" Margin="202,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tope Máximo Individual $/kWh" HorizontalAlignment="Left" Margin="20,157,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TopeMaximoIndividualTextBox" HorizontalAlignment="Left" Height="23" Margin="202,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="203,382,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.458,5.027" Visibility="Hidden"/>
         <Label x:Name="mensajeErrorLabel" Content="" HorizontalAlignment="Left" Margin="32,208,0,0" VerticalAlignment="Top" Width="366" Height="113"/>
+        <Label Content="Parametros Subasta" HorizontalAlignment="Left" Margin="348,36,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

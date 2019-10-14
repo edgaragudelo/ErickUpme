@@ -61,7 +61,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="Sobre 1 Generadores " + First(Fields!Proceso.Value, "DataSet1")</Value>
+                <Value>="Generadores Sobre No: 1 "</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -93,12 +93,15 @@
               <Width>9.00517cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.25683cm</Width>
+              <Width>2.54845cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.3255cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.87517cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -141,7 +144,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Capacidad Maxima MW</Value>
+                              <Value>Capacidad Maxima MWh</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -151,6 +154,38 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Energia Maxima Garantizada kWh</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -229,12 +264,43 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="energiamaximagarantizada">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!energiamaximagarantizada.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>energiamaximagarantizada</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
           </TablixMembers>
@@ -252,8 +318,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>3.03953cm</Top>
         <Left>0.1397cm</Left>
-        <Height>1.2cm</Height>
-        <Width>13.262cm</Width>
+        <Height>1.47517cm</Height>
+        <Width>14.87912cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -276,10 +342,10 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.66911in</Height>
+    <Height>1.77744in</Height>
     <Style />
   </Body>
-  <Width>6.30867in</Width>
+  <Width>6.292in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
@@ -326,6 +392,14 @@
         <Field Name="Proceso">
           <DataField>Proceso</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="codigoempresa">
+          <DataField>codigoempresa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="energiamaximagarantizada">
+          <DataField>energiamaximagarantizada</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

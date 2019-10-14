@@ -123,7 +123,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Sobre 1 Comercializadores " + First(Fields!Proceso.Value, "DataSet1")</Value>
+                    <Value>="Comercializadores Sobre No: " + str(First(Fields!Sobre.Value, "DataSet1"))</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>

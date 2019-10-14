@@ -289,6 +289,10 @@ namespace UpmeSubasta2019 {
             
             private global::System.Data.DataColumn columnProceso;
             
+            private global::System.Data.DataColumn columncodigoempresa;
+            
+            private global::System.Data.DataColumn columnenergiamaximagarantizada;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConsultaDatosProyectosDataTable() {
@@ -364,6 +368,22 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn codigoempresaColumn {
+                get {
+                    return this.columncodigoempresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn energiamaximagarantizadaColumn {
+                get {
+                    return this.columnenergiamaximagarantizada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +419,16 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ConsultaDatosProyectosRow AddConsultaDatosProyectosRow(string nombre, float capacidadMaxima, float factorPlanta, string empresa, string Proceso) {
+            public ConsultaDatosProyectosRow AddConsultaDatosProyectosRow(string nombre, float capacidadMaxima, float factorPlanta, string empresa, string Proceso, string codigoempresa, float energiamaximagarantizada) {
                 ConsultaDatosProyectosRow rowConsultaDatosProyectosRow = ((ConsultaDatosProyectosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
                         capacidadMaxima,
                         factorPlanta,
                         empresa,
-                        Proceso};
+                        Proceso,
+                        codigoempresa,
+                        energiamaximagarantizada};
                 rowConsultaDatosProyectosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConsultaDatosProyectosRow);
                 return rowConsultaDatosProyectosRow;
@@ -441,6 +463,8 @@ namespace UpmeSubasta2019 {
                 this.columnfactorPlanta = base.Columns["factorPlanta"];
                 this.columnempresa = base.Columns["empresa"];
                 this.columnProceso = base.Columns["Proceso"];
+                this.columncodigoempresa = base.Columns["codigoempresa"];
+                this.columnenergiamaximagarantizada = base.Columns["energiamaximagarantizada"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -456,6 +480,10 @@ namespace UpmeSubasta2019 {
                 base.Columns.Add(this.columnempresa);
                 this.columnProceso = new global::System.Data.DataColumn("Proceso", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProceso);
+                this.columncodigoempresa = new global::System.Data.DataColumn("codigoempresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigoempresa);
+                this.columnenergiamaximagarantizada = new global::System.Data.DataColumn("energiamaximagarantizada", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnenergiamaximagarantizada);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnombre}, true));
                 this.columnnombre.AllowDBNull = false;
@@ -463,8 +491,10 @@ namespace UpmeSubasta2019 {
                 this.columnnombre.MaxLength = 50;
                 this.columncapacidadMaxima.AllowDBNull = false;
                 this.columnfactorPlanta.AllowDBNull = false;
+                this.columnempresa.AllowDBNull = false;
                 this.columnempresa.MaxLength = 50;
                 this.columnProceso.MaxLength = 10;
+                this.columncodigoempresa.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -642,12 +672,7 @@ namespace UpmeSubasta2019 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableConsultaDatosProyectos.empresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'empresa\' de la tabla \'ConsultaDatosProyectos\' es DBNull.", e);
-                    }
+                    return ((string)(this[this.tableConsultaDatosProyectos.empresaColumn]));
                 }
                 set {
                     this[this.tableConsultaDatosProyectos.empresaColumn] = value;
@@ -672,14 +697,36 @@ namespace UpmeSubasta2019 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsempresaNull() {
-                return this.IsNull(this.tableConsultaDatosProyectos.empresaColumn);
+            public string codigoempresa {
+                get {
+                    try {
+                        return ((string)(this[this.tableConsultaDatosProyectos.codigoempresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codigoempresa\' de la tabla \'ConsultaDatosProyectos\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableConsultaDatosProyectos.codigoempresaColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetempresaNull() {
-                this[this.tableConsultaDatosProyectos.empresaColumn] = global::System.Convert.DBNull;
+            public float energiamaximagarantizada {
+                get {
+                    try {
+                        return ((float)(this[this.tableConsultaDatosProyectos.energiamaximagarantizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'energiamaximagarantizada\' de la tabla \'ConsultaDatosProye" +
+                                "ctos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConsultaDatosProyectos.energiamaximagarantizadaColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -692,6 +739,30 @@ namespace UpmeSubasta2019 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetProcesoNull() {
                 this[this.tableConsultaDatosProyectos.ProcesoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscodigoempresaNull() {
+                return this.IsNull(this.tableConsultaDatosProyectos.codigoempresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcodigoempresaNull() {
+                this[this.tableConsultaDatosProyectos.codigoempresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsenergiamaximagarantizadaNull() {
+                return this.IsNull(this.tableConsultaDatosProyectos.energiamaximagarantizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetenergiamaximagarantizadaNull() {
+                this[this.tableConsultaDatosProyectos.energiamaximagarantizadaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -859,6 +930,8 @@ namespace UpmeSubasta2019.SubastaDataSet2TableAdapters {
             tableMapping.ColumnMappings.Add("factorPlanta", "factorPlanta");
             tableMapping.ColumnMappings.Add("empresa", "empresa");
             tableMapping.ColumnMappings.Add("Proceso", "Proceso");
+            tableMapping.ColumnMappings.Add("codigoempresa", "codigoempresa");
+            tableMapping.ColumnMappings.Add("energiamaximagarantizada", "energiamaximagarantizada");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

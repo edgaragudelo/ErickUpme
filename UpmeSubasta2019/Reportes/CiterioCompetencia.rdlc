@@ -91,7 +91,7 @@
               <Width>5.8474cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.35308cm</Width>
+              <Width>3.63871cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.87583cm</Width>
@@ -105,7 +105,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.02333cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -148,9 +148,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Capacidad Empresa MW</Value>
+                              <Value>Cantidad Máxima de energia kWh-d</Value>
                               <Style>
+                                <FontStyle>Normal</FontStyle>
                                 <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -180,9 +183,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Capacidad Total MW</Value>
+                              <Value>Cantidad Maxima Total kWh-d</Value>
                               <Style>
+                                <FontStyle>Normal</FontStyle>
                                 <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -463,8 +469,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.72203cm</Top>
         <Left>0.11853cm</Left>
-        <Height>1.2cm</Height>
-        <Width>19.34089cm</Width>
+        <Height>1.62333cm</Height>
+        <Width>18.62652cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -488,7 +494,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.58124in</Height>
+    <Height>1.71077in</Height>
     <Style />
   </Body>
   <Width>7.75285in</Width>
