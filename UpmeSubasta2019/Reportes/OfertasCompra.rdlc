@@ -496,10 +496,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.54cm</Top>
+        <Top>3.33375cm</Top>
         <Left>0.07298cm</Left>
         <Height>1.62333cm</Height>
-        <Width>23.64955cm</Width>
+        <Width>23.64956cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -518,7 +518,7 @@
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
@@ -530,7 +530,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Left>6.59553cm</Left>
+        <Left>7.86553cm</Left>
         <Height>1.28383cm</Height>
         <Width>6.7545cm</Width>
         <ZIndex>1</ZIndex>
@@ -549,25 +549,10 @@
         <Value>MINMINAS</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.1402cm</Top>
-        <Left>19.54657cm</Left>
-        <Height>2.20289cm</Height>
-        <Width>4.17596cm</Width>
+        <Left>19.26462cm</Left>
+        <Height>3.01716cm</Height>
+        <Width>4.45792cm</Width>
         <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="Image4">
-        <Source>Embedded</Source>
-        <Value>LogoUpme1</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.1402cm</Top>
-        <Left>0.13271cm</Left>
-        <Height>1.66694cm</Height>
-        <Width>4.34891cm</Width>
-        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -591,11 +576,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
-        <Top>1.50495cm</Top>
-        <Left>5.84412cm</Left>
+        <Top>2.57528cm</Top>
+        <Left>0.07298cm</Left>
         <Height>0.6cm</Height>
         <Width>7.79695cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -606,8 +591,23 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Image Name="Image2">
+        <Source>Embedded</Source>
+        <Value>logoUpme</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.1402cm</Top>
+        <Left>0.07298cm</Left>
+        <Height>2.3998cm</Height>
+        <Width>5.36292cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
-    <Height>1.71202in</Height>
+    <Height>1.98285in</Height>
     <Style />
   </Body>
   <Width>9.4125in</Width>

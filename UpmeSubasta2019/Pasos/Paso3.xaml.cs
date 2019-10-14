@@ -56,9 +56,9 @@ namespace UpmeSubasta2019
             }
             else
             {
-                Mensaje = "No existen datos de la consulta de datos resumen de las ofertas ..." + "\r\n";
+                Mensaje = "No existen datos de la consulta de datos ..." + "\r\n";
                 LogOfertas.Text = LogOfertas.Text + Mensaje;
-                DAL.InsertarLog(Mensaje, "Resumen de Ofertas Venta", "Resumen de Ofertas Venta");
+                DAL.InsertarLog(Mensaje, "Ofertas reporte " + archivopdf, "Ofertas reporte " + archivopdf);
             }
 
         }
@@ -249,7 +249,13 @@ namespace UpmeSubasta2019
 
         private void MostrarOfertas(object sender, RoutedEventArgs e)
         {
-            MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 2, Subasta", 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompra");
+            //MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 2, Subasta", 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompra");
+            //MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaVenta] 2, Subasta", 2, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc", "OfertaVenta");
+
+            MostrarOfertasCompra();
+            MostrarOfertasVenta();
+
+
         }
 
         public void MostrarOfertasCompra()

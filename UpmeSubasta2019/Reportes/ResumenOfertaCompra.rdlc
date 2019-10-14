@@ -10,17 +10,19 @@
             <TextRuns>
               <TextRun>
                 <Value>Resumen Comercializadores</Value>
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.45203cm</Top>
-        <Left>6.04857cm</Left>
+        <Top>2.49978cm</Top>
+        <Left>0.04782cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.66134cm</Width>
+        <Width>5.16934cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -199,7 +201,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.21403cm</Top>
+        <Top>3.16653cm</Top>
         <Left>0.05841cm</Left>
         <Height>0.98834cm</Height>
         <Width>10.6515cm</Width>
@@ -222,7 +224,7 @@
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>12pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
@@ -254,7 +256,7 @@
         <Sizing>FitProportional</Sizing>
         <Top>0.0635cm</Top>
         <Left>0.06921cm</Left>
-        <Height>1.66694cm</Height>
+        <Height>2.25989cm</Height>
         <Width>4.34891cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -269,7 +271,7 @@
         <Sizing>FitProportional</Sizing>
         <Top>0.02544cm</Top>
         <Left>11.58305cm</Left>
-        <Height>2.02875cm</Height>
+        <Height>2.29795cm</Height>
         <Width>4.21299cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -279,7 +281,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.31875in</Height>
+    <Height>1.63578in</Height>
     <Style />
   </Body>
   <Width>6.21891in</Width>

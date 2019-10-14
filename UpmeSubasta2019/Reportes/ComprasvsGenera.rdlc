@@ -259,6 +259,7 @@
                       <Caption>Total en Mw</Caption>
                       <Style>
                         <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                         <Color>#5c5c5c</Color>
                       </Style>
                     </ChartAxisTitle>
@@ -453,7 +454,7 @@
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
+                      <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
@@ -488,7 +489,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Sobre 1 Compradores vs Generadores</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
@@ -533,8 +536,8 @@
       </Body>
       <Width>6.1835in</Width>
       <Page>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>21cm</PageWidth>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>
         <RightMargin>2cm</RightMargin>
         <TopMargin>2cm</TopMargin>

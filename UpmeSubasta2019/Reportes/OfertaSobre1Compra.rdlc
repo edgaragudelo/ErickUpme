@@ -37,6 +37,18 @@
           <DataField>Proceso</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="precio">
+          <DataField>precio</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="ordenllegada">
+          <DataField>ordenllegada</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="energiaMin">
+          <DataField>energiaMin</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>OfertasCompraSobre1</rd:DataSetName>
@@ -57,8 +69,8 @@
             <Value>LogoUpme1</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.02265cm</Top>
-            <Height>1.66694cm</Height>
-            <Width>3.58691cm</Width>
+            <Height>2.09522cm</Height>
+            <Width>3.80993cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -77,7 +89,7 @@
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
+                      <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
@@ -111,18 +123,20 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Sobre 1 Comercializadores</Value>
-                    <Style />
+                    <Value>="Sobre 1 Comercializadores " + First(Fields!Proceso.Value, "DataSet1")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>1.34176cm</Top>
-            <Left>4.85944cm</Left>
+            <Top>2.29426cm</Top>
+            <Left>0.09694cm</Left>
             <Height>0.57354cm</Height>
-            <Width>4.65371cm</Width>
+            <Width>7.23604cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -138,13 +152,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>5.4159cm</Width>
+                  <Width>9.43695cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>4.02105cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.008cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -215,38 +226,6 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox6">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Proceso</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -292,43 +271,15 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!energiaMax.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>n2</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>energiaMax</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Proceso">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Proceso.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Proceso</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -350,7 +301,6 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -364,10 +314,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.9812cm</Top>
+            <Top>2.9337cm</Top>
             <Left>0.0762cm</Left>
             <Height>1.0095cm</Height>
-            <Width>12.44495cm</Width>
+            <Width>13.458cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -380,7 +330,7 @@
             <Value>MINMINAS</Value>
             <Sizing>FitProportional</Sizing>
             <Left>11.29477cm</Left>
-            <Height>1.9153cm</Height>
+            <Height>2.75731cm</Height>
             <Width>4.21299cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -390,13 +340,13 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>1.21911in</Height>
+        <Height>1.58578in</Height>
         <Style />
       </Body>
       <Width>6.10542in</Width>
       <Page>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>21cm</PageWidth>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>
         <RightMargin>2cm</RightMargin>
         <TopMargin>2cm</TopMargin>
