@@ -186,8 +186,8 @@ namespace UpmeSubasta2019
             else
             {
                 MessageBox.Show("El paso ya fue cerrado, los datos de ofertas de sobre 2 ya fueron cargados y validados", "Cierre de pasos");
-                MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 2, Subasta", 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompra");
-                MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaVenta] 2, Subasta", 2, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc", "OfertasVenta");
+                MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 2, Subasta", 2, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompraSobre2");
+                MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaVenta] 2, Subasta", 1, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc", "OfertasVentaSobre2");
             }
         }
 
@@ -261,26 +261,26 @@ namespace UpmeSubasta2019
         public void MostrarOfertasCompra()
         {
             string Query1 = "exec [dbo].[ConsultaDatosOfertaCompra] 2, Subasta";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompra");
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.OfertasCompra.rdlc", "OfertasCompraSobre2");
         }
 
         public void MostrarResumenOfertasVenta()
         {
             string Query1 = "exec [dbo].[ResumenOfertasVenta] 2, Subasta";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc", "ResumenVenta");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc", "ResumenVentaSobre2");
         }
 
 
         public void MostrarResumenOfertasCompra()
         {
             string Query1 = "exec [dbo].[ResumenOfertasCompra] 2, Subasta";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc", "ResumenCompra");
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc", "ResumenCompraSobre2");
         }
 
         public void MostrarOfertasVenta()
         {
             string Query1 = "exec [dbo].[ConsultaDatosOfertaVenta] 2, Subasta";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc", "OfertaVenta");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.OfertasVenta.rdlc", "OfertaVentaSobre2");
         }
     }
 }

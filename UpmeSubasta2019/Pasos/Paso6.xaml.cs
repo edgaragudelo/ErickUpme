@@ -200,6 +200,18 @@ namespace UpmeSubasta2019
 
         }
 
+        private void MostrarGraficoAsignaciones()
+        {
+            {
+                // Instantiate window
+                var asignacionGraficoModalWindow = new AsignacionGrafico();
+
+
+                // Show window modally
+                // NOTE: Returns only when window is closed
+                Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+            }
+        }
 
 
         // private void ExecuteOPL(object sender, DoWorkEventArgs e)
@@ -256,6 +268,7 @@ namespace UpmeSubasta2019
             Mensaje = "Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida Generados");
+            MostrarGraficoAsignaciones();
 
             //}
 

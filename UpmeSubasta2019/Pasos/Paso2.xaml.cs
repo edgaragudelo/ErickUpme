@@ -198,7 +198,7 @@ namespace UpmeSubasta2019
                 MessageBox.Show("El paso ya fue cerrado, los datos de ofertas de sobre 1 ya fueron cargados y validados", "Cierre de pasos");
                 MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 1, Subasta", 1, "UpmeSubasta2019.Reportes.OfertaSobre1Compra.rdlc", "ComercializadoresSobre1");
                 MostrarOfertasTodas("exec [dbo].[ConsultaDatosProyectos] Subasta", 2, "UpmeSubasta2019.Reportes.OfertasSobre1Proyectos.rdlc", "GeneradoresSobre1");
-                MostrarOfertasTodas("exec [dbo].[ComprasvsGeneracion] 1,Subasta", 4, "UpmeSubasta2019.Reportes.ComprasvsGenera.rdlc", "GraficoComprasvsGeneracion");
+                MostrarOfertasTodas("exec [dbo].[ComprasvsGeneracion] 1,Subasta", 4, "UpmeSubasta2019.Reportes.ComprasvsGenera.rdlc", "GraficoComprasvsGeneracionSobre1");
             }
         }
 
@@ -285,7 +285,7 @@ namespace UpmeSubasta2019
                     Mensaje = "Criterios de Competencia Resultados ... CUMPLE" + "\r\n";
                     LogOfertas.Text = LogOfertas.Text + Mensaje;
                     DAL.InsertarLog(Mensaje, "Criterios de Competencia", "Criterios de Competencia");
-                    MessageBox.Show("Criterio de Competencia", "Cumple Criterio de Competencia ");
+                    MessageBox.Show("Cumple Criterio de Competencia ","Criterio de Competencia");
 
                 }
                 MostrarOfertasTodas(QueryCriterios, 3, "UpmeSubasta2019.Reportes.CiterioCompetencia.rdlc", "CrietrioCompetenciaSobre1");
@@ -321,8 +321,8 @@ namespace UpmeSubasta2019
 
         private void MostrarOfertas(object sender, RoutedEventArgs e)
         {
-            MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 1, Subasta", 1, "UpmeSubasta2019.Reportes.OfertaSobre1Compra.rdlc", "ComercializadoresSobre1");
-            MostrarOfertasTodas("exec [dbo].[ConsultaDatosProyectos] Subasta", 2, "UpmeSubasta2019.Reportes.OfertasSobre1Proyectos.rdlc", "GeneradoresSobre1");
+            MostrarOfertasTodas("exec [dbo].[ConsultaDatosOfertaCompra] 1, Subasta", 2, "UpmeSubasta2019.Reportes.OfertaSobre1Compra.rdlc", "ComercializadoresSobre1");
+            MostrarOfertasTodas("exec [dbo].[ConsultaDatosProyectos] Subasta", 1, "UpmeSubasta2019.Reportes.OfertasSobre1Proyectos.rdlc", "GeneradoresSobre1");
             MostrarOfertasTodas("exec [dbo].[ComprasvsGeneracion] 1,Subasta", 4, "UpmeSubasta2019.Reportes.ComprasvsGenera.rdlc", "GraficoComprasvsGeneracion");
         }
 
@@ -335,14 +335,14 @@ namespace UpmeSubasta2019
         public void MostrarResumenOfertasVenta()
         {
             string Query1 = "exec [dbo].[ResumenOfertasVenta] 1, Subasta";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc", "ResumenVenta");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaVenta.rdlc", "ResumenVentaSobre1");
         }
 
 
         public void MostrarResumenOfertasCompra()
         {
             string Query1 = "exec [dbo].[ResumenOfertasCompra] 1, Subasta";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc", "ResumenCompra");
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ResumenOfertaCompra.rdlc", "ResumenCompraSobre1");
         }
 
 

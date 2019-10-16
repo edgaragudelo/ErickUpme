@@ -301,6 +301,8 @@ namespace UpmeSubasta2019.Reportes {
             
             private global::System.Data.DataColumn columnSobre;
             
+            private global::System.Data.DataColumn columnempresa;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConsultaDatosOfertaVentaDataTable() {
@@ -424,6 +426,14 @@ namespace UpmeSubasta2019.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn empresaColumn {
+                get {
+                    return this.columnempresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +469,7 @@ namespace UpmeSubasta2019.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ConsultaDatosOfertaVentaRow AddConsultaDatosOfertaVentaRow(string nombre, string ID_oferta, string bloque, float numPaquetesMax, float numPaquetesMin, float precio, string simultanea, string excluyente, string dependiente, int ordenllegada, int Sobre) {
+            public ConsultaDatosOfertaVentaRow AddConsultaDatosOfertaVentaRow(string nombre, string ID_oferta, string bloque, float numPaquetesMax, float numPaquetesMin, float precio, string simultanea, string excluyente, string dependiente, int ordenllegada, int Sobre, string empresa) {
                 ConsultaDatosOfertaVentaRow rowConsultaDatosOfertaVentaRow = ((ConsultaDatosOfertaVentaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
@@ -472,7 +482,8 @@ namespace UpmeSubasta2019.Reportes {
                         excluyente,
                         dependiente,
                         ordenllegada,
-                        Sobre};
+                        Sobre,
+                        empresa};
                 rowConsultaDatosOfertaVentaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConsultaDatosOfertaVentaRow);
                 return rowConsultaDatosOfertaVentaRow;
@@ -513,6 +524,7 @@ namespace UpmeSubasta2019.Reportes {
                 this.columndependiente = base.Columns["dependiente"];
                 this.columnordenllegada = base.Columns["ordenllegada"];
                 this.columnSobre = base.Columns["Sobre"];
+                this.columnempresa = base.Columns["empresa"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -540,6 +552,8 @@ namespace UpmeSubasta2019.Reportes {
                 base.Columns.Add(this.columnordenllegada);
                 this.columnSobre = new global::System.Data.DataColumn("Sobre", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSobre);
+                this.columnempresa = new global::System.Data.DataColumn("empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempresa);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_oferta}, true));
                 this.columnnombre.AllowDBNull = false;
@@ -551,10 +565,12 @@ namespace UpmeSubasta2019.Reportes {
                 this.columnbloque.MaxLength = 10;
                 this.columnnumPaquetesMax.AllowDBNull = false;
                 this.columnnumPaquetesMin.AllowDBNull = false;
-                this.columnprecio.AllowDBNull = false;
                 this.columnsimultanea.MaxLength = 50;
                 this.columnexcluyente.MaxLength = 50;
                 this.columndependiente.MaxLength = 50;
+                this.columnSobre.AllowDBNull = false;
+                this.columnempresa.AllowDBNull = false;
+                this.columnempresa.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -754,7 +770,13 @@ namespace UpmeSubasta2019.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public float precio {
                 get {
-                    return ((float)(this[this.tableConsultaDatosOfertaVenta.precioColumn]));
+                    try {
+                        return ((float)(this[this.tableConsultaDatosOfertaVenta.precioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'precio\' de la tabla \'ConsultaDatosOfertaVenta\' es DBNull." +
+                                "", e);
+                    }
                 }
                 set {
                     this[this.tableConsultaDatosOfertaVenta.precioColumn] = value;
@@ -833,16 +855,34 @@ namespace UpmeSubasta2019.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Sobre {
                 get {
-                    try {
-                        return ((int)(this[this.tableConsultaDatosOfertaVenta.SobreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Sobre\' de la tabla \'ConsultaDatosOfertaVenta\' es DBNull.", e);
-                    }
+                    return ((int)(this[this.tableConsultaDatosOfertaVenta.SobreColumn]));
                 }
                 set {
                     this[this.tableConsultaDatosOfertaVenta.SobreColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string empresa {
+                get {
+                    return ((string)(this[this.tableConsultaDatosOfertaVenta.empresaColumn]));
+                }
+                set {
+                    this[this.tableConsultaDatosOfertaVenta.empresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsprecioNull() {
+                return this.IsNull(this.tableConsultaDatosOfertaVenta.precioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetprecioNull() {
+                this[this.tableConsultaDatosOfertaVenta.precioColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -891,18 +931,6 @@ namespace UpmeSubasta2019.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetordenllegadaNull() {
                 this[this.tableConsultaDatosOfertaVenta.ordenllegadaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSobreNull() {
-                return this.IsNull(this.tableConsultaDatosOfertaVenta.SobreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSobreNull() {
-                this[this.tableConsultaDatosOfertaVenta.SobreColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1076,6 +1104,7 @@ namespace UpmeSubasta2019.Reportes.SubastaDataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("dependiente", "dependiente");
             tableMapping.ColumnMappings.Add("ordenllegada", "ordenllegada");
             tableMapping.ColumnMappings.Add("Sobre", "Sobre");
+            tableMapping.ColumnMappings.Add("empresa", "empresa");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1095,14 +1124,28 @@ namespace UpmeSubasta2019.Reportes.SubastaDataSet1TableAdapters {
             this._commandCollection[0].CommandText = "dbo.ConsultaDatosOfertaVenta";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sobrep", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Proceso", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SubastaDataSet1.ConsultaDatosOfertaVentaDataTable dataTable) {
+        public virtual int Fill(SubastaDataSet1.ConsultaDatosOfertaVentaDataTable dataTable, global::System.Nullable<int> Sobrep, string Proceso) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Sobrep.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Sobrep.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Proceso == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Proceso));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1114,8 +1157,20 @@ namespace UpmeSubasta2019.Reportes.SubastaDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SubastaDataSet1.ConsultaDatosOfertaVentaDataTable GetData() {
+        public virtual SubastaDataSet1.ConsultaDatosOfertaVentaDataTable GetData(global::System.Nullable<int> Sobrep, string Proceso) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Sobrep.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Sobrep.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Proceso == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Proceso));
+            }
             SubastaDataSet1.ConsultaDatosOfertaVentaDataTable dataTable = new SubastaDataSet1.ConsultaDatosOfertaVentaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

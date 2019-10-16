@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultaDatosProyectosTableAdapter" GeneratorDataComponentClassName="ConsultaDatosProyectosTableAdapter" Name="ConsultaDatosProyectos" UserDataComponentName="ConsultaDatosProyectosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SubastaConnectionString (Settings)" DbObjectName="Subasta.dbo.ConsultaDatosProyectos" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="SubastaConnectionString (Settings)" DbObjectName="Subasta.dbo.ConsultaDatosProyectos" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ConsultaDatosProyectos</CommandText>
@@ -27,6 +27,8 @@
               <Mapping SourceColumn="factorPlanta" DataSetColumn="factorPlanta" />
               <Mapping SourceColumn="empresa" DataSetColumn="empresa" />
               <Mapping SourceColumn="Proceso" DataSetColumn="Proceso" />
+              <Mapping SourceColumn="codigoempresa" DataSetColumn="codigoempresa" />
+              <Mapping SourceColumn="energiamaximagarantizada" DataSetColumn="energiamaximagarantizada" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -38,7 +40,7 @@
   <xs:element name="SubastaDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SubastaDataSet2" msprop:Generator_UserDSName="SubastaDataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ConsultaDatosProyectos" msprop:Generator_TableClassName="ConsultaDatosProyectosDataTable" msprop:Generator_TableVarName="tableConsultaDatosProyectos" msprop:Generator_TablePropName="ConsultaDatosProyectos" msprop:Generator_RowDeletingName="ConsultaDatosProyectosRowDeleting" msprop:Generator_RowChangingName="ConsultaDatosProyectosRowChanging" msprop:Generator_RowEvHandlerName="ConsultaDatosProyectosRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaDatosProyectosRowDeleted" msprop:Generator_UserTableName="ConsultaDatosProyectos" msprop:Generator_RowChangedName="ConsultaDatosProyectosRowChanged" msprop:Generator_RowEvArgName="ConsultaDatosProyectosRowChangeEvent" msprop:Generator_RowClassName="ConsultaDatosProyectosRow">
+        <xs:element name="ConsultaDatosProyectos" msprop:Generator_TableClassName="ConsultaDatosProyectosDataTable" msprop:Generator_TableVarName="tableConsultaDatosProyectos" msprop:Generator_RowChangedName="ConsultaDatosProyectosRowChanged" msprop:Generator_TablePropName="ConsultaDatosProyectos" msprop:Generator_RowDeletingName="ConsultaDatosProyectosRowDeleting" msprop:Generator_RowChangingName="ConsultaDatosProyectosRowChanging" msprop:Generator_RowEvHandlerName="ConsultaDatosProyectosRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaDatosProyectosRowDeleted" msprop:Generator_RowClassName="ConsultaDatosProyectosRow" msprop:Generator_UserTableName="ConsultaDatosProyectos" msprop:Generator_RowEvArgName="ConsultaDatosProyectosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
@@ -50,7 +52,7 @@
               </xs:element>
               <xs:element name="capacidadMaxima" msprop:Generator_ColumnVarNameInTable="columncapacidadMaxima" msprop:Generator_ColumnPropNameInRow="capacidadMaxima" msprop:Generator_ColumnPropNameInTable="capacidadMaximaColumn" msprop:Generator_UserColumnName="capacidadMaxima" type="xs:float" />
               <xs:element name="factorPlanta" msprop:Generator_ColumnVarNameInTable="columnfactorPlanta" msprop:Generator_ColumnPropNameInRow="factorPlanta" msprop:Generator_ColumnPropNameInTable="factorPlantaColumn" msprop:Generator_UserColumnName="factorPlanta" type="xs:float" />
-              <xs:element name="empresa" msprop:Generator_ColumnVarNameInTable="columnempresa" msprop:Generator_ColumnPropNameInRow="empresa" msprop:Generator_ColumnPropNameInTable="empresaColumn" msprop:Generator_UserColumnName="empresa" minOccurs="0">
+              <xs:element name="empresa" msprop:Generator_ColumnVarNameInTable="columnempresa" msprop:Generator_ColumnPropNameInRow="empresa" msprop:Generator_ColumnPropNameInTable="empresaColumn" msprop:Generator_UserColumnName="empresa">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -64,6 +66,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="codigoempresa" msprop:Generator_ColumnVarNameInTable="columncodigoempresa" msprop:Generator_ColumnPropNameInRow="codigoempresa" msprop:Generator_ColumnPropNameInTable="codigoempresaColumn" msprop:Generator_UserColumnName="codigoempresa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="energiamaximagarantizada" msprop:Generator_ColumnVarNameInTable="columnenergiamaximagarantizada" msprop:Generator_ColumnPropNameInRow="energiamaximagarantizada" msprop:Generator_ColumnPropNameInTable="energiamaximagarantizadaColumn" msprop:Generator_UserColumnName="energiamaximagarantizada" type="xs:float" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
