@@ -285,7 +285,7 @@ namespace UpmeSubasta2019
                     Mensaje = "Criterios de Competencia Resultados ... CUMPLE" + "\r\n";
                     LogOfertas.Text = LogOfertas.Text + Mensaje;
                     DAL.InsertarLog(Mensaje, "Criterios de Competencia", "Criterios de Competencia");
-                    MessageBox.Show("Criterio de Competencia", "Cumple Criterio de Competencia ");
+                    MessageBox.Show("Cumple Criterio de Competencia ","Criterio de Competencia");
 
                 }
                 MostrarOfertasTodas(QueryCriterios, 3, "UpmeSubasta2019.Reportes.CiterioCompetencia.rdlc", "CrietrioCompetenciaSobre1");
