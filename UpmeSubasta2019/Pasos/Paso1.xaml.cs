@@ -26,7 +26,8 @@ namespace UpmeSubasta2019
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Instantiate window
-            var asignacionGraficoModalWindow = new AsignacionGrafico();
+            var asignacionGraficoModalWindow = new AsignacionGrafico("Subasta");
+
 
             // Show window modally
             // NOTE: Returns only when window is closed

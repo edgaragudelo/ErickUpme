@@ -287,7 +287,7 @@ namespace UpmeSubasta2019
         {
             {
                 // Instantiate window
-                var asignacionGraficoModalWindow = new AsignacionGrafico();
+                var asignacionGraficoModalWindow = new AsignacionGrafico("Subasta");
 
 
                 // Show window modally
@@ -300,7 +300,7 @@ namespace UpmeSubasta2019
         {
             {
                 // Instantiate window
-                var asignacionGraficoModalWindow = new AsignacionGrafico();
+                var asignacionGraficoModalWindow = new AsignacionGrafico("Subasta");
 
 
                 // Show window modally

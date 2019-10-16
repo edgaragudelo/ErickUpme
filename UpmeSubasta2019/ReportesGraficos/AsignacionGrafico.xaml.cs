@@ -25,7 +25,7 @@ namespace UpmeSubasta2019
     /// </summary>
     public partial class AsignacionGrafico : Window
     {
-        public AsignacionGrafico()
+        public AsignacionGrafico(string proceso)
         {
             InitializeComponent();
 
@@ -40,12 +40,12 @@ namespace UpmeSubasta2019
             this.Top = (screenHeight / 2) - (windowHeight / 2);
 
             // Reporte
-            GenerarReporte();
+            GenerarReporte(proceso);
         }
 
-        private void GenerarReporte()
+        private void GenerarReporte(string proceso)
         {
-            string ConsultaAsignacionesGraficosQuery = "exec [dbo].[ConsultaAsignacionesGraficos] Subasta";
+            string ConsultaAsignacionesGraficosQuery = string.Format("exec [dbo].[ConsultaAsignacionesGraficos] {0}", proceso);
             var dt = DAL.ExecuteQuery(ConsultaAsignacionesGraficosQuery);
 
             // var dt = DAL.ExecuteQuery("select * from asignaciones where proceso='Subasta' order by energia");
