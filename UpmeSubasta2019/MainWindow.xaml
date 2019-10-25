@@ -5,11 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="UpmeSubasta2019.MainWindow"
         Title="MainWindow" Height="922.464" Width="991.416">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="110" Margin="10,10,0,0" VerticalAlignment="Top" Width="143">
-            <Image.Source>
-                <BitmapImage UriSource="logoUpme.png"></BitmapImage>
-            </Image.Source>
-        </Image>
+        <Image HorizontalAlignment="Left" Height="110" Margin="10,10,0,0" VerticalAlignment="Top" Width="143" Source="logoUpme.png"/>
         <Image HorizontalAlignment="Center" Height="101" Margin="455,-5,378,0" VerticalAlignment="Top" Width="150">
             <Image.Source>
                 <BitmapImage UriSource="MINMINAS.png"></BitmapImage>

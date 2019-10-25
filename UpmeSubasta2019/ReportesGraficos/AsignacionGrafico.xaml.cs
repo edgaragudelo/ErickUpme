@@ -55,7 +55,7 @@ namespace UpmeSubasta2019
             AsignacionGraficoReport.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.ReportesGraficos.Reportes.AsignacionGrafico.rdlc";
             AsignacionGraficoReport.LocalReport.DataSources.Add(ds);
             AsignacionGraficoReport.RefreshReport();
-            Exportar.ExportaPDF(AsignacionGraficoReport, "AsignacionGraficoReporte");
+            Exportar.ExportaPDF(AsignacionGraficoReport, "AsignacionGraficoReporte"+proceso);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

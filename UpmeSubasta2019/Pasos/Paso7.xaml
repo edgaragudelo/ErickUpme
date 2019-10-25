@@ -14,11 +14,15 @@
         <WindowsFormsHost  Name="wrepor23" Margin="10,32,10.8,942" >
             <rv:ReportViewer x:Name="ReporteComercializadores"  AutoScroll="True" />
         </WindowsFormsHost>
-        <WindowsFormsHost  Name="wrepor31" Margin="10,284,10.8,513" >
+        <WindowsFormsHost  Name="wrepor31" Margin="10,284,11,666" >
             <rv:ReportViewer x:Name="ReporteGeneradores"  AutoScroll="True" />
         </WindowsFormsHost>
-        <Button Content="Exportar PDF" HorizontalAlignment="Left" Margin="10,714,0,0" VerticalAlignment="Top" Width="95" Click="ExportarPDF"/>
+        <WindowsFormsHost  Name="wrepor24" Margin="10,572,11,516" >
+            <rv:ReportViewer x:Name="ReporteLogs"  AutoScroll="True" />
+        </WindowsFormsHost>
+        <Button Content="Backup BD" HorizontalAlignment="Left" Margin="10,785,0,0" VerticalAlignment="Top" Width="95" Click="Backupbd"/>
         <TextBlock Margin="10,263,897.8,921" ><Run Text="Contratos ASIC"/></TextBlock>
+        <TextBlock Margin="11,551,896,633" ><Run Text="Logs Aplicativo"/></TextBlock>
     </Grid>
 </UserControl>
 

@@ -18,20 +18,23 @@ namespace UpmeSubasta2019
             InitializeComponent();
             mensajeErrorLabel.Content = "";
 
-            LimpiarTablaParametros();
-            CargarParametros();
-            MostrarDatos();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Instantiate window
-            var asignacionGraficoModalWindow = new AsignacionGrafico("Subasta");
+            //// Instantiate window
+            //var asignacionGraficoModalWindow = new AsignacionGrafico("Subasta");
 
 
-            // Show window modally
-            // NOTE: Returns only when window is closed
-            Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+            //// Show window modally
+            //// NOTE: Returns only when window is closed
+            //Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+
+            LimpiarTablaParametros();
+            CargarParametros();
+            MostrarDatos();
+
         }
 
         public bool LimpiarTablaParametros()
@@ -128,5 +131,8 @@ namespace UpmeSubasta2019
             DAL.InsertarLog(mensaje, tipo, proceso);
             if (messageBox) MessageBox.Show(mensaje, "Error");
         }
+
+    
+        }
     }
-}
+

@@ -30,7 +30,7 @@ namespace UpmeSubasta2019
     {
         bool isExecuting;
         string Archivobat1;
-        int oplProcessId;
+        //int oplProcessId;
         public static string LogOfe = null;
         public static string Mensaje = null;
         String Ejecucion = null;
@@ -122,16 +122,29 @@ namespace UpmeSubasta2019
         }
 
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                // Instantiate window
+                var asignacionGraficoModalWindow = new AsignacionGrafico("Mecanismo");
+
+
+                // Show window modally
+                // NOTE: Returns only when window is closed
+                Nullable<bool> dialogResult = asignacionGraficoModalWindow.ShowDialog();
+            }
+        }
+
         public void MostrarAsignacionesCompra()
         {
             string Query1 = "exec AsignacionesCompra Mecanismo";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.AsignacionCompra.rdlc", "AsignacionesCompra");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.AsignacionCompra.rdlc", "AsignacionesCompraMecanismo");
         }
 
         public void MostrarAsignacionesVenta()
         {
             string Query1 = "exec AsignacionesVenta Mecanismo";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.AsignacionVenta.rdlc", "AsignacionesVenta");
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.AsignacionVenta.rdlc", "AsignacionesVentaMecanismo");
         }
 
         private void Opl_OutputDataReceived(object sender, DataReceivedEventArgs e)
@@ -204,7 +217,7 @@ namespace UpmeSubasta2019
         {
             {
                 // Instantiate window
-                var asignacionGraficoModalWindow = new AsignacionGrafico();
+                var asignacionGraficoModalWindow = new AsignacionGrafico("Mecanismo");
 
 
                 // Show window modally
@@ -249,13 +262,14 @@ namespace UpmeSubasta2019
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso Terminado");
 
-            System.Threading.Thread.Sleep(1000);
-            if (!string.IsNullOrEmpty(Ejecucion))
-                EjecucionStatus.Text = Ejecucion.ToString();
+            //System.Threading.Thread.Sleep(1000);
+            //if (!string.IsNullOrEmpty(Ejecucion))
+            //    EjecucionStatus.Text = Ejecucion.ToString();
 
-            Mensaje = "Ejecutando el modelo ..." + "\r\n";
+            Mensaje = "Ejecución del modelo Terminado ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Ejecución Modelo Matematico", "Proceso Terminado");
+            EjecucionStatus.Text = Mensaje;
 
             Mensaje = "Construyendo Reportes de Salida ..." + "\r\n";
             LogOfe = LogOfe + Mensaje;
@@ -269,6 +283,8 @@ namespace UpmeSubasta2019
             LogOfe = LogOfe + Mensaje;
             DAL.InsertarLog(Mensaje, "Reportes de Salida", "Reportes de Salida Generados");
             MostrarGraficoAsignaciones();
+            Mensaje = "Proceso Finalizado ..." + "\r\n";
+            EjecucionStatus.Text += Mensaje;
 
             //}
 

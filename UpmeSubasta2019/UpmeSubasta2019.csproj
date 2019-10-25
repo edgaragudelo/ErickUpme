@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -272,6 +272,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubastaDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SubastaDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubastaDataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Wizard\IWizardItem.cs" />
     <Compile Include="Wizard\Wizard.cs" />
     <Compile Include="Wizard\WizardItemHeader.cs" />
@@ -351,6 +356,7 @@
     <EmbeddedResource Include="Reportes\CiterioCompetencia.rdlc" />
     <EmbeddedResource Include="Reportes\ComprasvsGenera.rdlc" />
     <EmbeddedResource Include="Reportes\ContratosASIC.rdlc" />
+    <EmbeddedResource Include="Reportes\LogProcesos.rdlc" />
     <EmbeddedResource Include="Reportes\OfertaSobre1Compra.rdlc" />
     <EmbeddedResource Include="Reportes\OfertasSobre1Proyectos.rdlc" />
     <EmbeddedResource Include="Reportes\OfertasVenta.rdlc" />
@@ -563,6 +569,17 @@
     <None Include="SubastaDataSet5.xss">
       <DependentUpon>SubastaDataSet5.xsd</DependentUpon>
     </None>
+    <None Include="SubastaDataSet6.xsc">
+      <DependentUpon>SubastaDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SubastaDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SubastaDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SubastaDataSet6.xss">
+      <DependentUpon>SubastaDataSet6.xsd</DependentUpon>
+    </None>
     <None Include="UpmeSubasta2019_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -586,6 +603,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="logoUpme.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

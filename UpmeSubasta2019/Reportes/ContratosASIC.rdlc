@@ -1142,7 +1142,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID_OFECompra1">
+                    <Textbox Name="ID_OFECompra">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -1158,7 +1158,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID_OFECompra1</rd:DefaultName>
+                      <rd:DefaultName>ID_OFECompra</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2079,7 +2079,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>1.68333in</Height>
+    <Height>1.725in</Height>
     <Style />
   </Body>
   <Width>16.96497in</Width>

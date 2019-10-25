@@ -18,8 +18,7 @@ using UpmeSubasta2019.Data;
 using System.Data.SqlClient;
 using System.IO;
 using UpmeSubasta2019.Reportes;
-
-
+using System.Diagnostics;
 
 namespace UpmeSubasta2019
 {
@@ -34,10 +33,11 @@ namespace UpmeSubasta2019
             InitializeComponent();
             MostrarResumenSalidas();
             MostrarContratosASIC();
+            MostrarLogs();
         }
 
 
-        public void MostrarOfertasTodas(string Query1, int Proceso, string Reporte)
+        public void MostrarOfertasTodas(string Query1, int Proceso, string Reporte, string archivopdf)
         {
             // Proceso 1: Compras 2:Ventas
 
@@ -67,8 +67,9 @@ namespace UpmeSubasta2019
                     ReporteGeneradores.LocalReport.ReportEmbeddedResource = Reporte;
                     ReporteGeneradores.LocalReport.DataSources.Add(ds);
                     ReporteGeneradores.RefreshReport();
+                    Exportar.ExportaPDF(ReporteGeneradores, archivopdf);
                 }
-                else
+                if (Proceso == 1)
                 {
                     ReporteComercializadores.Reset();
                     ReportDataSource ds = new ReportDataSource("ResumenSalidas", dt);
@@ -76,6 +77,17 @@ namespace UpmeSubasta2019
                     ReporteComercializadores.LocalReport.ReportEmbeddedResource = Reporte;
                     ReporteComercializadores.LocalReport.DataSources.Add(ds);
                     ReporteComercializadores.RefreshReport();
+                    Exportar.ExportaPDF(ReporteComercializadores, archivopdf);
+                }
+                if (Proceso == 3)
+                {
+                    ReporteLogs.Reset();
+                    ReportDataSource ds = new ReportDataSource("DataSet1", dt);
+                    //ReporteGeneradores.LocalReport.ReportEmbeddedResource = "UpmeSubasta2019.Reportes.OfertasVenta.rdlc";
+                    ReporteLogs.LocalReport.ReportEmbeddedResource = Reporte;
+                    ReporteLogs.LocalReport.DataSources.Add(ds);
+                    ReporteLogs.RefreshReport();
+                    Exportar.ExportaPDF(ReporteLogs, archivopdf);
                 }
             }
             else
@@ -89,14 +101,24 @@ namespace UpmeSubasta2019
 
         }
 
-        public void ExportarPDF(object sender, RoutedEventArgs ex)
+        public void Backupbd(object sender, RoutedEventArgs ex)
         {
 
-            //Exportar(ReporteComercializadores);
+            ////Exportar(ReporteComercializadores);
 
-            Exportar.ExportaPDF(ReporteComercializadores, "Resumensalidas");
-            Exportar.ExportaPDF(ReporteGeneradores, "ContratosASIC");
-
+            //Exportar.ExportaPDF(ReporteComercializadores, "Resumensalidas");
+            //Exportar.ExportaPDF(ReporteGeneradores, "ContratosASIC");
+            string Comandobackup = "c:\\Upme\\BAckup\\EjecutaBackup.bat";
+            ProcessStartInfo startInfo = new ProcessStartInfo(Comandobackup)
+            {
+                CreateNoWindow = false,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            };
+            Process backup = new Process();
+            backup.StartInfo = startInfo;
+            backup.Start();
 
 
 
@@ -104,14 +126,21 @@ namespace UpmeSubasta2019
         public void MostrarResumenSalidas()
         {
             string Query1 = "exec dbo.ResumenSalidas 'Mecanismo'";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenSalidas.rdlc");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenSalidas.rdlc", "ResumenSalidasMecanismo");
 
         }
 
         public void MostrarContratosASIC()
         {
             string Query1 = "exec dbo.ConsultaDatosContratosASIC 'Mecanismo'";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ContratosASIC.rdlc");
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ContratosASIC.rdlc", "ContratosASICMecanismo");
+
+        }
+
+        public void MostrarLogs()
+        {
+            string Query1 = "SELECT [Valor],[Tipo],[FechaProceso],[Proceso],[UsuarioMaquina] FROM [dbo].[LogProcesos] order by FechaProceso desc";
+            MostrarOfertasTodas(Query1, 3, "UpmeSubasta2019.Reportes.LogProcesos.rdlc", "LogsEjecucionAplicativo");
 
         }
     }

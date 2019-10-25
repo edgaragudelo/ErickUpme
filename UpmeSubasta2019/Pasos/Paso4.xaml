@@ -7,10 +7,10 @@
              xmlns:upmesubasta2019="clr-namespace:UpmeSubasta2019"
              mc:Ignorable="d" Height="1212" Width="1496">
     <Grid>
-        <Button Content="Ejecutar Subasta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="ExecuteOPL" Grid.ColumnSpan="2"/>
+        <Button Content="Ejecutar Subasta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Click="EjecutarSubasta" Grid.ColumnSpan="2"/>
         <Button Content="Grafica" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Visibility="Hidden"/>
-        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap" Text="Prueba" VerticalAlignment="Top" Width="1267" Name="EjecucionStatus" 
-                 TextChanged="EjecucionStatus_TextChanged"  VerticalScrollBarVisibility="Auto"  RenderTransformOrigin="0.5,0.5" />
+        <TextBox HorizontalAlignment="Left" Height="74" Margin="10,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="1267" Name="EjecucionStatus" Grid.ColumnSpan="2"
+                 TextChanged="EjecucionStatus_TextChanged"  VerticalScrollBarVisibility="Auto"  IsReadOnly="False"   />
         <TextBlock Margin="10,134,1348,1056" Text="Asignaciones de Compra" />
         <WindowsFormsHost  Name="wrepor" Margin="10,155,219,766" >
             <rv:ReportViewer x:Name="ReporteComercializadores"  AutoScroll="True" />
@@ -19,6 +19,7 @@
         <WindowsFormsHost  Name="wrepor1" Margin="10,469,219,520" >
             <rv:ReportViewer x:Name="ReporteGeneradores" />
         </WindowsFormsHost>
+        <Button Content="Grafico" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.458,5.027"  />
 
 
         <!--<upmesubasta2019:GraficoOfertas Margin="23,617,557,47"></upmesubasta2019:GraficoOfertas>-->

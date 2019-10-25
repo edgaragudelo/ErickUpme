@@ -77,7 +77,7 @@ namespace UpmeSubasta2019.Data
         {
             string QueryInsert = null;
             String Fecha;
-            Fecha = DateTime.Now.ToString(@"yyyy-MM-dd hh:mm");
+            Fecha = DateTime.Now.ToString(@"yyyy-MM-dd hh:mm:ss");
             string Maquina = Environment.MachineName;
             String User = Environment.UserName;
             String DirIp = LocalIPAddress();

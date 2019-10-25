@@ -81,6 +81,8 @@ namespace UpmeSubasta2019
             Exportar.ExportaPDF(reporteViewer, archivopdf);
         }
 
+
+
         private void LogOfertasTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             LogOfertas.ScrollToEnd();

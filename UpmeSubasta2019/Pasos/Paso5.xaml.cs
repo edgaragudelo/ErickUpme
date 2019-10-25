@@ -37,7 +37,7 @@ namespace UpmeSubasta2019
         }
 
 
-        public void MostrarOfertasTodas(string Query1, int Proceso, string Reporte)
+        public void MostrarOfertasTodas(string Query1, int Proceso, string Reporte, string archivopdf)
         {
             // Proceso 1: Compras 2:Ventas
 
@@ -67,6 +67,7 @@ namespace UpmeSubasta2019
                     ReporteGeneradores.LocalReport.ReportEmbeddedResource = Reporte;
                     ReporteGeneradores.LocalReport.DataSources.Add(ds);
                     ReporteGeneradores.RefreshReport();
+                    Exportar.ExportaPDF(ReporteGeneradores, archivopdf);
                 }
                 else
                 {
@@ -76,6 +77,7 @@ namespace UpmeSubasta2019
                     ReporteComercializadores.LocalReport.ReportEmbeddedResource = Reporte;
                     ReporteComercializadores.LocalReport.DataSources.Add(ds);
                     ReporteComercializadores.RefreshReport();
+                    Exportar.ExportaPDF(ReporteComercializadores, archivopdf);
                 }
             }
             else
@@ -94,8 +96,8 @@ namespace UpmeSubasta2019
 
             //Exportar(ReporteComercializadores);
 
-            Exportar.ExportaPDF(ReporteComercializadores,"Resumensalidas");
-            Exportar.ExportaPDF(ReporteGeneradores, "ContratosASIC");
+            Exportar.ExportaPDF(ReporteComercializadores,"ResumensalidasSubasta");
+            Exportar.ExportaPDF(ReporteGeneradores, "ContratosASICSubasta");
 
 
 
@@ -104,14 +106,14 @@ namespace UpmeSubasta2019
         public void MostrarResumenSalidas()
         {
             string Query1 = "exec dbo.ResumenSalidas 'Subasta'";
-            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenSalidas.rdlc");
+            MostrarOfertasTodas(Query1, 1, "UpmeSubasta2019.Reportes.ResumenSalidas.rdlc","ResumenSalidasSubasta");
 
         }
 
         public void MostrarContratosASIC()
         {
             string Query1 = "exec dbo.ConsultaDatosContratosASIC 'Subasta'";
-            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ContratosASIC.rdlc");
+            MostrarOfertasTodas(Query1, 2, "UpmeSubasta2019.Reportes.ContratosASIC.rdlc","ContratosASICSubasta");
 
         }
     }
